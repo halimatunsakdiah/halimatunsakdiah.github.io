@@ -9,169 +9,58 @@
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            background-color: #eef2f7;
             color: #1f2933;
         }
 
         header {
-            background-color: #111827;
+            background-color: #0f172a;
             color: #ffffff;
-            padding: 25px;
+            padding: 25px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         header h1 {
-            font-size: 20px;
             margin: 0;
-            letter-spacing: 1px;
+            font-size: 22px;
         }
 
-        header nav a {
-            color: #9ca3af;
+        nav a {
+            color: #cbd5e1;
             margin-left: 15px;
             text-decoration: none;
             font-size: 14px;
         }
 
-        header nav a:hover {
+        nav a:hover {
             color: #ffffff;
         }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            padding: 40px 20px;
+        main {
+            padding: 40px 30px;
+            max-width: 1000px;
+            margin: auto;
         }
 
-        .intro {
+        section {
             background-color: #ffffff;
             padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            border-radius: 14px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
-        .intro h2 {
+        section h2 {
             margin-top: 0;
-            font-size: 28px;
+            font-size: 24px;
         }
 
-        .intro p {
-            line-height: 1.6;
-            color: #4b5563;
+        section p {
+            line-height: 1.7;
+            color: #475569;
         }
 
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .card {
-            background-color: #1f2933;
-            color: #ffffff;
-            padding: 25px;
-            border-radius: 12px;
-        }
-
-        .card h3 {
-            margin-top: 0;
-            font-size: 16px;
-            letter-spacing: 1px;
-        }
-
-        .card span {
-            font-size: 32px;
-            font-weight: bold;
-        }
-
-        footer {
-            margin-top: 40px;
-            background-color: #111827;
-            color: #9ca3af;
-            text-align: center;
-            padding: 20px;
-            font-size: 13px;
-        }
-
-        footer a {
-            color: #9ca3af;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: #ffffff;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <h1>Halima Library</h1>
-    <nav>
-        <a href="#">Dashboard</a>
-        <a href="#">Catatan</a>
-        <a href="#">Statistik</a>
-        <a href="#">Profil</a>
-    </nav>
-</header>
-
-<main class="container">
-
-    <div class="intro">
-        <h2>Ruang Baca Digital</h2>
-        <p>
-            Website ini digunakan sebagai jurnal membaca pribadi.
-            Setiap buku yang dibaca dicatat, dievaluasi,
-            dan disimpan sebagai arsip pengetahuan.
-        </p>
-        <p>
-            Fokus utama website ini adalah dokumentasi proses membaca,
-            bukan sekadar daftar koleksi.
-        </p>
-    </div>
-
-    <div class="stats">
-        <div class="card">
-            <h3>TOTAL BUKU</h3>
-            <span>42</span>
-        </div>
-
-        <div class="card">
-            <h3>SELESAI DIBACA</h3>
-            <span>27</span>
-        </div>
-
-        <div class="card">
-            <h3>DALAM PROSES</h3>
-            <span>10</span>
-        </div>
-
-        <div class="card">
-            <h3>CATATAN</h3>
-            <span>58</span>
-        </div>
-    </div>
-
-</main>
-
-<footer>
-    <p>Kontak & Media Sosial</p>
-    <a href="#">Email</a> |
-    <a href="#">Instagram</a> |
-    <a href="#">GitHub</a>
-    <p>&copy; 2026 Halima Library</p>
-</footer>
-
-</body>
-</html>
+        .koleksi {
 
