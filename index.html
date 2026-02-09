@@ -8,171 +8,116 @@
     <style>
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-            color: #1f2933;
+            font-family: "Trebuchet MS", sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
         }
 
         header {
-            background-color: #111827;
+            background-color: #4a5568;
             color: #ffffff;
-            padding: 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 30px 20px;
+            text-align: left;
         }
 
         header h1 {
-            font-size: 20px;
             margin: 0;
-            letter-spacing: 1px;
+            font-size: 26px;
         }
 
-        header nav a {
-            color: #9ca3af;
-            margin-left: 15px;
+        header p {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #e2e8f0;
+        }
+
+        nav {
+            background-color: #2d3748;
+            padding: 10px 20px;
+        }
+
+        nav a {
+            color: #cbd5e0;
+            margin-right: 15px;
             text-decoration: none;
             font-size: 14px;
         }
 
-        header nav a:hover {
+        nav a:hover {
             color: #ffffff;
         }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+        main {
             padding: 40px 20px;
         }
 
         .intro {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            max-width: 700px;
+            margin-bottom: 40px;
         }
 
         .intro h2 {
-            margin-top: 0;
-            font-size: 28px;
+            font-size: 22px;
+            margin-bottom: 10px;
         }
 
         .intro p {
-            line-height: 1.6;
-            color: #4b5563;
+            line-height: 1.7;
         }
 
-        .stats {
+        .menu-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px;
+            max-width: 800px;
         }
 
-        .card {
-            background-color: #1f2933;
-            color: #ffffff;
+        .menu-card {
+            background-color: #ffffff;
             padding: 25px;
-            border-radius: 12px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        .card h3 {
+        .menu-card h3 {
             margin-top: 0;
             font-size: 16px;
-            letter-spacing: 1px;
+            color: #2d3748;
         }
 
-        .card span {
-            font-size: 32px;
-            font-weight: bold;
+        .menu-card p {
+            font-size: 13px;
+            color: #555;
         }
 
         footer {
-            margin-top: 40px;
-            background-color: #111827;
-            color: #9ca3af;
+            margin-top: 60px;
+            background-color: #2d3748;
+            color: #cbd5e0;
             text-align: center;
             padding: 20px;
             font-size: 13px;
         }
 
         footer a {
-            color: #9ca3af;
-            margin: 0 10px;
+            color: #cbd5e0;
+            margin: 0 8px;
             text-decoration: none;
         }
 
         footer a:hover {
             color: #ffffff;
         }
-
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Digital Reading Log</h1>
-    <nav>
-        <a href="#">Dashboard</a>
-        <a href="#">Catatan</a>
-        <a href="#">Statistik</a>
-        <a href="#">Profil</a>
-    </nav>
+    <h1>Ruang Baca Pribadi</h1>
+    <p>Catatan sederhana tentang buku dan pemikiran</p>
 </header>
 
-<main class="container">
+<nav>
+    <a hr
 
-    <div class="intro">
-        <h2>Ruang Baca Digital</h2>
-        <p>
-            Website ini digunakan sebagai jurnal membaca pribadi.
-            Setiap buku yang dibaca dicatat, dievaluasi,
-            dan disimpan sebagai arsip pengetahuan.
-        </p>
-        <p>
-            Fokus utama website ini adalah dokumentasi proses membaca,
-            bukan sekadar daftar koleksi.
-        </p>
-    </div>
-
-    <div class="stats">
-        <div class="card">
-            <h3>TOTAL BUKU</h3>
-            <span>42</span>
-        </div>
-
-        <div class="card">
-            <h3>SELESAI DIBACA</h3>
-            <span>27</span>
-        </div>
-
-        <div class="card">
-            <h3>DALAM PROSES</h3>
-            <span>10</span>
-        </div>
-
-        <div class="card">
-            <h3>CATATAN</h3>
-            <span>58</span>
-        </div>
-    </div>
-
-</main>
-
-<footer>
-    <p>Kontak & Media Sosial</p>
-    <a href="#">Email</a> |
-    <a href="#">Instagram</a> |
-    <a href="#">GitHub</a>
-    <p>&copy; 2026 Digital Reading Log</p>
-</footer>
-
-</body>
-</html>
-
-       
