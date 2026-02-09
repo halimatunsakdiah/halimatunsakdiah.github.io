@@ -2,98 +2,153 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Perpustakaan Personal</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halima Library</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #e9f0f5;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(to right, #1f3b4d, #2e5668);
+            padding: 20px 60px;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: #e9f0f5;
+        }
+
+        .hero h2 {
+            font-size: 26px;
+            color: #1f3b4d;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            font-size: 15px;
+            color: #333;
+        }
+
+        /* ===== CARD SECTION ===== */
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 40px 20px 80px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: #fff;
+            width: 300px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .card h3 {
+            color: #1f3b4d;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #444;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #1f3b4d;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
 
-<!-- MENU NAVIGASI -->
-<nav class="navbar">
-    <div class="logo">Perpustakaan Personal</div>
-    <ul class="menu">
-        <li><a href="#home">Beranda</a></li>
-        <li><a href="#profil">Profil</a></li>
-        <li><a href="#koleksi">Koleksi</a></li>
-        <li><a href="#layanan">Layanan</a></li>
-        <li><a href="#kontak">Kontak</a></li>
-    </ul>
-</nav>
+    <!-- HEADER -->
+    <header>
+        <h1>Halima Library</h1>
+        <nav>
+            <a href="#">Beranda</a>
+            <a href="#">Profil</a>
+            <a href="#">Layanan</a>
+            <a href="#">Koleksi</a>
+            <a href="#">Kontak</a>
+        </nav>
+    </header>
 
-<!-- BERANDA -->
-<section id="home" class="content">
-    <h1>Selamat Datang 📚</h1>
-    <p>
-        Perpustakaan personal ini berfungsi sebagai sarana pengelolaan
-        koleksi buku pribadi dan arsip bacaan.
-    </p>
-</section>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h2>Welcome to Halima Library</h2>
+        <p>
+            Halima Library menyediakan berbagai sumber informasi untuk menunjang 
+            pembelajaran dan penelitian.
+        </p>
+    </section>
 
-<!-- PROFIL -->
-<section id="profil" class="content">
-    <h2>Profil Perpustakaan</h2>
-    <p>
-        Perpustakaan personal ini dikelola secara mandiri untuk
-        mendukung kegiatan belajar, penelitian, dan literasi informasi.
-    </p>
-</section>
+    <!-- CARD SECTION -->
+    <section class="cards">
+        <div class="card">
+            <h3>Peminjaman Buku</h3>
+            <p>
+                Layanan peminjaman dan pengembalian koleksi perpustakaan.
+            </p>
+        </div>
 
-<!-- KOLEKSI BUKU -->
-<section id="koleksi" class="content">
-    <h2>Koleksi Buku</h2>
+        <div class="card">
+            <h3>Akses Koleksi</h3>
+            <p>
+                Informasi koleksi buku cetak dan digital.
+            </p>
+        </div>
 
-    <table border="1" cellpadding="8" cellspacing="0">
-        <tr>
-            <th>No</th>
-            <th>Judul Buku</th>
-            <th>Pengarang</th>
-            <th>Tahun</th>
-            <th>Subjek</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>Pengantar Ilmu Perpustakaan</td>
-            <td>Sulistyo-Basuki</td>
-            <td>2014</td>
-            <td>Perpustakaan</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Manajemen Arsip</td>
-            <td>ANRI</td>
-            <td>2017</td>
-            <td>Kearsipan</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Teknologi Informasi</td>
-            <td>Abdul Kadir</td>
-            <td>2018</td>
-            <td>Teknologi</td>
-        </tr>
-    </table>
-</section>
+        <div class="card">
+            <h3>Ruang Baca</h3>
+            <p>
+                Fasilitas membaca yang nyaman dan kondusif.
+            </p>
+        </div>
+    </section>
 
-<!-- LAYANAN -->
-<section id="layanan" class="content">
-    <h2>Layanan Perpustakaan</h2>
-    <ul>
-        <li>Layanan Baca di Tempat</li>
-        <li>Peminjaman Buku Pribadi</li>
-        <li>Pengelolaan Arsip Digital</li>
-        <li>Pencatatan Koleksi Buku</li>
-    </ul>
-</section>
-
-<!-- KONTAK -->
-<section id="kontak" class="content">
-    <h2>Kontak</h2>
-    <p>Nama Pengelola: __________</p>
-    <p>Email: halimaharahap555@gmail.com</p>
-</section>
-
-<footer class="content">
-    <p>© 2026 Perpustakaan halima</p>
-</footer>
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Halima Library
+    </footer>
 
 </body>
 </html>
