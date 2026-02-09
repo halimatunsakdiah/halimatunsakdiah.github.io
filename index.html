@@ -4,150 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halima Library</title>
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Georgia', serif;
         }
 
         body {
-            background-color: #e9f0f5;
+            background-color: #f7f6f2;
+            color: #2c2c2c;
         }
 
-        /* ===== HEADER ===== */
-        header {
-            background: linear-gradient(to right, #1f3b4d, #2e5668);
-            padding: 20px 60px;
+        /* ===== TOP BAR ===== */
+        .topbar {
+            background-color: #1f4d3a;
             color: #fff;
+            padding: 18px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        header h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
+        .topbar h1 {
+            font-size: 26px;
+            letter-spacing: 1px;
         }
 
-        nav a {
+        .topbar a {
             color: #fff;
             text-decoration: none;
-            margin-right: 20px;
-            font-size: 15px;
+            margin-left: 25px;
+            font-size: 14px;
         }
 
-        nav a:hover {
+        .topbar a:hover {
             text-decoration: underline;
         }
 
-        /* ===== HERO ===== */
+        /* ===== HERO SPLIT ===== */
         .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background-color: #e9f0f5;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 75vh;
         }
 
-        .hero h2 {
-            font-size: 26px;
-            color: #1f3b4d;
-            margin-bottom: 15px;
+        .hero-text {
+            padding: 80px 70px;
         }
 
-        .hero p {
-            max-width: 650px;
-            margin: auto;
-            font-size: 15px;
-            color: #333;
+        .hero-text h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+            color: #1f4d3a;
         }
 
-        /* ===== CARD SECTION ===== */
-        .cards {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            padding: 40px 20px 80px;
-            flex-wrap: wrap;
+        .hero-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
         }
 
-        .card {
-            background: #fff;
-            width: 300px;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            text-align: left;
-        }
-
-        .card h3 {
-            color: #1f3b4d;
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .card p {
+        .hero-text button {
+            padding: 12px 25px;
+            border: none;
+            background-color: #1f4d3a;
+            color: #fff;
             font-size: 14px;
-            color: #444;
+            cursor: pointer;
+        }
+
+        .hero-text button:hover {
+            background-color: #16382a;
+        }
+
+        .hero-image {
+            background: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') center/cover no-repeat;
+        }
+
+        /* ===== STATS ===== */
+        .stats {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-around;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .stats h3 {
+            color: #1f4d3a;
+            font-size: 28px;
+        }
+
+        .stats p {
+            font-size: 14px;
+            margin-top: 5px;
         }
 
         /* ===== FOOTER ===== */
         footer {
-            background-color: #1f3b4d;
+            background-color: #1f4d3a;
             color: #fff;
             text-align: center;
-            padding: 15px;
+            padding: 20px;
             font-size: 14px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+
+            .hero-text {
+                padding: 50px 30px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <h1>Halima Library</h1>
-        <nav>
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <h1>Emia Library</h1>
+        <div>
             <a href="#">Beranda</a>
             <a href="#">Profil</a>
             <a href="#">Layanan</a>
             <a href="#">Koleksi</a>
             <a href="#">Kontak</a>
-        </nav>
-    </header>
+        </div>
+    </div>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero">
-        <h2>Welcome to Halima Library</h2>
-        <p>
-            Halima Library menyediakan berbagai sumber informasi untuk menunjang 
-            pembelajaran dan penelitian.
-        </p>
+        <div class="hero-text">
+            <h2>Pusat Pengetahuan & Literasi</h2>
+            <p>
+                halima Library merupakan ruang akademik yang mendukung kegiatan
+                belajar, riset, dan pengembangan wawasan melalui koleksi
+                terpercaya dan lingkungan yang kondusif.
+            </p>
+            <button>Jelajahi Koleksi</button>
+        </div>
+
+        <div class="hero-image"></div>
     </section>
 
-    <!-- CARD SECTION -->
-    <section class="cards">
-        <div class="card">
-            <h3>Peminjaman Buku</h3>
-            <p>
-                Layanan peminjaman dan pengembalian koleksi perpustakaan.
-            </p>
+    <!-- STATS -->
+    <section class="stats">
+        <div>
+            <h3>12K+</h3>
+            <p>Koleksi Buku</p>
         </div>
-
-        <div class="card">
-            <h3>Akses Koleksi</h3>
-            <p>
-                Informasi koleksi buku cetak dan digital.
-            </p>
+        <div>
+            <h3>1.200+</h3>
+            <p>Anggota Aktif</p>
         </div>
-
-        <div class="card">
-            <h3>Ruang Baca</h3>
-            <p>
-                Fasilitas membaca yang nyaman dan kondusif.
-            </p>
+        <div>
+            <h3>350+</h3>
+            <p>Sumber Digital</p>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        © 2026 Halima Library
+        © 2026 Halima Library • Knowledge for Everyone
     </footer>
 
 </body>
