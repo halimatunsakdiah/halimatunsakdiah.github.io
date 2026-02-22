@@ -1,133 +1,250 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Halaman Web Perpustakaan Saya</title>
+    <title>Halimaribrary</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4c2c2;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        /* HERO */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da') no-repeat center;
+            background-size: cover;
+            height: 300px;
+            text-align: center;
+            color: white;
+            padding-top: 100px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        /* CONTENT */
+        .content {
+            background-color: #e6d2ad;
+            padding: 40px;
+            text-align: center;
+        }
+
+        hr {
+            border: 1px solid #f4a6a6;
+            width: 80%;
+        }
+
+        /* FORM */
+        form {
+            margin: 20px auto;
+            width: 300px;
+            text-align: left;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #d88c9a;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c06c84;
+        }
+
+        /* LOGIN TAB */
+        .tab {
+            display: none;
+        }
+
+        .tab-buttons button {
+            width: 49%;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #d88c9a;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+
+    <script>
+        function showTab(id) {
+            document.getElementById("login").style.display = "none";
+            document.getElementById("register").style.display = "none";
+            document.getElementById(id).style.display = "block";
+        }
+    </script>
+
 </head>
+
 <body>
 
-<!-- NAVIGASI -->
-<nav>
-    <a href="#home">Home</a> |
-    <a href="#about">About Owner</a> |
-    <a href="#auth">Login / Daftar</a> |
-    <a href="#contact">Contact Us</a>
-</nav>
+<!-- HERO -->
+<div class="hero" id="home">
 
-<hr>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About Owner</a>
+        <a href="#auth">Login/Daftar</a>
+        <a href="#contact">Contact Us</a>
+    </nav>
 
-<!-- HOME -->
-<section id="home">
-    <h1>Selamat Datang Di Halaman Web Perpustakaan Saya</h1>
-    <h2>Perpustakaan Sebagai Pusat Informasi</h2>
-    <p>Nama : Halimatun Sakdiah Hrp</p>
-    <p>NIM  : 230709015 </p>
+    <h1>Halimaribrary</h1>
+    <p>Perpustakaan Sebagai Pusat Informasi</p>
 
-    <h3>⚠ Silakan Login atau Daftar terlebih dahulu untuk mengakses fitur lengkap</h3>
-    <a href="#auth">Klik Disini untuk Login / Daftar</a>
-</section>
+</div>
 
-<hr>
+<!-- CONTENT -->
+<div class="content">
 
-<!-- ABOUT OWNER -->
-<section id="about">
-    <h2>About Owner</h2>
+    <h2>Selamat Datang di halimaribrary 🚀</h2>
+    <p>Sebagai sarana pengembangan wawasan, halimaribrary menawarkan lingkungan yang ramah dan kondusif, membantu pengguna memperluas pengetahuan sekaligus merawat kesehatan mental..</p>
 
-    <h3>Sosial Media</h3>
-    <a href="https://www.instagram.com/halima_harahap7?igsh=OTBxdzhyc3BtazEz" target="_blank">
-        Instagram Saya
-    </a>
-
-    <h3>Portfolio</h3>
-    <a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank">
-        Curriculum Vitae
-    </a>
-
-    <h3>Audio Saya</h3>
-    <audio controls>
-        <source src="audio.mp3" type="audio/mpeg">
-        Browser tidak mendukung audio.
-    </audio>
-
-    <h3>Video Saya</h3>
-    <iframe width="560" height="315" 
-    src="https://www.youtube.com/embed/RY8nUjY83wA" 
-    title="YouTube video player">
-    </iframe>
-</section>
-
-<hr>
-
-<!-- LOGIN & DAFTAR -->
-<section id="auth">
-    <h2>Login / Daftar</h2>
-
-    <!-- LOGIN -->
-    <h3>Login (Sudah Punya Akun)</h3>
-    <form>
-        <label>Email :</label><br>
-        <input type="email" required><br><br>
-
-        <label>Password :</label><br>
-        <input type="password" required><br><br>
-
-        <button type="submit">Login</button>
-    </form>
+    <h3>⚠ Silakan Login atau Daftar Terlebih Dahulu</h3>
+    <a href="#auth">Klik disini untuk Login / Daftar</a>
 
     <hr>
 
-    <!-- DAFTAR -->
-    <h3>Daftar (Belum Punya Akun)</h3>
-    <form>
-        <label>First Name :</label><br>
-        <input type="text" required><br><br>
+    <!-- ABOUT OWNER -->
+    <section id="about">
+        <h2>About Owner</h2>
+        <p>Nama : Halimatun Sakdiah Hrp</p>
+        <p>NIM  : 230709015</p>
 
-        <label>Last Name :</label><br>
-        <input type="text" required><br><br>
+        <h3>Sosial Media</h3>
+        <a href="https://www.instagram.com/halima_harahap7?igsh=OTBxdzhyc3BtazEz" target="_blank">Instagram</a>
 
-        <label>Email :</label><br>
-        <input type="email" required><br><br>
+        <h3>Portfolio</h3>
+        <a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank">Curriculum Vitae</a>
 
-        <label>No Telepon :</label><br>
-        <input type="tel" required><br><br>
+        <h3>Audio</h3>
+        <audio controls>
+            <source src="audio.mp3" type="audio/mpeg">
+        </audio>
 
-        <label>Password :</label><br>
-        <input type="password" required><br><br>
+        <h3>Video</h3>
+        <iframe width="300" height="200"
+        src="https://www.youtube.com/embed/RY8nUjY83wA"
+        frameborder="0"></iframe>
+    </section>
 
-        <label>Konfirmasi Password :</label><br>
-        <input type="password" required><br><br>
+    <hr>
 
-        <button type="submit">Kirim</button>
-    </form>
-</section>
+    <!-- LOGIN & DAFTAR -->
+    <section id="auth">
+        <h2>Login / Daftar</h2>
 
-<hr>
+        <div class="tab-buttons">
+            <button onclick="showTab('login')">Login</button>
+            <button onclick="showTab('register')">Daftar</button>
+        </div>
 
-<!-- CONTACT US -->
-<section id="contact">
-    <h2>Contact Us</h2>
-    <form>
-        <label>Email :</label><br>
-        <input type="email" required><br><br>
+        <!-- LOGIN -->
+        <div id="login" class="tab">
+            <form>
+                <label>Email</label>
+                <input type="email" required>
 
-        <label>No Telepon :</label><br>
-        <input type="tel" required><br><br>
+                <label>Password</label>
+                <input type="password" required>
 
-        <label>Pesan :</label><br>
-        <textarea rows="4" cols="40" required></textarea><br><br>
+                <button type="submit">Kirim</button>
+            </form>
+        </div>
 
-        <button type="submit">Kirim</button>
-    </form>
-</section>
+        <!-- REGISTER -->
+        <div id="register" class="tab">
+            <form>
+                <label>First Name</label>
+                <input type="text" required>
 
-<hr>
+                <label>Last Name</label>
+                <input type="text" required>
+
+                <label>Email</label>
+                <input type="email" required>
+
+                <label>No Telepon</label>
+                <input type="tel" required>
+
+                <label>Password</label>
+                <input type="password" required>
+
+                <label>Konfirmasi Password</label>
+                <input type="password" required>
+
+                <button type="submit">Kirim</button>
+            </form>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+
+        <form>
+            <label>Email Anda</label>
+            <input type="email" required>
+
+            <label>No Telepon</label>
+            <input type="tel" required>
+
+            <label>Pesan</label>
+            <textarea rows="4" required></textarea>
+
+            <button type="submit">Kirim</button>
+        </form>
+    </section>
+
+</div>
 
 <!-- FOOTER -->
 <footer>
-    <p>&copy; 2026 Halimatun Sakdiah Hrp | Perpustakaan Sebagai Pusat Informasi</p>
-    <p>
-        <a href="#contact">Contact Us</a> |
-        <a href="#auth">Login / Daftar</a>
-    </p>
+    <p>&copy; 2026 Halimatun Sakdiah Hrp | Halimaribrary</p>
+    <a href="#contact">Contact</a> |
+    <a href="#auth">Login/Daftar</a>
 </footer>
 
 </body>
