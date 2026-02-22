@@ -1,34 +1,134 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Halaman web pertama saya</title>
+    <title>Halaman Web Perpustakaan Saya</title>
 </head>
 <body>
+
+<!-- NAVIGASI -->
+<nav>
+    <a href="#home">Home</a> |
+    <a href="#about">About Owner</a> |
+    <a href="#auth">Login / Daftar</a> |
+    <a href="#contact">Contact Us</a>
+</nav>
+
+<hr>
+
+<!-- HOME -->
+<section id="home">
     <h1>Selamat Datang Di Halaman Web Perpustakaan Saya</h1>
     <h2>Perpustakaan Sebagai Pusat Informasi</h2>
     <p>Nama : Halimatun Sakdiah Hrp</p>
     <p>NIM  : 230709015 </p>
-    
-    <p><a href="https://www.instagram.com/halima_harahap7?igsh=OTBxdzhyc3BtazEz">Instagram Saya</a></p>
-    <p> <a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing">Curriculum Vitae</a></p>
-    
-    <h3>Belajar hidup tanpa harus dianggap,karena tidak semua akan peduli</h3>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/RY8nUjY83wA?si=Aco92_qIbVDf4R_S" title="YouTube video player" frameborder="0" 
-        
-<form action="/submit" method="POST">
-   <label for="firstname">First Name:</label>
-        <input type="text" id="firstname" name="firstname" required>
-        <label for="lastname">Last Name:</label>
-        <input type="text" id="lastname" name="lastname" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        
-        <label for="phone">No HP:</label>
-        <input type="tel" id="phone" name="phone" required>
-        <input type="submit" value="Kirim">
+    <h3>⚠ Silakan Login atau Daftar terlebih dahulu untuk mengakses fitur lengkap</h3>
+    <a href="#auth">Klik Disini untuk Login / Daftar</a>
+</section>
+
+<hr>
+
+<!-- ABOUT OWNER -->
+<section id="about">
+    <h2>About Owner</h2>
+
+    <h3>Sosial Media</h3>
+    <a href="https://www.instagram.com/halima_harahap7?igsh=OTBxdzhyc3BtazEz" target="_blank">
+        Instagram Saya
+    </a>
+
+    <h3>Portfolio</h3>
+    <a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank">
+        Curriculum Vitae
+    </a>
+
+    <h3>Audio Saya</h3>
+    <audio controls>
+        <source src="audio.mp3" type="audio/mpeg">
+        Browser tidak mendukung audio.
+    </audio>
+
+    <h3>Video Saya</h3>
+    <iframe width="560" height="315" 
+    src="https://www.youtube.com/embed/RY8nUjY83wA" 
+    title="YouTube video player">
+    </iframe>
+</section>
+
+<hr>
+
+<!-- LOGIN & DAFTAR -->
+<section id="auth">
+    <h2>Login / Daftar</h2>
+
+    <!-- LOGIN -->
+    <h3>Login (Sudah Punya Akun)</h3>
+    <form>
+        <label>Email :</label><br>
+        <input type="email" required><br><br>
+
+        <label>Password :</label><br>
+        <input type="password" required><br><br>
+
+        <button type="submit">Login</button>
     </form>
-</body>
-</html>
+
+    <hr>
+
+    <!-- DAFTAR -->
+    <h3>Daftar (Belum Punya Akun)</h3>
+    <form>
+        <label>First Name :</label><br>
+        <input type="text" required><br><br>
+
+        <label>Last Name :</label><br>
+        <input type="text" required><br><br>
+
+        <label>Email :</label><br>
+        <input type="email" required><br><br>
+
+        <label>No Telepon :</label><br>
+        <input type="tel" required><br><br>
+
+        <label>Password :</label><br>
+        <input type="password" required><br><br>
+
+        <label>Konfirmasi Password :</label><br>
+        <input type="password" required><br><br>
+
+        <button type="submit">Kirim</button>
     </form>
+</section>
+
+<hr>
+
+<!-- CONTACT US -->
+<section id="contact">
+    <h2>Contact Us</h2>
+    <form>
+        <label>Email :</label><br>
+        <input type="email" required><br><br>
+
+        <label>No Telepon :</label><br>
+        <input type="tel" required><br><br>
+
+        <label>Pesan :</label><br>
+        <textarea rows="4" cols="40" required></textarea><br><br>
+
+        <button type="submit">Kirim</button>
+    </form>
+</section>
+
+<hr>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2026 Halimatun Sakdiah Hrp | Perpustakaan Sebagai Pusat Informasi</p>
+    <p>
+        <a href="#contact">Contact Us</a> |
+        <a href="#auth">Login / Daftar</a>
+    </p>
+</footer>
+
 </body>
 </html>
