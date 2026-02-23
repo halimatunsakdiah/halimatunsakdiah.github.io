@@ -33,7 +33,7 @@ nav a{
 
 .box{
     background:white;
-    width:320px;
+    width:350px;
     margin:auto;
     padding:20px;
     box-shadow:0 0 10px rgba(0,0,0,0.2);
@@ -83,9 +83,15 @@ button{
 <!-- REGISTER -->
 <div id="register" class="page box">
     <h2>Daftar Akun</h2>
-    <input type="text" id="regEmail" placeholder="Email"><br>
+
+    <input type="text" id="regFirst" placeholder="First Name"><br>
+    <input type="text" id="regLast" placeholder="Last Name"><br>
+    <input type="email" id="regEmail" placeholder="Email"><br>
+    <input type="text" id="regPhone" placeholder="Nomor HP"><br>
     <input type="password" id="regPassword" placeholder="Password"><br>
+
     <button onclick="register()">Daftar</button>
+
     <p>Sudah punya akun?
     <a href="#" onclick="showPage('login')">Login</a></p>
 </div>
@@ -135,10 +141,21 @@ function showPage(id){
 }
 
 function register(){
+    var first = document.getElementById("regFirst").value.trim();
+    var last = document.getElementById("regLast").value.trim();
     var email = document.getElementById("regEmail").value.trim();
+    var phone = document.getElementById("regPhone").value.trim();
     var password = document.getElementById("regPassword").value.trim();
 
+    if(first==="" || last==="" || email==="" || phone==="" || password===""){
+        alert("Semua data harus diisi!");
+        return;
+    }
+
+    localStorage.setItem("firstName", first);
+    localStorage.setItem("lastName", last);
     localStorage.setItem("email", email);
+    localStorage.setItem("phone", phone);
     localStorage.setItem("password", password);
 
     alert("Pendaftaran berhasil! Silakan login.");
@@ -170,11 +187,16 @@ function kirimWA(){
     var email = document.getElementById("email").value;
     var pesan = document.getElementById("pesan").value;
 
-    var text = "Halo, saya " + nama + 
-               "%0AEmail: " + email + 
+    if(nama==="" || email==="" || pesan===""){
+        alert("Semua data harus diisi!");
+        return;
+    }
+
+    var text = "Halo, saya " + nama +
+               "%0AEmail: " + email +
                "%0APesan: " + pesan;
 
-    var nomor = "6282166448371"; // format internasional
+    var nomor = "6282166448371";
 
     window.open("https://wa.me/" + nomor + "?text=" + text, "_blank");
 }
