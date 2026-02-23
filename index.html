@@ -1,19 +1,172 @@
-function login() {
-    var email = document.getElementById("loginEmail").value.trim().toLowerCase();
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Perpustakaan Halima</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f2f2f2;
+    text-align:center;
+}
+
+nav{
+    background:#800000;
+    padding:15px;
+    display:none; /* NAVBAR DISEMBUNYIKAN AWALNYA */
+}
+
+nav a{
+    color:white;
+    margin:10px;
+    text-decoration:none;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.container{
+    margin-top:60px;
+}
+
+.box{
+    background:white;
+    width:300px;
+    margin:auto;
+    padding:20px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+input{
+    width:90%;
+    padding:8px;
+    margin:5px;
+}
+
+button{
+    padding:8px 15px;
+    background:#800000;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+.page{
+    display:none;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR (MUNCUL SETELAH LOGIN) -->
+<nav id="navbar">
+    <a onclick="showPage('home')">Beranda</a>
+    <a onclick="showPage('about')">About Owner</a>
+    <a onclick="logout()">Logout</a>
+</nav>
+
+<div class="container">
+
+    <!-- LOGIN -->
+    <div id="login" class="page box">
+        <h2>Login</h2>
+        <input type="email" id="loginEmail" placeholder="Email"><br>
+        <input type="password" id="loginPassword" placeholder="Password"><br>
+        <button onclick="login()">Login</button>
+        <p>Belum punya akun?
+        <a href="#" onclick="showPage('register')">Daftar di sini</a></p>
+    </div>
+
+    <!-- REGISTER -->
+    <div id="register" class="page box">
+        <h2>Daftar Akun</h2>
+        <input type="text" id="regFirst" placeholder="First Name"><br>
+        <input type="text" id="regLast" placeholder="Last Name"><br>
+        <input type="email" id="regEmail" placeholder="Email"><br>
+        <input type="text" id="regPhone" placeholder="Nomor HP"><br>
+        <input type="password" id="regPassword" placeholder="Password"><br>
+        <button onclick="register()">Daftar</button>
+        <p>Sudah punya akun?
+        <a href="#" onclick="showPage('login')">Login</a></p>
+    </div>
+
+    <!-- HOME -->
+    <div id="home" class="page">
+        <h1>Selamat Datang Di Halaman Web Perpustakaan Saya</h1>
+        <h2>Perpustakaan Sebagai Pusat Informasi</h2>
+        <p>Nama : Halimatun Sakdiah Hrp</p>
+        <p>NIM  : 230709015</p>
+
+        <p><a href="https://www.instagram.com/halima_harahap7" target="_blank">Instagram Saya</a></p>
+        <p><a href="https://drive.google.com" target="_blank">Curriculum Vitae</a></p>
+
+        <h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
+
+        <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/RY8nUjY83wA"
+        frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <!-- ABOUT -->
+    <div id="about" class="page">
+        <h2>About Owner</h2>
+        <p>Nama: Halima Harahap</p>
+        <p>Mahasiswa Ilmu Perpustakaan</p>
+    </div>
+
+</div>
+
+<script>
+function showPage(id){
+    var pages = document.querySelectorAll(".page");
+    pages.forEach(function(page){
+        page.style.display = "none";
+    });
+    document.getElementById(id).style.display = "block";
+}
+
+function register(){
+    var email = document.getElementById("regEmail").value.trim();
+    var password = document.getElementById("regPassword").value.trim();
+
+    if(email === "" || password === ""){
+        alert("Isi email dan password!");
+        return;
+    }
+
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
+
+    alert("Pendaftaran berhasil! Silakan login.");
+    showPage("login");
+}
+
+function login(){
+    var email = document.getElementById("loginEmail").value.trim();
     var password = document.getElementById("loginPassword").value.trim();
 
     var savedEmail = localStorage.getItem("email");
     var savedPassword = localStorage.getItem("password");
 
-    if (!savedEmail || !savedPassword) {
-        alert("Silakan daftar terlebih dahulu!");
-        return;
-    }
-
-    if (email === savedEmail.toLowerCase() && password === savedPassword) {
+    if(email === savedEmail && password === savedPassword){
         document.getElementById("navbar").style.display = "block";
         showPage("home");
     } else {
         alert("Email atau Password salah!");
     }
 }
+
+function logout(){
+    document.getElementById("navbar").style.display = "none";
+    showPage("login");
+}
+
+window.onload = function(){
+    showPage("login");
+}
+</script>
+
+</body>
+</html>
