@@ -16,6 +16,7 @@ nav {
     background: #800000;
     padding: 15px;
     text-align: center;
+    display: none; /* NAVBAR DISEMBUNYIKAN */
 }
 
 nav button {
@@ -27,12 +28,8 @@ nav button {
     font-weight: bold;
 }
 
-nav button:hover {
-    background: #ddd;
-}
-
 .container {
-    padding: 30px;
+    padding: 40px;
     text-align: center;
 }
 
@@ -57,37 +54,14 @@ button.form-btn {
 </head>
 <body>
 
+<!-- NAVBAR (MUNCUL SETELAH LOGIN) -->
 <nav id="navbar">
     <button onclick="showPage('home')">Beranda</button>
     <button onclick="showPage('about')">About Owner</button>
-    <button onclick="showPage('login')">Login</button>
-    <button onclick="showPage('register')">Daftar</button>
     <button onclick="logout()">Logout</button>
 </nav>
 
 <div class="container">
-
-    <!-- HOME -->
-    <div id="home" class="page">
-        <h2>Beranda</h2>
-        <p>Selamat datang di website saya</p>
-
-        <h3>CV</h3>
-        <p><a href="#">Lihat CV Saya</a></p>
-
-        <h3>Instagram</h3>
-        <p><a href="https://instagram.com" target="_blank">Kunjungi Instagram</a></p>
-
-        <h3>YouTube</h3>
-        <p><a href="https://youtube.com" target="_blank">Kunjungi YouTube</a></p>
-    </div>
-
-    <!-- ABOUT -->
-    <div id="about" class="page">
-        <h2>About Owner</h2>
-        <p>Nama: Halima Harahap</p>
-        <p>Mahasiswa yang sedang belajar membuat website.</p>
-    </div>
 
     <!-- LOGIN -->
     <div id="login" class="page">
@@ -95,17 +69,37 @@ button.form-btn {
         <input type="email" id="loginEmail" placeholder="Email"><br>
         <input type="password" id="loginPassword" placeholder="Password"><br>
         <button class="form-btn" onclick="login()">Login</button>
-        <p>Belum punya akun? <a href="#" onclick="showPage('register')">Daftar di sini</a></p>
+
+        <p>Belum punya akun? 
+        <a href="#" onclick="showPage('register')">Daftar di sini</a></p>
     </div>
 
     <!-- REGISTER -->
     <div id="register" class="page">
-        <h2>Daftar</h2>
-        <input type="text" id="regName" placeholder="Nama Lengkap"><br>
+        <h2>Daftar Akun</h2>
+        <input type="text" id="firstName" placeholder="First Name"><br>
+        <input type="text" id="lastName" placeholder="Last Name"><br>
         <input type="email" id="regEmail" placeholder="Email"><br>
+        <input type="text" id="phone" placeholder="Nomor HP"><br>
         <input type="password" id="regPassword" placeholder="Password"><br>
         <button class="form-btn" onclick="register()">Daftar</button>
-        <p>Sudah punya akun? <a href="#" onclick="showPage('login')">Login</a></p>
+
+        <p>Sudah punya akun? 
+        <a href="#" onclick="showPage('login')">Login</a></p>
+    </div>
+
+    <!-- HOME -->
+    <div id="home" class="page">
+        <h2>Beranda</h2>
+        <p>Selamat datang di website saya 🎉</p>
+        <p>Ini adalah halaman setelah login berhasil.</p>
+    </div>
+
+    <!-- ABOUT -->
+    <div id="about" class="page">
+        <h2>About Owner</h2>
+        <p>Nama: Halima Harahap</p>
+        <p>Mahasiswa yang sedang belajar membuat website.</p>
     </div>
 
 </div>
@@ -120,15 +114,21 @@ function showPage(pageId) {
 }
 
 function register() {
+    var firstName = document.getElementById("firstName").value;
+    var lastName = document.getElementById("lastName").value;
     var email = document.getElementById("regEmail").value;
+    var phone = document.getElementById("phone").value;
     var password = document.getElementById("regPassword").value;
 
-    if (email === "" || password === "") {
-        alert("Isi semua data!");
+    if (firstName === "" || lastName === "" || email === "" || phone === "" || password === "") {
+        alert("Semua data harus diisi!");
         return;
     }
 
+    localStorage.setItem("firstName", firstName);
+    localStorage.setItem("lastName", lastName);
     localStorage.setItem("email", email);
+    localStorage.setItem("phone", phone);
     localStorage.setItem("password", password);
 
     alert("Pendaftaran berhasil! Silakan login.");
@@ -143,7 +143,7 @@ function login() {
     var savedPassword = localStorage.getItem("password");
 
     if (email === savedEmail && password === savedPassword) {
-        alert("Login berhasil!");
+        document.getElementById("navbar").style.display = "block";
         showPage("home");
     } else {
         alert("Email atau Password salah!");
@@ -151,7 +151,7 @@ function login() {
 }
 
 function logout() {
-    alert("Anda logout.");
+    document.getElementById("navbar").style.display = "none";
     showPage("login");
 }
 
