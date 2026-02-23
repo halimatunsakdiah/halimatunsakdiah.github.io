@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Test Register</title>
+<title>Login & Register</title>
 
 <style>
+body {
+    font-family: Arial;
+    background: #f2f2f2;
+}
+
 .page {
     display: none;
 }
@@ -27,18 +32,36 @@ function showPage(id) {
 }
 
 window.onload = function() {
-    showPage("registerPage");
+    showPage("loginPage");
 }
 </script>
 
 </head>
 <body>
 
+<!-- LOGIN -->
+<div id="loginPage" class="page form-container">
+    <h2>Login</h2>
+    <input type="email" placeholder="Email"><br><br>
+    <input type="password" placeholder="Password"><br><br>
+    <button>Login</button>
+
+    <p>Belum punya akun?
+        <a href="#" onclick="showPage('registerPage')">Daftar di sini</a>
+    </p>
+</div>
+
+<!-- REGISTER -->
 <div id="registerPage" class="page form-container">
     <h2>Daftar Akun</h2>
     <input type="text" placeholder="Last Name"><br><br>
     <input type="text" placeholder="First Name"><br><br>
-    <button>Daftar</button>
+    <input type="email" placeholder="Email"><br><br>
+    <input type="text" placeholder="No HP"><br><br>
+    <input type="password" placeholder="Password"><br><br>
+    <button>Daftar</button><br><br>
+
+    <button onclick="showPage('loginPage')">Kembali ke Login</button>
 </div>
 
 </body>
