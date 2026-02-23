@@ -1,49 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+</head>
+<body>
+
+<h1>Website Saya</h1>
+
+<button onclick="tes()">Klik Saya</button>
+
 <script>
-function showPage(id) {
-    var pages = document.getElementsByClassName("page");
-    for (var i = 0; i < pages.length; i++) {
-        pages[i].style.display = "none";
-    }
-    document.getElementById(id).style.display = "block";
-}
-
-function register() {
-    var email = document.getElementById("regEmail").value;
-    var password = document.getElementById("regPassword").value;
-
-    if (email === "" || password === "") {
-        alert("Semua data harus diisi!");
-        return;
-    }
-
-    localStorage.setItem("userEmail", email);
-    localStorage.setItem("userPassword", password);
-
-    alert("Pendaftaran berhasil! Silakan login.");
-    showPage("loginPage");
-}
-
-function login() {
-    var email = document.getElementById("loginEmail").value;
-    var password = document.getElementById("loginPassword").value;
-
-    var savedEmail = localStorage.getItem("userEmail");
-    var savedPassword = localStorage.getItem("userPassword");
-
-    if (email === savedEmail && password === savedPassword) {
-        document.getElementById("navbar").style.display = "block";
-        showPage("homePage");
-    } else {
-        alert("Email atau Password salah!");
-    }
-}
-
-function logout() {
-    document.getElementById("navbar").style.display = "none";
-    showPage("loginPage");
-}
-
-window.onload = function() {
-    showPage("loginPage");
+function tes() {
+    alert("Berhasil!");
 }
 </script>
+
+</body>
+</html>
