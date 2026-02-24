@@ -1,10 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Perpustakaan Halima</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f2f2f2;
+    text-align:center;
+}
+
+nav{
+    background:#800000;
+    padding:15px;
+    display:none;
+}
+
+nav a{
+    color:white;
+    margin:10px;
+    text-decoration:none;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.container{
+    margin-top:50px;
+}
+
+.box{
+    background:white;
+    width:350px;
+    margin:auto;
+    padding:20px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+input, textarea{
+    width:90%;
+    padding:8px;
+    margin:5px;
+}
+
+button{
+    padding:8px 15px;
+    background:#800000;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+.page{
+    display:none;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+    <a onclick="showPage('home')">Beranda</a>
+    <a onclick="showPage('about')">About Owner</a>
+    <a onclick="showPage('contact')">Contact Us</a>
+    <a onclick="logout()">Logout</a>
+</nav>
+
+<div class="container">
+
+<!-- LOGIN -->
+<div id="login" class="page box">
+    <h2>Login</h2>
+    <input type="email" id="loginEmail" placeholder="Email"><br>
+    <input type="password" id="loginPassword" placeholder="Password"><br>
+    <button onclick="login()">Login</button>
+    <p>Belum punya akun?
+    <a href="#" onclick="showPage('register')">Daftar di sini</a></p>
+</div>
+
+<!-- REGISTER -->
+<div id="register" class="page box">
+    <h2>Daftar Akun</h2>
+    <input type="text" id="regFirst" placeholder="First Name"><br>
+    <input type="text" id="regLast" placeholder="Last Name"><br>
+    <input type="email" id="regEmail" placeholder="Email"><br>
+    <input type="text" id="regPhone" placeholder="Nomor HP"><br>
+    <input type="password" id="regPassword" placeholder="Password"><br>
+    <button onclick="register()">Daftar</button>
+    <p>Sudah punya akun?
+    <a href="#" onclick="showPage('login')">Login</a></p>
+</div>
+
+<!-- HOME -->
+<div id="home" class="page">
+    <h1>Selamat Datang Di Halaman Web Perpustakaan Saya</h1>
+    <h2>Perpustakaan Sebagai Pusat Informasi</h2>
+    <p>Nama : Halimatun Sakdiah Hrp</p>
+    <p>NIM  : 230709015</p>
+
+    <p><a href="https://www.instagram.com/halima_harahap7" target="_blank">Instagram Saya</a></p>
+    <p><a href="https://drive.google.com" target="_blank">Curriculum Vitae</a></p>
+
+    <h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
+
+    <iframe width="560" height="315"
+    src="https://www.youtube.com/embed/RY8nUjY83wA"
+    frameborder="0" allowfullscreen></iframe>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
+    <h2>About Owner</h2>
+    <p>Nama: Halima Harahap</p>
+    <p>Mahasiswa Ilmu Perpustakaan</p>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="page box">
+    <h2>Contact Us</h2>
+    <input type="text" id="nama" placeholder="Nama"><br>
+    <input type="email" id="email" placeholder="Email"><br>
+    <textarea id="pesan" placeholder="Pesan" rows="4"></textarea><br>
+    <button onclick="kirimWA()">Kirim</button>
+</div>
+
+</div>
+
 <script>
 function showPage(id){
     var pages = document.querySelectorAll(".page");
     pages.forEach(function(page){
         page.style.display="none";
     });
-    document.getElementById(id).style.display="block";
+    var target = document.getElementById(id);
+    if(target){
+        target.style.display="block";
+    }
 }
 
 function register(){
@@ -19,17 +152,15 @@ function register(){
         return;
     }
 
-    // simpan sebagai satu object
     var userData = {
-        firstName: first,
-        lastName: last,
-        email: email,
-        phone: phone,
-        password: password
+        first:first,
+        last:last,
+        email:email,
+        phone:phone,
+        password:password
     };
 
     localStorage.setItem("user", JSON.stringify(userData));
-
     alert("Pendaftaran berhasil! Silakan login.");
     showPage("login");
 }
@@ -38,19 +169,18 @@ function login(){
     var email = document.getElementById("loginEmail").value.trim().toLowerCase();
     var password = document.getElementById("loginPassword").value.trim();
 
-    var savedData = localStorage.getItem("user");
-
-    if(!savedData){
-        alert("Akun belum terdaftar!");
+    var saved = localStorage.getItem("user");
+    if(!saved){
+        alert("Silakan daftar terlebih dahulu!");
         return;
     }
 
-    var user = JSON.parse(savedData);
+    var user = JSON.parse(saved);
 
     if(email === user.email && password === user.password){
         document.getElementById("navbar").style.display="block";
         showPage("home");
-    } else{
+    }else{
         alert("Email atau Password salah!");
     }
 }
@@ -74,14 +204,13 @@ function kirimWA(){
                "%0AEmail: " + email +
                "%0APesan: " + pesan;
 
-    var nomor = "6282166448371";
-
-    window.open("https://wa.me/" + nomor + "?text=" + text, "_blank");
+    window.open("https://wa.me/6282166448371?text=" + text, "_blank");
 }
 
-window.onload=function(){
+window.onload = function(){
     showPage("login");
-}
+};
 </script>
+
 </body>
 </html>
