@@ -5,10 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Website Perpustakaan Halima</title>
 
-<!-- EKSTERNAL STYLE SHEET -->
-<link rel="stylesheet" href="style.css">
-
-<!-- INTERNAL STYLE SHEET -->
 <style>
 body{
     font-family: Arial, sans-serif;
@@ -62,16 +58,14 @@ button{
 }
 </style>
 </head>
-
-<!-- INLINE STYLE -->
-<body style="font-family: Arial, sans-serif; margin:0; background:#f2f2f2; text-align:center;">
+<body>
 
 <!-- NAVBAR -->
-<nav id="navbar" style="background:#800000; padding:15px; display:none;">
-    <a onclick="showPage('home')" style="color:white; margin:10px; text-decoration:none; font-weight:bold; cursor:pointer;">Beranda</a>
-    <a onclick="showPage('about')" style="color:white; margin:10px; text-decoration:none; font-weight:bold; cursor:pointer;">About Owner</a>
-    <a onclick="showPage('contact')" style="color:white; margin:10px; text-decoration:none; font-weight:bold; cursor:pointer;">Contact Us</a>
-    <a onclick="logout()" style="color:white; margin:10px; text-decoration:none; font-weight:bold; cursor:pointer;">Logout</a>
+<nav id="navbar">
+    <a onclick="showPage('home')">Beranda</a>
+    <a onclick="showPage('about')">About Owner</a>
+    <a onclick="showPage('contact')">Contact Us</a>
+    <a onclick="logout()">Logout</a>
 </nav>
 
 <div class="container">
