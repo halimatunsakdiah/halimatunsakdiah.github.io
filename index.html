@@ -5,13 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Website Perpustakaan Halima</title>
 
-<!-- EKSTERNAL CSS -->
+<!-- EKSTERNAL STYLE SHEET -->
 <link rel="stylesheet" href="style.css">
 
-<!-- INTERNAL CSS -->
+<!-- INTERNAL STYLE SHEET -->
 <style>
-.page{
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f2f2f2;
+    text-align:center;
+}
+
+nav{
+    background:#800000;
+    padding:15px;
     display:none;
+}
+
+nav a{
+    color:white;
+    margin:10px;
+    text-decoration:none;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.container{
+    margin-top:50px;
 }
 
 .box{
@@ -27,39 +48,40 @@ input, textarea{
     padding:8px;
     margin:5px;
 }
-</style>
 
+button{
+    padding:8px 15px;
+    background:#800000;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+.page{
+    display:none;
+}
+</style>
 </head>
 
-<!-- INLINE CSS -->
-<body style="font-family:Arial, sans-serif; margin:0; background:#f2f2f2; text-align:center;">
+<!-- INLINE STYLE -->
+<body style="font-family: Arial, sans-serif; margin:0; background:#f2f2f2; text-align:center;">
 
 <!-- NAVBAR -->
 <nav id="navbar" style="background:#800000; padding:15px; display:none;">
-    <a onclick="showPage('home')" 
-       style="color:white; margin:10px; text-decoration:none; font-weight:bold; cursor:pointer;">Beranda</a>
-
-    <a onclick="showPage('about')" 
-       style="color:white; margin:10px; text-decoration:none; font-weight:bold; cursor:pointer;">About Owner</a>
-
-    <a onclick="showPage('contact')" 
-       style="color:white; margin:10px; text-decoration:none; font-weight:bold; cursor:pointer;">Contact Us</a>
-
-    <a onclick="logout()" 
-       style="color:white; margin:10px; text-decoration:none; font-weight:bold; cursor:pointer;">Logout</a>
+    <a onclick="showPage('home')" style="color:white; margin:10px; text-decoration:none; font-weight:bold; cursor:pointer;">Beranda</a>
+    <a onclick="showPage('about')" style="color:white; margin:10px; text-decoration:none; font-weight:bold; cursor:pointer;">About Owner</a>
+    <a onclick="showPage('contact')" style="color:white; margin:10px; text-decoration:none; font-weight:bold; cursor:pointer;">Contact Us</a>
+    <a onclick="logout()" style="color:white; margin:10px; text-decoration:none; font-weight:bold; cursor:pointer;">Logout</a>
 </nav>
 
-<div style="margin-top:50px;">
+<div class="container">
 
 <!-- LOGIN -->
 <div id="login" class="page box">
     <h2>Login</h2>
     <input type="email" id="loginEmail" placeholder="Email"><br>
     <input type="password" id="loginPassword" placeholder="Password"><br>
-    <button onclick="login()" 
-            style="padding:8px 15px; background:#800000; color:white; border:none; cursor:pointer;">
-        Login
-    </button>
+    <button onclick="login()">Login</button>
     <p>Belum punya akun?
     <a href="#" onclick="showPage('register')">Daftar di sini</a></p>
 </div>
@@ -72,10 +94,9 @@ input, textarea{
     <input type="email" id="regEmail" placeholder="Email"><br>
     <input type="text" id="regPhone" placeholder="Nomor HP"><br>
     <input type="password" id="regPassword" placeholder="Password"><br>
-    <button onclick="register()" 
-            style="padding:8px 15px; background:#800000; color:white; border:none; cursor:pointer;">
-        Daftar
-    </button>
+    <button onclick="register()">Daftar</button>
+    <p>Sudah punya akun?
+    <a href="#" onclick="showPage('login')">Login</a></p>
 </div>
 
 <!-- HOME -->
@@ -84,6 +105,31 @@ input, textarea{
     <h2>Perpustakaan Sebagai Pusat Informasi</h2>
     <p>Nama : Halimatun Sakdiah Hrp</p>
     <p>NIM  : 230709015</p>
+
+    <p><a href="https://www.instagram.com/halima_harahap7" target="_blank">Instagram Saya</a></p>
+    <p><a href="https://drive.google.com" target="_blank">Curriculum Vitae</a></p>
+
+    <h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
+
+    <iframe width="560" height="315"
+    src="https://www.youtube.com/embed/RY8nUjY83wA"
+    frameborder="0" allowfullscreen></iframe>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
+    <h2>About Owner</h2>
+    <p>Nama: Halima Harahap</p>
+    <p>Mahasiswa Ilmu Perpustakaan</p>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="page box">
+    <h2>Contact Us</h2>
+    <input type="text" id="nama" placeholder="Nama"><br>
+    <input type="email" id="email" placeholder="Email"><br>
+    <textarea id="pesan" placeholder="Pesan" rows="4"></textarea><br>
+    <button onclick="kirimWA()">Kirim</button>
 </div>
 
 </div>
@@ -94,13 +140,16 @@ function showPage(id){
     pages.forEach(function(page){
         page.style.display="none";
     });
-    document.getElementById(id).style.display="block";
+    var target = document.getElementById(id);
+    if(target){
+        target.style.display="block";
+    }
 }
 
 function register(){
     var first = document.getElementById("regFirst").value.trim();
     var last = document.getElementById("regLast").value.trim();
-    var email = document.getElementById("regEmail").value.trim();
+    var email = document.getElementById("regEmail").value.trim().toLowerCase();
     var phone = document.getElementById("regPhone").value.trim();
     var password = document.getElementById("regPassword").value.trim();
 
@@ -109,17 +158,24 @@ function register(){
         return;
     }
 
-    var userData = {first, last, email, phone, password};
+    var userData = {
+        first:first,
+        last:last,
+        email:email,
+        phone:phone,
+        password:password
+    };
+
     localStorage.setItem("user", JSON.stringify(userData));
     alert("Pendaftaran berhasil! Silakan login.");
     showPage("login");
 }
 
 function login(){
-    var email = document.getElementById("loginEmail").value.trim();
+    var email = document.getElementById("loginEmail").value.trim().toLowerCase();
     var password = document.getElementById("loginPassword").value.trim();
-    var saved = localStorage.getItem("user");
 
+    var saved = localStorage.getItem("user");
     if(!saved){
         alert("Silakan daftar terlebih dahulu!");
         return;
@@ -138,6 +194,23 @@ function login(){
 function logout(){
     document.getElementById("navbar").style.display="none";
     showPage("login");
+}
+
+function kirimWA(){
+    var nama = document.getElementById("nama").value;
+    var email = document.getElementById("email").value;
+    var pesan = document.getElementById("pesan").value;
+
+    if(nama==="" || email==="" || pesan===""){
+        alert("Semua data harus diisi!");
+        return;
+    }
+
+    var text = "Halo, saya " + nama +
+               "%0AEmail: " + email +
+               "%0APesan: " + pesan;
+
+    window.open("https://wa.me/6282166448371?text=" + text, "_blank");
 }
 
 window.onload = function(){
