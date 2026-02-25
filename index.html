@@ -128,15 +128,37 @@ h1, h2, h3, p{
     <h2>Halaman Admin</h2>
     <p>Nama Admin: Halima Harahap</p>
     <p>Status: Mahasiswa Ilmu Perpustakaan</p>
-    <p>Website ini dikelola oleh admin untuk keperluan pembelajaran dan pengembangan web perpustakaan.</p>
+    <p>Website ini dikelola untuk keperluan pembelajaran dan pengembangan web perpustakaan.</p>
 </div>
 
-<!-- PROFIL -->
+<!-- PROFIL PERPUSTAKAAN -->
 <div id="profil" class="page">
-    <h2>Profil Pengguna</h2>
-    <p id="profilNama"></p>
-    <p id="profilEmail"></p>
-    <p id="profilPhone"></p>
+    <h2>Profil Perpustakaan</h2>
+
+    <p><strong>Nama Perpustakaan:</strong> Perpustakaan Digital Halima</p>
+
+    <p><strong>Visi:</strong><br>
+    Menjadi pusat informasi dan literasi yang inovatif, inklusif, 
+    serta mendukung perkembangan intelektual dan karakter pembaca.</p>
+
+    <p><strong>Misi:</strong><br>
+    - Menyediakan sumber informasi yang akurat dan terpercaya.<br>
+    - Meningkatkan minat baca dan budaya literasi.<br>
+    - Memberikan layanan informasi yang cepat dan ramah.<br>
+    - Mendukung pembelajaran sepanjang hayat.
+    </p>
+
+    <p><strong>Layanan:</strong><br>
+    📚 Peminjaman Buku<br>
+    💻 Akses Referensi Digital<br>
+    📰 Koleksi Jurnal dan Artikel Ilmiah<br>
+    🎓 Ruang Belajar dan Diskusi
+    </p>
+
+    <p><strong>Tujuan:</strong><br>
+    Membantu mahasiswa dan masyarakat dalam memperoleh informasi 
+    yang relevan untuk kebutuhan akademik maupun pengembangan diri.
+    </p>
 </div>
 
 <!-- CONTACT -->
@@ -159,10 +181,6 @@ function showPage(id){
     var target = document.getElementById(id);
     if(target){
         target.style.display="block";
-    }
-
-    if(id === "profil"){
-        tampilProfil();
     }
 }
 
@@ -214,19 +232,6 @@ function login(){
 function logout(){
     document.getElementById("navbar").style.display="none";
     showPage("login");
-}
-
-function tampilProfil(){
-    var saved = localStorage.getItem("user");
-    if(saved){
-        var user = JSON.parse(saved);
-        document.getElementById("profilNama").innerText = 
-            "Nama Lengkap: " + user.first + " " + user.last;
-        document.getElementById("profilEmail").innerText = 
-            "Email: " + user.email;
-        document.getElementById("profilPhone").innerText = 
-            "Nomor HP: " + user.phone;
-    }
 }
 
 function kirimWA(){
