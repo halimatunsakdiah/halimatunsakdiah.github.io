@@ -9,12 +9,12 @@
 body{
     font-family: Arial, sans-serif;
     margin:0;
-    background:#f2f2f2;
+    background: linear-gradient(135deg, #667eea, #764ba2);
     text-align:center;
 }
 
 nav{
-    background:#800000;
+    background: linear-gradient(90deg, #141e30, #243b55);
     padding:15px;
     display:none;
 }
@@ -25,6 +25,11 @@ nav a{
     text-decoration:none;
     font-weight:bold;
     cursor:pointer;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ffd369;
 }
 
 .container{
@@ -36,25 +41,39 @@ nav a{
     width:350px;
     margin:auto;
     padding:20px;
-    box-shadow:0 0 10px rgba(0,0,0,0.2);
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
 }
 
 input, textarea{
     width:90%;
     padding:8px;
     margin:5px;
+    border-radius:6px;
+    border:1px solid #ccc;
 }
 
 button{
     padding:8px 15px;
-    background:#800000;
+    background: linear-gradient(90deg, #ff512f, #dd2476);
     color:white;
     border:none;
+    border-radius:6px;
     cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    opacity:0.85;
 }
 
 .page{
     display:none;
+    color:white;
+}
+
+h1, h2, h3, p{
+    color:white;
 }
 </style>
 </head>
@@ -72,24 +91,24 @@ button{
 
 <!-- LOGIN -->
 <div id="login" class="page box">
-    <h2>Login</h2>
+    <h2 style="color:#333;">Login</h2>
     <input type="email" id="loginEmail" placeholder="Email"><br>
     <input type="password" id="loginPassword" placeholder="Password"><br>
     <button onclick="login()">Login</button>
-    <p>Belum punya akun?
+    <p style="color:#333;">Belum punya akun?
     <a href="#" onclick="showPage('register')">Daftar di sini</a></p>
 </div>
 
 <!-- REGISTER -->
 <div id="register" class="page box">
-    <h2>Daftar Akun</h2>
+    <h2 style="color:#333;">Daftar Akun</h2>
     <input type="text" id="regFirst" placeholder="First Name"><br>
     <input type="text" id="regLast" placeholder="Last Name"><br>
     <input type="email" id="regEmail" placeholder="Email"><br>
     <input type="text" id="regPhone" placeholder="Nomor HP"><br>
     <input type="password" id="regPassword" placeholder="Password"><br>
     <button onclick="register()">Daftar</button>
-    <p>Sudah punya akun?
+    <p style="color:#333;">Sudah punya akun?
     <a href="#" onclick="showPage('login')">Login</a></p>
 </div>
 
@@ -100,8 +119,8 @@ button{
     <p>Nama : Halimatun Sakdiah Hrp</p>
     <p>NIM  : 230709015</p>
 
-    <p><a href="https://www.instagram.com/halima_harahap7" target="_blank">Instagram Saya</a></p>
-    <p><a href="https://drive.google.com" target="_blank">Curriculum Vitae</a></p>
+    <p><a href="https://www.instagram.com/halima_harahap7" target="_blank" style="color:#ffd369;">Instagram Saya</a></p>
+    <p><a href="https://drive.google.com" target="_blank" style="color:#ffd369;">Curriculum Vitae</a></p>
 
     <h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
 
@@ -119,7 +138,7 @@ button{
 
 <!-- CONTACT -->
 <div id="contact" class="page box">
-    <h2>Contact Us</h2>
+    <h2 style="color:#333;">Contact Us</h2>
     <input type="text" id="nama" placeholder="Nama"><br>
     <input type="email" id="email" placeholder="Email"><br>
     <textarea id="pesan" placeholder="Pesan" rows="4"></textarea><br>
