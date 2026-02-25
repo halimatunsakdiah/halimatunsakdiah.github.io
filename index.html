@@ -82,7 +82,8 @@ h1, h2, h3, p{
 <!-- NAVBAR -->
 <nav id="navbar">
     <a onclick="showPage('home')">Beranda</a>
-    <a onclick="showPage('about')">About Owner</a>
+    <a onclick="showPage('admin')">Admin</a>
+    <a onclick="showPage('profil')">Profil</a>
     <a onclick="showPage('contact')">Contact Us</a>
     <a onclick="logout()">Logout</a>
 </nav>
@@ -119,21 +120,23 @@ h1, h2, h3, p{
     <p>Nama : Halimatun Sakdiah Hrp</p>
     <p>NIM  : 230709015</p>
 
-    <p><a href="https://www.instagram.com/halima_harahap7" target="_blank" style="color:#ffd369;">Instagram Saya</a></p>
-    <p><a href="https://drive.google.com" target="_blank" style="color:#ffd369;">Curriculum Vitae</a></p>
-
     <h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
-
-    <iframe width="560" height="315"
-    src="https://www.youtube.com/embed/RY8nUjY83wA"
-    frameborder="0" allowfullscreen></iframe>
 </div>
 
-<!-- ABOUT -->
-<div id="about" class="page">
-    <h2>About Owner</h2>
-    <p>Nama: Halima Harahap</p>
-    <p>Mahasiswa Ilmu Perpustakaan</p>
+<!-- ADMIN -->
+<div id="admin" class="page">
+    <h2>Halaman Admin</h2>
+    <p>Nama Admin: Halima Harahap</p>
+    <p>Status: Mahasiswa Ilmu Perpustakaan</p>
+    <p>Website ini dikelola oleh admin untuk keperluan pembelajaran dan pengembangan web perpustakaan.</p>
+</div>
+
+<!-- PROFIL -->
+<div id="profil" class="page">
+    <h2>Profil Pengguna</h2>
+    <p id="profilNama"></p>
+    <p id="profilEmail"></p>
+    <p id="profilPhone"></p>
 </div>
 
 <!-- CONTACT -->
@@ -156,6 +159,10 @@ function showPage(id){
     var target = document.getElementById(id);
     if(target){
         target.style.display="block";
+    }
+
+    if(id === "profil"){
+        tampilProfil();
     }
 }
 
@@ -207,6 +214,19 @@ function login(){
 function logout(){
     document.getElementById("navbar").style.display="none";
     showPage("login");
+}
+
+function tampilProfil(){
+    var saved = localStorage.getItem("user");
+    if(saved){
+        var user = JSON.parse(saved);
+        document.getElementById("profilNama").innerText = 
+            "Nama Lengkap: " + user.first + " " + user.last;
+        document.getElementById("profilEmail").innerText = 
+            "Email: " + user.email;
+        document.getElementById("profilPhone").innerText = 
+            "Nomor HP: " + user.phone;
+    }
 }
 
 function kirimWA(){
