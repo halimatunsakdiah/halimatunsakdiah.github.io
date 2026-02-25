@@ -72,6 +72,14 @@ button:hover{
     color:white;
 }
 
+/* ✅ PERBAIKAN PROFIL AGAR TIDAK CENTER */
+#profil{
+    text-align:left;
+    width:60%;
+    margin:50px auto;
+    line-height:1.6;
+}
+
 h1, h2, h3, p{
     color:white;
 }
@@ -119,7 +127,6 @@ h1, h2, h3, p{
     <h2>Perpustakaan Sebagai Pusat Informasi</h2>
     <p>Nama : Halimatun Sakdiah Hrp</p>
     <p>NIM  : 230709015</p>
-
     <h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
 </div>
 
@@ -131,7 +138,7 @@ h1, h2, h3, p{
     <p>Website ini dikelola untuk keperluan pembelajaran dan pengembangan web perpustakaan.</p>
 </div>
 
-<!-- PROFIL PERPUSTAKAAN -->
+<!-- PROFIL -->
 <div id="profil" class="page">
     <h2>Profil Perpustakaan</h2>
 
@@ -196,14 +203,7 @@ function register(){
         return;
     }
 
-    var userData = {
-        first:first,
-        last:last,
-        email:email,
-        phone:phone,
-        password:password
-    };
-
+    var userData = { first, last, email, phone, password };
     localStorage.setItem("user", JSON.stringify(userData));
     alert("Pendaftaran berhasil! Silakan login.");
     showPage("login");
@@ -212,8 +212,8 @@ function register(){
 function login(){
     var email = document.getElementById("loginEmail").value.trim().toLowerCase();
     var password = document.getElementById("loginPassword").value.trim();
-
     var saved = localStorage.getItem("user");
+
     if(!saved){
         alert("Silakan daftar terlebih dahulu!");
         return;
