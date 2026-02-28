@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Website Perpustakaan Halima</title>
+<title>ANANTYA PUSTAKA</title>
 
 <style>
 body{
@@ -33,7 +33,7 @@ nav a:hover{
 }
 
 .container{
-    margin-top:50px;
+    margin-top:40px;
 }
 
 .box{
@@ -72,7 +72,6 @@ button:hover{
     color:white;
 }
 
-/* ✅ PERBAIKAN PROFIL AGAR TIDAK CENTER */
 #profil{
     text-align:left;
     width:60%;
@@ -83,6 +82,13 @@ button:hover{
 h1, h2, h3, p{
     color:white;
 }
+
+.judul-login{
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
 </style>
 </head>
 <body>
@@ -92,6 +98,8 @@ h1, h2, h3, p{
     <a onclick="showPage('home')">Beranda</a>
     <a onclick="showPage('admin')">Admin</a>
     <a onclick="showPage('profil')">Profil</a>
+    <a onclick="showPage('koleksi')">Koleksi</a>
+    <a onclick="showPage('layanan')">Layanan</a>
     <a onclick="showPage('contact')">Contact Us</a>
     <a onclick="logout()">Logout</a>
 </nav>
@@ -99,73 +107,72 @@ h1, h2, h3, p{
 <div class="container">
 
 <!-- LOGIN -->
-<div id="login" class="page box">
-    <h2 style="color:#333;">Login</h2>
-    <input type="email" id="loginEmail" placeholder="Email"><br>
-    <input type="password" id="loginPassword" placeholder="Password"><br>
-    <button onclick="login()">Login</button>
-    <p style="color:#333;">Belum punya akun?
-    <a href="#" onclick="showPage('register')">Daftar di sini</a></p>
+<div id="login" class="page">
+    <div class="judul-login">Selamat Datang di ANANTYA PUSTAKA</div>
+    <div class="box">
+        <h2 style="color:#333;">Login</h2>
+        <input type="email" id="loginEmail" placeholder="Email"><br>
+        <input type="password" id="loginPassword" placeholder="Password"><br>
+        <button onclick="login()">Login</button>
+        <p style="color:#333;">Belum punya akun?
+        <a href="#" onclick="showPage('register')">Daftar di sini</a></p>
+    </div>
 </div>
 
 <!-- REGISTER -->
-<div id="register" class="page box">
-    <h2 style="color:#333;">Daftar Akun</h2>
-    <input type="text" id="regFirst" placeholder="First Name"><br>
-    <input type="text" id="regLast" placeholder="Last Name"><br>
-    <input type="email" id="regEmail" placeholder="Email"><br>
-    <input type="text" id="regPhone" placeholder="Nomor HP"><br>
-    <input type="password" id="regPassword" placeholder="Password"><br>
-    <button onclick="register()">Daftar</button>
-    <p style="color:#333;">Sudah punya akun?
-    <a href="#" onclick="showPage('login')">Login</a></p>
+<div id="register" class="page">
+    <div class="judul-login">Selamat Datang di ANANTYA PUSTAKA</div>
+    <div class="box">
+        <h2 style="color:#333;">Daftar Akun</h2>
+        <input type="text" id="regFirst" placeholder="First Name"><br>
+        <input type="text" id="regLast" placeholder="Last Name"><br>
+        <input type="email" id="regEmail" placeholder="Email"><br>
+        <input type="text" id="regPhone" placeholder="Nomor HP"><br>
+        <input type="password" id="regPassword" placeholder="Password"><br>
+        <button onclick="register()">Daftar</button>
+        <p style="color:#333;">Sudah punya akun?
+        <a href="#" onclick="showPage('login')">Login</a></p>
+    </div>
 </div>
 
 <!-- HOME -->
 <div id="home" class="page">
-    <h1>Selamat Datang Di Halaman Web Perpustakaan Saya</h1>
+    <h1>Selamat Datang di ANANTYA PUSTAKA</h1>
     <h2>Perpustakaan Sebagai Pusat Informasi</h2>
     <p>Nama : Halimatun Sakdiah Hrp</p>
     <p>NIM  : 230709015</p>
-    <h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
 </div>
 
 <!-- ADMIN -->
 <div id="admin" class="page">
     <h2>Halaman Admin</h2>
-    <p>Nama Admin: Halima Harahap</p>
-    <p>Status: Mahasiswa Ilmu Perpustakaan</p>
-    <p>Website ini dikelola untuk keperluan pembelajaran dan pengembangan web perpustakaan.</p>
+    <p>Website ini dikelola untuk pembelajaran.</p>
 </div>
 
 <!-- PROFIL -->
 <div id="profil" class="page">
     <h2>Profil Perpustakaan</h2>
+    <p><strong>Nama:</strong> ANANTYA PUSTAKA</p>
+    <p><strong>Visi:</strong> Menjadi pusat literasi inovatif.</p>
+    <p><strong>Misi:</strong> Meningkatkan budaya baca dan informasi.</p>
+</div>
 
-    <p><strong>Nama Perpustakaan:</strong> Perpustakaan Digital Halima</p>
+<!-- KOLEKSI -->
+<div id="koleksi" class="page">
+    <h2>Koleksi Buku</h2>
+    <p>📚 Novel</p>
+    <p>📘 Buku Pendidikan</p>
+    <p>📗 Buku Teknologi</p>
+    <p>📕 Buku Sejarah</p>
+</div>
 
-    <p><strong>Visi:</strong><br>
-    Menjadi pusat informasi dan literasi yang inovatif, inklusif, 
-    serta mendukung perkembangan intelektual dan karakter pembaca.</p>
-
-    <p><strong>Misi:</strong><br>
-    - Menyediakan sumber informasi yang akurat dan terpercaya.<br>
-    - Meningkatkan minat baca dan budaya literasi.<br>
-    - Memberikan layanan informasi yang cepat dan ramah.<br>
-    - Mendukung pembelajaran sepanjang hayat.
-    </p>
-
-    <p><strong>Layanan:</strong><br>
-    📚 Peminjaman Buku<br>
-    💻 Akses Referensi Digital<br>
-    📰 Koleksi Jurnal dan Artikel Ilmiah<br>
-    🎓 Ruang Belajar dan Diskusi
-    </p>
-
-    <p><strong>Tujuan:</strong><br>
-    Membantu mahasiswa dan masyarakat dalam memperoleh informasi 
-    yang relevan untuk kebutuhan akademik maupun pengembangan diri.
-    </p>
+<!-- LAYANAN -->
+<div id="layanan" class="page">
+    <h2>Layanan Perpustakaan</h2>
+    <p>💻 Akses Digital</p>
+    <p>📖 Peminjaman Buku</p>
+    <p>📰 Jurnal Ilmiah</p>
+    <p>🎓 Ruang Diskusi</p>
 </div>
 
 <!-- CONTACT -->
@@ -185,10 +192,7 @@ function showPage(id){
     pages.forEach(function(page){
         page.style.display="none";
     });
-    var target = document.getElementById(id);
-    if(target){
-        target.style.display="block";
-    }
+    document.getElementById(id).style.display="block";
 }
 
 function register(){
