@@ -13,12 +13,11 @@ body{
     text-align:center;
 }
 
-/* NAVIGASI RATA KIRI */
+/* NAVBAR (MUNCUL SETELAH LOGIN) */
 nav{
     background: linear-gradient(90deg, #141e30, #243b55);
     padding:15px 30px;
     display:none;
-    display:flex;
     justify-content:flex-start;
     gap:20px;
 }
@@ -28,7 +27,6 @@ nav a{
     text-decoration:none;
     font-weight:bold;
     cursor:pointer;
-    transition:0.3s;
 }
 
 nav a:hover{
@@ -48,7 +46,7 @@ nav a:hover{
     box-shadow:0 8px 20px rgba(0,0,0,0.3);
 }
 
-input{
+input, textarea{
     width:90%;
     padding:8px;
     margin:5px;
@@ -63,7 +61,6 @@ button{
     border:none;
     border-radius:6px;
     cursor:pointer;
-    transition:0.3s;
 }
 
 button:hover{
@@ -86,7 +83,7 @@ h1, h2, p{
     margin-bottom:20px;
 }
 
-/* ✅ PERBAIKAN PROFIL AGAR RATA KIRI */
+/* PROFIL RATA KIRI */
 #profil{
     text-align:left;
     width:60%;
@@ -97,17 +94,18 @@ h1, h2, p{
 <body>
 
 <nav id="navbar">
-    <a onclick="showPage('home')">Beranda</a>
-    <a onclick="showPage('admin')">Admin</a>
-    <a onclick="showPage('profil')">Profil</a>
-    <a onclick="showPage('koleksi')">Koleksi</a>
-    <a onclick="showPage('layanan')">Layanan</a>
-    <a onclick="showPage('contact')">Contact Us</a>
+    <a onclick="openPage('home')">Beranda</a>
+    <a onclick="openPage('admin')">Admin</a>
+    <a onclick="openPage('profil')">Profil</a>
+    <a onclick="openPage('koleksi')">Koleksi</a>
+    <a onclick="openPage('layanan')">Layanan</a>
+    <a onclick="openPage('contact')">Contact Us</a>
     <a onclick="logout()">Logout</a>
 </nav>
 
 <div class="container">
 
+<!-- LOGIN -->
 <div id="login" class="page">
     <div class="judul-login">Selamat Datang di ANANTYA PUSTAKA</div>
     <div class="box">
@@ -120,10 +118,11 @@ h1, h2, p{
     </div>
 </div>
 
+<!-- REGISTER -->
 <div id="register" class="page">
-    <div class="judul-login">Selamat Datang di ANANTYA PUSTAKA</div>
+    <div class="judul-login">Daftar Akun Baru</div>
     <div class="box">
-        <h2 style="color:#333;">Daftar Akun</h2>
+        <h2 style="color:#333;">Register</h2>
         <input type="text" id="regFirst" placeholder="First Name"><br>
         <input type="text" id="regLast" placeholder="Last Name"><br>
         <input type="email" id="regEmail" placeholder="Email"><br>
@@ -135,21 +134,25 @@ h1, h2, p{
     </div>
 </div>
 
+<!-- HOME -->
 <div id="home" class="page">
     <h1>Selamat Datang di ANANTYA PUSTAKA</h1>
     <h2>Perpustakaan Sebagai Pusat Informasi</h2>
 </div>
 
+<!-- ADMIN -->
 <div id="admin" class="page">
     <h2>Halaman Admin</h2>
     <p>Website ini dikelola untuk pembelajaran.</p>
 </div>
 
+<!-- PROFIL -->
 <div id="profil" class="page">
     <h2>Profil Admin</h2>
     <p><strong>Nama:</strong> Halimatun Sakdiah Hrp</p>
 </div>
 
+<!-- KOLEKSI -->
 <div id="koleksi" class="page">
     <h2>Koleksi Buku</h2>
     <p>📚 Novel</p>
@@ -158,6 +161,7 @@ h1, h2, p{
     <p>📕 Buku Sejarah</p>
 </div>
 
+<!-- LAYANAN -->
 <div id="layanan" class="page">
     <h2>Layanan Perpustakaan</h2>
     <p>💻 Akses Digital</p>
@@ -166,48 +170,50 @@ h1, h2, p{
     <p>🎓 Ruang Diskusi</p>
 </div>
 
-<!--CONTACT-->
-    <div id="contact"class="page box">
-   <h2 style="color:#333;">Contact Us</h2>
-        <input type="text"id="nama"placeholder="Nama"><br>
-        <input type="email"placehilder="Email"><br>
-        <textarea id="pesan"placeholder="Pesan"rows="4"></textarea>
-        <br>
-        <button onclicl="KirimWa()">Kirm<button>
-        </div>
+<!-- CONTACT -->
+<div id="contact" class="page">
+    <h2>Contact Us</h2>
+    <p>Email: halimaharahap555@gmail.com</p>
+    <p>WhatsApp: 082166448371</p>
+</div>
 
 </div>
 
 <script>
 function showPage(id){
-    var pages = document.querySelectorAll(".page");
-    pages.forEach(function(page){
-        page.style.display="none";
-    });
+    document.querySelectorAll(".page").forEach(p => p.style.display="none");
     document.getElementById(id).style.display="block";
 }
 
-function register(){
-    var first = document.getElementById("regFirst").value.trim();
-    var last = document.getElementById("regLast").value.trim();
-    var email = document.getElementById("regEmail").value.trim().toLowerCase();
-    var phone = document.getElementById("regPhone").value.trim();
-    var password = document.getElementById("regPassword").value.trim();
+function openPage(id){
+    if(localStorage.getItem("isLogin") === "true"){
+        showPage(id);
+    }else{
+        alert("Silakan login terlebih dahulu!");
+        showPage("login");
+    }
+}
 
-    if(first==="" || last==="" || email==="" || phone==="" || password===""){
+function register(){
+    var first = regFirst.value.trim();
+    var last = regLast.value.trim();
+    var email = regEmail.value.trim().toLowerCase();
+    var phone = regPhone.value.trim();
+    var password = regPassword.value.trim();
+
+    if(!first || !last || !email || !phone || !password){
         alert("Semua data harus diisi!");
         return;
     }
 
-    var userData = { first, last, email, phone, password };
-    localStorage.setItem("user", JSON.stringify(userData));
+    localStorage.setItem("user", JSON.stringify({first,last,email,phone,password}));
     alert("Pendaftaran berhasil! Silakan login.");
     showPage("login");
 }
 
 function login(){
-    var email = document.getElementById("loginEmail").value.trim().toLowerCase();
-    var password = document.getElementById("loginPassword").value.trim();
+    var email = loginEmail.value.trim().toLowerCase();
+    var password = loginPassword.value.trim();
     var saved = localStorage.getItem("user");
 
     if(!saved){
@@ -218,7 +224,8 @@ function login(){
     var user = JSON.parse(saved);
 
     if(email === user.email && password === user.password){
-        document.getElementById("navbar").style.display="flex";
+        localStorage.setItem("isLogin","true");
+        navbar.style.display="flex";
         showPage("home");
     }else{
         alert("Email atau Password salah!");
@@ -226,13 +233,19 @@ function login(){
 }
 
 function logout(){
-    document.getElementById("navbar").style.display="none";
+    localStorage.removeItem("isLogin");
+    navbar.style.display="none";
     showPage("login");
 }
 
 window.onload = function(){
-    showPage("login");
-};
+    if(localStorage.getItem("isLogin") === "true"){
+        navbar.style.display="flex";
+        showPage("home");
+    }else{
+        showPage("login");
+    }
+}
 </script>
 
 </body>
