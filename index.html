@@ -1,230 +1,20 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANANTYA PUSTAKA</title>
-
-<style>
-body{
-    font-family: Arial, sans-serif;
-    margin:0;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    text-align:center;
-}
-
-/* NAVBAR */
-nav{
-    background: linear-gradient(90deg, #141e30, #243b55);
-    padding:15px 30px;
-    display:none;
-    justify-content:flex-start;
-    gap:20px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-nav a:hover{
-    color:#ffd369;
-}
-
-.container{
-    margin-top:40px;
-}
-
-.box{
-    background:white;
-    width:350px;
-    margin:auto;
-    padding:20px;
-    border-radius:12px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.3);
-}
-
-input, textarea{
-    width:90%;
-    padding:8px;
-    margin:5px;
-    border-radius:6px;
-    border:1px solid #ccc;
-}
-
-button{
-    padding:8px 15px;
-    background: linear-gradient(90deg, #ff512f, #dd2476);
-    color:white;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
-}
-
-button:hover{
-    opacity:0.85;
-}
-
-.page{
-    display:none;
-    color:white;
-}
-
-h1, h2{
-    color:white;
-}
-
-.judul-login{
-    color:white;
-    font-size:22px;
-    font-weight:bold;
-    margin-bottom:20px;
-}
-
-/* PROFIL RATA KIRI */
-#profil{
-    text-align:left;
-    width:70%;
-    margin:40px auto;
-}
-
-#profil a{
-    color:#ffd369;
-    font-weight:bold;
-    text-decoration:none;
-}
-
-#profil a:hover{
-    text-decoration:underline;
-}
-</style>
-</head>
-<body>
-
-<nav id="navbar">
-    <a onclick="openPage('home')">Beranda</a>
-    <a onclick="openPage('admin')">Admin</a>
-    <a onclick="openPage('profil')">Profil</a>
-    <a onclick="openPage('koleksi')">Koleksi</a>
-    <a onclick="openPage('layanan')">Layanan</a>
-    <a onclick="openPage('contact')">Contact Us</a>
-    <a onclick="logout()">Logout</a>
-</nav>
-
-<div class="container">
-
-<!-- LOGIN -->
-<div id="login" class="page">
-    <div class="judul-login">Selamat Datang di ANANTYA PUSTAKA</div>
-    <div class="box">
-        <h2 style="color:#333;">Login</h2>
-        <input type="email" id="loginEmail" placeholder="Email"><br>
-        <input type="password" id="loginPassword" placeholder="Password"><br>
-        <button onclick="login()">Login</button>
-        <p style="color:#333;">Belum punya akun?
-        <a href="#" onclick="showPage('register')">Daftar di sini</a></p>
-    </div>
-</div>
-
-<!-- REGISTER -->
-<div id="register" class="page">
-    <div class="judul-login">Daftar Akun Baru</div>
-    <div class="box">
-        <h2 style="color:#333;">Register</h2>
-        <input type="text" id="regFirst" placeholder="First Name"><br>
-        <input type="text" id="regLast" placeholder="Last Name"><br>
-        <input type="email" id="regEmail" placeholder="Email"><br>
-        <input type="text" id="regPhone" placeholder="Nomor HP"><br>
-        <input type="password" id="regPassword" placeholder="Password"><br>
-        <button onclick="register()">Daftar</button>
-        <p style="color:#333;">Sudah punya akun?
-        <a href="#" onclick="showPage('login')">Login</a></p>
-    </div>
-</div>
-
-<!-- HOME -->
-<div id="home" class="page">
-    <h1>Selamat Datang di ANANTYA PUSTAKA</h1>
-    <h2>Perpustakaan Sebagai Pusat Informasi</h2>
-</div>
-
-<!-- ADMIN -->
-<div id="admin" class="page">
-    <h2>Halaman Admin</h2>
-    <p>Website ini dikelola untuk pembelajaran.</p>
-</div>
-
-<!-- PROFIL -->
-<div id="profil" class="page">
-    <h2>Profil Admin</h2>
-
-    <p><strong>Nama:</strong> Halimatun Sakdiah Hrp</p>
-
-    <p>
-        <a href="https://www.instagram.com/halima_harahap7" target="_blank">
-            Instagram Saya
-        </a>
-    </p>
-
-    <p>
-        <a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank">
-            Curriculum Vitae
-        </a>
-    </p>
-
-    <h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
-
-    <iframe width="100%" height="315"
-        src="https://www.youtube.com/embed/RY8nUjY83wA"
-        frameborder="0"
-        allowfullscreen>
-    </iframe>
-</div>
-
-<!-- KOLEKSI -->
-<div id="koleksi" class="page">
-    <h2>Koleksi Buku</h2>
-    <p>📚 Novel</p>
-    <p>📘 Buku Pendidikan</p>
-    <p>📗 Buku Teknologi</p>
-    <p>📕 Buku Sejarah</p>
-</div>
-
-<!-- LAYANAN -->
-<div id="layanan" class="page">
-    <h2>Layanan Perpustakaan</h2>
-    <p>💻 Akses Digital</p>
-    <p>📖 Peminjaman Buku</p>
-    <p>📰 Jurnal Ilmiah</p>
-    <p>🎓 Ruang Diskusi</p>
-</div>
-
-<!-- CONTACT -->
-<div id="contact" class="page">
-    <h2>Contact Us</h2>
-    <p>Email: halimaharahap555@gmail.com</p>
-    <p>WhatsApp: 082166448371</p>
-</div>
-
-</div>
-
 <script>
 function showPage(id){
     document.querySelectorAll(".page").forEach(p => p.style.display="none");
     document.getElementById(id).style.display="block";
 }
 
+/* CEK LOGIN SEBELUM BUKA HALAMAN */
 function openPage(id){
-    if(localStorage.getItem("isLogin") === "true"){
-        showPage(id);
-    }else{
-        alert("Silakan login terlebih dahulu!");
+    if(localStorage.getItem("isLogin") !== "true"){
+        alert("Anda harus login terlebih dahulu!");
         showPage("login");
+        return;
     }
+    showPage(id);
 }
 
+/* REGISTER */
 function register(){
     var first = regFirst.value.trim();
     var last = regLast.value.trim();
@@ -237,18 +27,26 @@ function register(){
         return;
     }
 
+    if(localStorage.getItem("user")){
+        alert("Akun sudah terdaftar! Silakan login.");
+        showPage("login");
+        return;
+    }
+
     localStorage.setItem("user", JSON.stringify({first,last,email,phone,password}));
     alert("Pendaftaran berhasil! Silakan login.");
     showPage("login");
 }
 
+/* LOGIN */
 function login(){
     var email = loginEmail.value.trim().toLowerCase();
     var password = loginPassword.value.trim();
     var saved = localStorage.getItem("user");
 
     if(!saved){
-        alert("Silakan daftar terlebih dahulu!");
+        alert("Anda belum terdaftar! Silakan daftar dulu.");
+        showPage("register");
         return;
     }
 
@@ -256,28 +54,28 @@ function login(){
 
     if(email === user.email && password === user.password){
         localStorage.setItem("isLogin","true");
-        navbar.style.display="flex";
+        document.getElementById("navbar").style.display="flex";
         showPage("home");
     }else{
         alert("Email atau Password salah!");
     }
 }
 
+/* LOGOUT */
 function logout(){
     localStorage.removeItem("isLogin");
-    navbar.style.display="none";
+    document.getElementById("navbar").style.display="none";
     showPage("login");
 }
 
+/* PROTEKSI SAAT HALAMAN DIBUKA */
 window.onload = function(){
     if(localStorage.getItem("isLogin") === "true"){
-        navbar.style.display="flex";
+        document.getElementById("navbar").style.display="flex";
         showPage("home");
     }else{
+        document.getElementById("navbar").style.display="none";
         showPage("login");
     }
 }
 </script>
-
-</body>
-</html>
