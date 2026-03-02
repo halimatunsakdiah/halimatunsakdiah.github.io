@@ -13,7 +13,7 @@ body{
     text-align:center;
 }
 
-/* ✅ NAVIGASI RATA KIRI */
+/* NAVIGASI */
 nav{
     background: linear-gradient(90deg, #141e30, #243b55);
     padding:15px 30px;
@@ -48,7 +48,7 @@ nav a:hover{
     box-shadow:0 8px 20px rgba(0,0,0,0.3);
 }
 
-input, textarea{
+input{
     width:90%;
     padding:8px;
     margin:5px;
@@ -75,14 +75,7 @@ button:hover{
     color:white;
 }
 
-#profil{
-    text-align:left;
-    width:60%;
-    margin:50px auto;
-    line-height:1.6;
-}
-
-h1, h2, h3, p{
+h1, h2, p{
     color:white;
 }
 
@@ -142,7 +135,6 @@ h1, h2, h3, p{
 <div id="home" class="page">
     <h1>Selamat Datang di ANANTYA PUSTAKA</h1>
     <h2>Perpustakaan Sebagai Pusat Informasi</h2>
-    
 </div>
 
 <!-- ADMIN -->
@@ -153,10 +145,8 @@ h1, h2, h3, p{
 
 <!-- PROFIL -->
 <div id="profil" class="page">
-    <h2>Profil Perpustakaan</h2>
-    <p><strong>Nama:</strong> ANANTYA PUSTAKA</p>
-    <p><strong>Visi:</strong> Menjadi pusat literasi inovatif.</p>
-    <p><strong>Misi:</strong> Meningkatkan budaya baca dan informasi.</p>
+    <h2>Profil Admin</h2>
+    <p><strong>Nama:</strong> Halimatun Sakdiah Hrp</p>
 </div>
 
 <!-- KOLEKSI -->
@@ -178,12 +168,10 @@ h1, h2, h3, p{
 </div>
 
 <!-- CONTACT -->
-<div id="contact" class="page box">
-    <h2 style="color:#333;">Contact Us</h2>
-    <input type="text" id="nama" placeholder="Nama"><br>
-    <input type="email" id="email" placeholder="Email"><br>
-    <textarea id="pesan" placeholder="Pesan" rows="4"></textarea><br>
-    <button onclick="kirimWA()">Kirim</button>
+<div id="contact" class="page">
+    <h2>Contact Us</h2>
+    <p><strong>Email:</strong> halimaharahap555@gmail.com</p>
+    <p><strong>WhatsApp:</strong> 082166448371</p>
 </div>
 
 </div>
@@ -238,23 +226,6 @@ function login(){
 function logout(){
     document.getElementById("navbar").style.display="none";
     showPage("login");
-}
-
-function kirimWA(){
-    var nama = document.getElementById("nama").value;
-    var email = document.getElementById("email").value;
-    var pesan = document.getElementById("pesan").value;
-
-    if(nama==="" || email==="" || pesan===""){
-        alert("Semua data harus diisi!");
-        return;
-    }
-
-    var text = "Halo, saya " + nama +
-               "%0AEmail: " + email +
-               "%0APesan: " + pesan;
-
-    window.open("https://wa.me/6282166448371?text=" + text, "_blank");
 }
 
 window.onload = function(){
