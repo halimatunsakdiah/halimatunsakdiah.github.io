@@ -7,228 +7,171 @@
 
 <style>
 body{
-    font-family: Georgia, serif;
+    font-family: Arial, sans-serif;
     margin:0;
-    background:#F5EFE0;
-    color:#3E1F00;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    text-align:center;
+    color:white;
 }
 
-/* NAVBAR */
 nav{
-    background:#3E1F00;
-    padding:15px 30px;
+    background: rgba(0,0,0,0.3);
+    padding:15px;
     display:none;
+    justify-content:center;
     gap:25px;
 }
 
 nav a{
-    color:#F5EFE0;
+    color:white;
     text-decoration:none;
     font-weight:bold;
     cursor:pointer;
 }
 
 nav a:hover{
-    color:#C49A3C;
+    color:#ffd369;
 }
 
-/* HERO */
-.hero{
-    background:#3E1F00;
-    color:#F5EFE0;
-    padding:60px 40px;
-    text-align:center;
+.container{
+    padding:40px 20px;
 }
 
-.hero h1{
-    margin:0;
-}
-
-.hero p{
-    color:#C49A3C;
-}
-
-/* BOX */
-.box{
-    background:white;
-    width:380px;
-    margin:60px auto;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 8px 20px rgba(62,31,0,0.2);
-    border-top:5px solid #C49A3C;
-    text-align:center;
-}
-
-input{
-    width:90%;
-    padding:10px;
-    margin:8px;
-    border-radius:6px;
-    border:1px solid #C49A3C;
+.page{
+    display:none;
 }
 
 button{
-    padding:10px 18px;
-    background:#C49A3C;
-    color:white;
+    padding:10px 20px;
     border:none;
-    border-radius:6px;
+    border-radius:8px;
+    background:#ffd369;
     cursor:pointer;
     font-weight:bold;
 }
 
 button:hover{
-    background:#A67C2E;
+    background:#ffb703;
 }
 
-/* PAGE */
-.page{
-    display:none;
-    padding:40px;
+input{
+    padding:10px;
+    border-radius:8px;
+    border:none;
+    margin:5px;
 }
 
-footer{
-    background:#3E1F00;
-    color:#F5EFE0;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
-}
-
-footer span{
-    color:#C49A3C;
+iframe{
+    margin-top:20px;
+    border-radius:12px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="hero">
-    <h1>ANANTYA PUSTAKA</h1>
-    <p>Ilmu Tanpa Batas • Ruang Literasi Modern & Elegan</p>
+<!-- LOGIN -->
+<div id="loginPage" class="container">
+    <h2>Login ANANTYA PUSTAKA</h2>
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <button onclick="login()">Login</button>
 </div>
 
+<!-- NAVBAR -->
 <nav id="navbar">
     <a onclick="openPage('home')">Beranda</a>
-    <a onclick="openPage('profil')">Profil</a>
+    <a onclick="openPage('koleksi')">Koleksi</a>
+    <a onclick="openPage('layanan')">Layanan</a>
+    <a onclick="openPage('about')">About Us</a>
     <a onclick="logout()">Logout</a>
 </nav>
 
-<div id="login" class="page">
-    <div class="box">
-        <h2>Login</h2>
-        <input type="email" id="loginEmail" placeholder="Email"><br>
-        <input type="password" id="loginPassword" placeholder="Password"><br>
-        <button onclick="login()">Login</button>
-        <p>Belum punya akun?
-        <a href="#" onclick="showPage('register')">Daftar di sini</a></p>
+<div class="container">
+
+    <!-- BERANDA (SUDAH TERMASUK PROFIL) -->
+    <div id="home" class="page">
+        <h2>Selamat Datang di ANANTYA PUSTAKA</h2>
+        <p>Ruang literasi modern dengan ilmu tanpa batas.</p>
+
+        <hr style="margin:40px 0;">
+
+        <h2>Profil Admin</h2>
+        <p><strong>Nama:</strong> Halimatun Sakdiah Hrp</p>
+
+        <p>
+            <a href="https://www.instagram.com/halima_harahap7" target="_blank" style="color:#ffd369; font-weight:bold;">
+                Instagram Saya
+            </a>
+        </p>
+
+        <p>
+            <a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank" style="color:#ffd369; font-weight:bold;">
+                Curriculum Vitae
+            </a>
+        </p>
+
+        <h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
+
+        <iframe width="60%" height="315"
+            src="https://www.youtube.com/embed/RY8nUjY83wA"
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
     </div>
-</div>
 
-<div id="register" class="page">
-    <div class="box">
-        <h2>Register</h2>
-
-        <input type="text" id="firstName" placeholder="First Name"><br>
-        <input type="text" id="lastName" placeholder="Last Name"><br>
-        <input type="email" id="regEmail" placeholder="Email"><br>
-        <input type="tel" id="phone" placeholder="No HP"><br>
-        <input type="password" id="regPassword" placeholder="Password"><br>
-
-        <button onclick="register()">Daftar</button>
-
-        <p>Sudah punya akun?
-        <a href="#" onclick="showPage('login')">Login</a></p>
+    <!-- KOLEKSI -->
+    <div id="koleksi" class="page">
+        <h2>Koleksi Buku</h2>
+        <p>📚 Novel</p>
+        <p>📘 Buku Pendidikan</p>
+        <p>📗 Buku Teknologi</p>
+        <p>📕 Buku Sejarah</p>
     </div>
-</div>
 
-<div id="home" class="page">
-    <h2>Selamat Datang di ANANTYA PUSTAKA</h2>
-    <p>Perpustakaan sebagai pusat informasi dan ilmu tanpa batas.</p>
-</div>
+    <!-- LAYANAN -->
+    <div id="layanan" class="page">
+        <h2>Layanan</h2>
+        <p>📖 Peminjaman Buku</p>
+        <p>💻 Akses Digital</p>
+        <p>🖨️ Cetak & Scan</p>
+    </div>
 
-<div id="profil" class="page">
-    <h2>Profil Admin</h2>
-    <p><strong>Nama:</strong> Halimatun Sakdiah Hrp</p>
-</div>
+    <!-- ABOUT -->
+    <div id="about" class="page">
+        <h2>About Us</h2>
+        <p>ANANTYA PUSTAKA adalah perpustakaan yang menghadirkan akses ilmu tanpa batas dengan suasana hangat dan elegan.</p>
+    </div>
 
-<footer>
-    © 2026 <span>ANANTYA PUSTAKA</span>
-</footer>
+</div>
 
 <script>
-function showPage(id){
-    document.querySelectorAll(".page").forEach(function(p){
-        p.style.display="none";
-    });
-    document.getElementById(id).style.display="block";
-}
-
-function register(){
-    var firstName = document.getElementById("firstName").value;
-    var lastName = document.getElementById("lastName").value;
-    var email = document.getElementById("regEmail").value;
-    var phone = document.getElementById("phone").value;
-    var password = document.getElementById("regPassword").value;
-
-    if(!firstName || !lastName || !email || !phone || !password){
-        alert("Semua data harus diisi!");
-        return;
-    }
-
-    var userData = {
-        firstName:firstName,
-        lastName:lastName,
-        email:email,
-        phone:phone,
-        password:password
-    };
-
-    localStorage.setItem("user", JSON.stringify(userData));
-    alert("Pendaftaran berhasil! Silakan login.");
-    showPage("login");
-}
-
 function login(){
-    var email = document.getElementById("loginEmail").value;
-    var password = document.getElementById("loginPassword").value;
-    var saved = localStorage.getItem("user");
+    var user = document.getElementById("username").value;
+    var pass = document.getElementById("password").value;
 
-    if(!saved){
-        alert("Belum terdaftar! Silakan daftar dulu.");
-        showPage("register");
-        return;
-    }
-
-    var user = JSON.parse(saved);
-
-    if(email === user.email && password === user.password){
-        sessionStorage.setItem("isLogin","true");
+    if(user !== "" && pass !== ""){
+        document.getElementById("loginPage").style.display="none";
         document.getElementById("navbar").style.display="flex";
         showPage("home");
-    }else{
-        alert("Email atau Password salah!");
+    } else {
+        alert("Silakan isi username dan password");
     }
-}
-
-function openPage(id){
-    if(sessionStorage.getItem("isLogin") !== "true"){
-        alert("Silakan login terlebih dahulu!");
-        showPage("login");
-        return;
-    }
-    showPage(id);
 }
 
 function logout(){
-    sessionStorage.removeItem("isLogin");
+    document.getElementById("loginPage").style.display="block";
     document.getElementById("navbar").style.display="none";
-    showPage("login");
+    document.querySelectorAll(".page").forEach(p => p.style.display="none");
 }
 
-window.onload = function(){
-    showPage("login");
+function showPage(id){
+    document.querySelectorAll(".page").forEach(p => p.style.display="none");
+    document.getElementById(id).style.display="block";
+}
+
+function openPage(id){
+    showPage(id);
 }
 </script>
 
