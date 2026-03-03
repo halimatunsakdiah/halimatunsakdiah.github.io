@@ -7,28 +7,29 @@
 
 <style>
 body{
-    font-family: Arial, sans-serif;
+    font-family: Georgia, serif;
     margin:0;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background:#F5EFE0;
+    color:#3E1F00;
 }
 
 /* NAVBAR */
 nav{
-    background: linear-gradient(90deg, #141e30, #243b55);
+    background:#3E1F00;
     padding:15px 30px;
     display:none;
     gap:20px;
 }
 
 nav a{
-    color:white;
+    color:#F5EFE0;
     text-decoration:none;
     font-weight:bold;
     cursor:pointer;
 }
 
 nav a:hover{
-    color:#ffd369;
+    color:#C49A3C;
 }
 
 .container{
@@ -40,46 +41,74 @@ nav a:hover{
     background:white;
     width:350px;
     margin:auto;
-    padding:20px;
+    padding:25px;
     border-radius:12px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    box-shadow:0 8px 20px rgba(62,31,0,0.2);
     text-align:center;
+    border-top:5px solid #C49A3C;
 }
 
 input{
     width:90%;
-    padding:8px;
-    margin:5px;
+    padding:10px;
+    margin:8px;
     border-radius:6px;
-    border:1px solid #ccc;
+    border:1px solid #C49A3C;
+}
+
+input:focus{
+    outline:none;
+    border:1px solid #3E1F00;
 }
 
 button{
-    padding:8px 15px;
-    background: linear-gradient(90deg, #ff512f, #dd2476);
+    padding:10px 18px;
+    background:#C49A3C;
     color:white;
     border:none;
     border-radius:6px;
     cursor:pointer;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#A67C2E;
 }
 
 /* SEMUA HALAMAN */
 .page{
     display:none;
-    color:white;
-    text-align:left;
     padding:40px;
 }
 
-h1,h2,h3,p{
-    text-align:left;
+h1,h2,h3{
+    color:#3E1F00;
+}
+
+h1{
+    border-bottom:3px solid #C49A3C;
+    display:inline-block;
+    padding-bottom:5px;
+}
+
+a{
+    color:#C49A3C;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+a:hover{
+    color:#3E1F00;
 }
 
 #profil iframe{
     margin-top:20px;
+    border:5px solid #C49A3C;
+    border-radius:10px;
 }
 </style>
 </head>
+
 <body>
 
 <nav id="navbar">
@@ -96,11 +125,11 @@ h1,h2,h3,p{
 <!-- LOGIN -->
 <div id="login" class="page">
     <div class="box">
-        <h2 style="color:#333;">Login</h2>
+        <h2>Login</h2>
         <input type="email" id="loginEmail" placeholder="Email"><br>
         <input type="password" id="loginPassword" placeholder="Password"><br>
         <button onclick="login()">Login</button>
-        <p style="color:#333;">Belum punya akun?
+        <p>Belum punya akun?
         <a href="#" onclick="showPage('register')">Daftar di sini</a></p>
     </div>
 </div>
@@ -108,12 +137,12 @@ h1,h2,h3,p{
 <!-- REGISTER -->
 <div id="register" class="page">
     <div class="box">
-        <h2 style="color:#333;">Register</h2>
+        <h2>Register</h2>
         <input type="text" id="regName" placeholder="Nama Lengkap"><br>
         <input type="email" id="regEmail" placeholder="Email"><br>
         <input type="password" id="regPassword" placeholder="Password"><br>
         <button onclick="register()">Daftar</button>
-        <p style="color:#333;">Sudah punya akun?
+        <p>Sudah punya akun?
         <a href="#" onclick="showPage('login')">Login</a></p>
     </div>
 </div>
@@ -121,7 +150,7 @@ h1,h2,h3,p{
 <!-- HOME -->
 <div id="home" class="page">
     <h1>Selamat Datang di ANANTYA PUSTAKA</h1>
-    <h2>Perpustakaan Sebagai Pusat Informasi</h2>
+    <h2>Perpustakaan Sebagai Pusat Informasi dan Ilmu Tanpa Batas</h2>
 </div>
 
 <!-- PROFIL -->
@@ -130,13 +159,13 @@ h1,h2,h3,p{
     <p><strong>Nama:</strong> Halimatun Sakdiah Hrp</p>
 
     <p>
-        <a href="https://www.instagram.com/halima_harahap7" target="_blank" style="color:#ffd369;">
+        <a href="https://www.instagram.com/halima_harahap7" target="_blank">
             Instagram Saya
         </a>
     </p>
 
     <p>
-        <a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank" style="color:#ffd369;">
+        <a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank">
             Curriculum Vitae
         </a>
     </p>
