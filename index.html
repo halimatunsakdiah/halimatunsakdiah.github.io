@@ -19,7 +19,6 @@ nav{
     padding:15px 30px;
     display:none;
     gap:25px;
-    align-items:center;
 }
 
 nav a{
@@ -27,7 +26,6 @@ nav a{
     text-decoration:none;
     font-weight:bold;
     cursor:pointer;
-    transition:0.3s;
 }
 
 nav a:hover{
@@ -43,31 +41,23 @@ nav a:hover{
 }
 
 .hero h1{
-    font-size:36px;
     margin:0;
 }
 
 .hero p{
-    font-size:18px;
-    margin-top:10px;
     color:#C49A3C;
 }
 
-/* CONTAINER */
-.container{
-    min-height:70vh;
-}
-
-/* LOGIN & REGISTER BOX */
+/* BOX */
 .box{
     background:white;
-    width:350px;
+    width:380px;
     margin:60px auto;
     padding:25px;
     border-radius:12px;
     box-shadow:0 8px 20px rgba(62,31,0,0.2);
-    text-align:center;
     border-top:5px solid #C49A3C;
+    text-align:center;
 }
 
 input{
@@ -78,11 +68,6 @@ input{
     border:1px solid #C49A3C;
 }
 
-input:focus{
-    outline:none;
-    border:1px solid #3E1F00;
-}
-
 button{
     padding:10px 18px;
     background:#C49A3C;
@@ -91,49 +76,18 @@ button{
     border-radius:6px;
     cursor:pointer;
     font-weight:bold;
-    transition:0.3s;
 }
 
 button:hover{
     background:#A67C2E;
-    transform:scale(1.05);
 }
 
-/* HALAMAN */
+/* PAGE */
 .page{
     display:none;
     padding:40px;
-    animation: fade 0.5s ease-in-out;
 }
 
-@keyframes fade{
-    from{opacity:0;}
-    to{opacity:1;}
-}
-
-h2{
-    border-bottom:3px solid #C49A3C;
-    display:inline-block;
-    padding-bottom:5px;
-}
-
-a{
-    color:#C49A3C;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-a:hover{
-    color:#3E1F00;
-}
-
-iframe{
-    margin-top:20px;
-    border:5px solid #C49A3C;
-    border-radius:10px;
-}
-
-/* FOOTER */
 footer{
     background:#3E1F00;
     color:#F5EFE0;
@@ -158,13 +112,8 @@ footer span{
 <nav id="navbar">
     <a onclick="openPage('home')">Beranda</a>
     <a onclick="openPage('profil')">Profil</a>
-    <a onclick="openPage('layanan')">Layanan</a>
-    <a onclick="openPage('koleksi')">Koleksi</a>
-    <a onclick="openPage('contact')">Contact</a>
     <a onclick="logout()">Logout</a>
 </nav>
-
-<div class="container">
 
 <div id="login" class="page">
     <div class="box">
@@ -180,58 +129,32 @@ footer span{
 <div id="register" class="page">
     <div class="box">
         <h2>Register</h2>
-        <input type="text" id="regName" placeholder="Nama Lengkap"><br>
+
+        <input type="text" id="firstName" placeholder="First Name"><br>
+        <input type="text" id="lastName" placeholder="Last Name"><br>
         <input type="email" id="regEmail" placeholder="Email"><br>
+        <input type="tel" id="phone" placeholder="No HP"><br>
         <input type="password" id="regPassword" placeholder="Password"><br>
+
         <button onclick="register()">Daftar</button>
+
         <p>Sudah punya akun?
         <a href="#" onclick="showPage('login')">Login</a></p>
     </div>
 </div>
 
 <div id="home" class="page">
-    <h2>Selamat Datang</h2>
-    <p>ANANTYA PUSTAKA adalah perpustakaan yang menghadirkan akses informasi, literasi, dan pengetahuan tanpa batas bagi seluruh masyarakat.</p>
+    <h2>Selamat Datang di ANANTYA PUSTAKA</h2>
+    <p>Perpustakaan sebagai pusat informasi dan ilmu tanpa batas.</p>
 </div>
 
 <div id="profil" class="page">
     <h2>Profil Admin</h2>
     <p><strong>Nama:</strong> Halimatun Sakdiah Hrp</p>
-    <p><a href="https://www.instagram.com/halima_harahap7" target="_blank">Instagram Saya</a></p>
-    <p><a href="https://drive.google.com" target="_blank">Curriculum Vitae</a></p>
-    <h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
-
-    <iframe width="60%" height="315"
-        src="https://www.youtube.com/embed/RY8nUjY83wA"
-        frameborder="0"
-        allowfullscreen>
-    </iframe>
-</div>
-
-<div id="koleksi" class="page">
-    <h2>Koleksi Buku</h2>
-    <p>📚 Novel</p>
-    <p>📘 Buku Pendidikan</p>
-    <p>📗 Buku Teknologi</p>
-    <p>📕 Buku Sejarah</p>
-</div>
-
-<div id="layanan" class="page">
-    <h2>Layanan</h2>
-    <p>📖 Peminjaman Buku</p>
-    <p>💻 Akses Digital</p>
-    <p>🖨️ Layanan Cetak & Scan</p>
-</div>
-
-<div id="contact" class="page">
-    <h2>Contact Us</h2>
-    <p>Email: halimaharahap555@gmail.com</p>
-</div>
-
 </div>
 
 <footer>
-    © 2026 <span>ANANTYA PUSTAKA</span> | Ilmu Tanpa Batas
+    © 2026 <span>ANANTYA PUSTAKA</span>
 </footer>
 
 <script>
@@ -242,26 +165,27 @@ function showPage(id){
     document.getElementById(id).style.display="block";
 }
 
-function openPage(id){
-    if(sessionStorage.getItem("isLogin") !== "true"){
-        alert("Silakan login terlebih dahulu!");
-        showPage("login");
-        return;
-    }
-    showPage(id);
-}
-
 function register(){
-    var name = document.getElementById("regName").value;
+    var firstName = document.getElementById("firstName").value;
+    var lastName = document.getElementById("lastName").value;
     var email = document.getElementById("regEmail").value;
+    var phone = document.getElementById("phone").value;
     var password = document.getElementById("regPassword").value;
 
-    if(!name || !email || !password){
+    if(!firstName || !lastName || !email || !phone || !password){
         alert("Semua data harus diisi!");
         return;
     }
 
-    localStorage.setItem("user", JSON.stringify({name,email,password}));
+    var userData = {
+        firstName:firstName,
+        lastName:lastName,
+        email:email,
+        phone:phone,
+        password:password
+    };
+
+    localStorage.setItem("user", JSON.stringify(userData));
     alert("Pendaftaran berhasil! Silakan login.");
     showPage("login");
 }
@@ -288,6 +212,15 @@ function login(){
     }
 }
 
+function openPage(id){
+    if(sessionStorage.getItem("isLogin") !== "true"){
+        alert("Silakan login terlebih dahulu!");
+        showPage("login");
+        return;
+    }
+    showPage(id);
+}
+
 function logout(){
     sessionStorage.removeItem("isLogin");
     document.getElementById("navbar").style.display="none";
@@ -295,7 +228,6 @@ function logout(){
 }
 
 window.onload = function(){
-    document.getElementById("navbar").style.display="none";
     showPage("login");
 }
 </script>
