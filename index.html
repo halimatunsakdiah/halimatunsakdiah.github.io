@@ -18,7 +18,8 @@ nav{
     background:#3E1F00;
     padding:15px 30px;
     display:none;
-    gap:20px;
+    gap:25px;
+    align-items:center;
 }
 
 nav a{
@@ -26,21 +27,42 @@ nav a{
     text-decoration:none;
     font-weight:bold;
     cursor:pointer;
+    transition:0.3s;
 }
 
 nav a:hover{
     color:#C49A3C;
 }
 
+/* HERO */
+.hero{
+    background:#3E1F00;
+    color:#F5EFE0;
+    padding:60px 40px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:36px;
+    margin:0;
+}
+
+.hero p{
+    font-size:18px;
+    margin-top:10px;
+    color:#C49A3C;
+}
+
+/* CONTAINER */
 .container{
-    margin-top:40px;
+    min-height:70vh;
 }
 
 /* LOGIN & REGISTER BOX */
 .box{
     background:white;
     width:350px;
-    margin:auto;
+    margin:60px auto;
     padding:25px;
     border-radius:12px;
     box-shadow:0 8px 20px rgba(62,31,0,0.2);
@@ -69,23 +91,27 @@ button{
     border-radius:6px;
     cursor:pointer;
     font-weight:bold;
+    transition:0.3s;
 }
 
 button:hover{
     background:#A67C2E;
+    transform:scale(1.05);
 }
 
-/* SEMUA HALAMAN */
+/* HALAMAN */
 .page{
     display:none;
     padding:40px;
+    animation: fade 0.5s ease-in-out;
 }
 
-h1,h2,h3{
-    color:#3E1F00;
+@keyframes fade{
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
-h1{
+h2{
     border-bottom:3px solid #C49A3C;
     display:inline-block;
     padding-bottom:5px;
@@ -101,28 +127,45 @@ a:hover{
     color:#3E1F00;
 }
 
-#profil iframe{
+iframe{
     margin-top:20px;
     border:5px solid #C49A3C;
     border-radius:10px;
+}
+
+/* FOOTER */
+footer{
+    background:#3E1F00;
+    color:#F5EFE0;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+footer span{
+    color:#C49A3C;
 }
 </style>
 </head>
 
 <body>
 
+<div class="hero">
+    <h1>ANANTYA PUSTAKA</h1>
+    <p>Ilmu Tanpa Batas • Ruang Literasi Modern & Elegan</p>
+</div>
+
 <nav id="navbar">
     <a onclick="openPage('home')">Beranda</a>
     <a onclick="openPage('profil')">Profil</a>
     <a onclick="openPage('layanan')">Layanan</a>
     <a onclick="openPage('koleksi')">Koleksi</a>
-    <a onclick="openPage('contact')">Contact Us</a>
+    <a onclick="openPage('contact')">Contact</a>
     <a onclick="logout()">Logout</a>
 </nav>
 
 <div class="container">
 
-<!-- LOGIN -->
 <div id="login" class="page">
     <div class="box">
         <h2>Login</h2>
@@ -134,7 +177,6 @@ a:hover{
     </div>
 </div>
 
-<!-- REGISTER -->
 <div id="register" class="page">
     <div class="box">
         <h2>Register</h2>
@@ -147,29 +189,16 @@ a:hover{
     </div>
 </div>
 
-<!-- HOME -->
 <div id="home" class="page">
-    <h1>Selamat Datang di ANANTYA PUSTAKA</h1>
-    <h2>Perpustakaan Sebagai Pusat Informasi dan Ilmu Tanpa Batas</h2>
+    <h2>Selamat Datang</h2>
+    <p>ANANTYA PUSTAKA adalah perpustakaan yang menghadirkan akses informasi, literasi, dan pengetahuan tanpa batas bagi seluruh masyarakat.</p>
 </div>
 
-<!-- PROFIL -->
 <div id="profil" class="page">
     <h2>Profil Admin</h2>
     <p><strong>Nama:</strong> Halimatun Sakdiah Hrp</p>
-
-    <p>
-        <a href="https://www.instagram.com/halima_harahap7" target="_blank">
-            Instagram Saya
-        </a>
-    </p>
-
-    <p>
-        <a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank">
-            Curriculum Vitae
-        </a>
-    </p>
-
+    <p><a href="https://www.instagram.com/halima_harahap7" target="_blank">Instagram Saya</a></p>
+    <p><a href="https://drive.google.com" target="_blank">Curriculum Vitae</a></p>
     <h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
 
     <iframe width="60%" height="315"
@@ -179,7 +208,6 @@ a:hover{
     </iframe>
 </div>
 
-<!-- KOLEKSI -->
 <div id="koleksi" class="page">
     <h2>Koleksi Buku</h2>
     <p>📚 Novel</p>
@@ -188,20 +216,23 @@ a:hover{
     <p>📕 Buku Sejarah</p>
 </div>
 
-<!-- LAYANAN -->
 <div id="layanan" class="page">
-    <h2>Layanan Perpustakaan</h2>
+    <h2>Layanan</h2>
     <p>📖 Peminjaman Buku</p>
     <p>💻 Akses Digital</p>
+    <p>🖨️ Layanan Cetak & Scan</p>
 </div>
 
-<!-- CONTACT -->
 <div id="contact" class="page">
     <h2>Contact Us</h2>
     <p>Email: halimaharahap555@gmail.com</p>
 </div>
 
 </div>
+
+<footer>
+    © 2026 <span>ANANTYA PUSTAKA</span> | Ilmu Tanpa Batas
+</footer>
 
 <script>
 function showPage(id){
