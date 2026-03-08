@@ -50,7 +50,7 @@ nav a:hover{
     color:#C49A3C;
 }
 
-/* LOGIN & REGISTER BOX */
+/* LOGIN & REGISTER */
 .box{
     background:white;
     width:400px;
@@ -62,7 +62,7 @@ nav a:hover{
     text-align:center;
 }
 
-input{
+input, textarea{
     width:90%;
     padding:10px;
     margin:8px;
@@ -97,6 +97,15 @@ iframe{
     border-radius:10px;
 }
 
+/* FORUM */
+.topik{
+    background:white;
+    padding:15px;
+    margin:10px 0;
+    border-radius:10px;
+    border-left:5px solid #C49A3C;
+}
+
 /* FOOTER */
 footer{
     background:#3E1F00;
@@ -114,181 +123,249 @@ footer span{
 <body>
 
 <div class="hero">
-    <h1>ANANTYA PUSTAKA</h1>
-    <p>Ilmu Tanpa Batas • Ruang Literasi Modern & Elegan</p>
+<h1>ANANTYA PUSTAKA</h1>
+<p>Ilmu Tanpa Batas • Ruang Literasi Modern & Elegan</p>
 </div>
 
 <nav id="navbar">
-    <a onclick="openPage('home')">Beranda</a>
-    <a onclick="openPage('koleksi')">Koleksi</a>
-    <a onclick="openPage('layanan')">Layanan</a>
-    <a onclick="openPage('about')">About Us</a>
-    <a onclick="openPage('profil')">Profil</a>
-    <a onclick="logout()">Logout</a>
+<a onclick="openPage('home')">Beranda</a>
+<a onclick="openPage('koleksi')">Koleksi</a>
+<a onclick="openPage('layanan')">Layanan</a>
+<a onclick="openPage('forum')">Forum</a>
+<a onclick="openPage('about')">About Us</a>
+<a onclick="openPage('profil')">Profil</a>
+<a onclick="logout()">Logout</a>
 </nav>
 
 <!-- LOGIN -->
 <div id="login" class="page">
-    <div class="box">
-        <h2>Login</h2>
-        <input type="email" id="loginEmail" placeholder="Email"><br>
-        <input type="password" id="loginPassword" placeholder="Password"><br>
-        <button onclick="login()">Login</button>
-        <p>Belum punya akun?
-        <a href="#" onclick="showPage('register')">Daftar di sini</a></p>
-    </div>
+<div class="box">
+<h2>Login</h2>
+<input type="email" id="loginEmail" placeholder="Email"><br>
+<input type="password" id="loginPassword" placeholder="Password"><br>
+<button onclick="login()">Login</button>
+<p>Belum punya akun?
+<a href="#" onclick="showPage('register')">Daftar di sini</a></p>
+</div>
 </div>
 
 <!-- REGISTER -->
 <div id="register" class="page">
-    <div class="box">
-        <h2>Register</h2>
+<div class="box">
+<h2>Register</h2>
 
-        <input type="text" id="firstName" placeholder="First Name"><br>
-        <input type="text" id="lastName" placeholder="Last Name"><br>
-        <input type="email" id="regEmail" placeholder="Email"><br>
-        <input type="tel" id="phone" placeholder="No HP"><br>
-        <input type="password" id="regPassword" placeholder="Password"><br>
+<input type="text" id="firstName" placeholder="First Name"><br>
+<input type="text" id="lastName" placeholder="Last Name"><br>
+<input type="email" id="regEmail" placeholder="Email"><br>
+<input type="tel" id="phone" placeholder="No HP"><br>
+<input type="password" id="regPassword" placeholder="Password"><br>
 
-        <button onclick="register()">Daftar</button>
+<button onclick="register()">Daftar</button>
 
-        <p>Sudah punya akun?
-        <a href="#" onclick="showPage('login')">Login</a></p>
-    </div>
+<p>Sudah punya akun?
+<a href="#" onclick="showPage('login')">Login</a></p>
+</div>
 </div>
 
 <!-- BERANDA -->
 <div id="home" class="page">
-    <h2>Beranda</h2>
-    <p>Selamat datang di ANANTYA PUSTAKA. Perpustakaan sebagai pusat informasi dan ilmu tanpa batas.</p>
+<h2>Beranda</h2>
+<p>Selamat datang di ANANTYA PUSTAKA. Perpustakaan sebagai pusat informasi dan ilmu tanpa batas.</p>
 </div>
 
 <!-- KOLEKSI -->
 <div id="koleksi" class="page">
-    <h2>Koleksi</h2>
-    <p>📚 Novel</p>
-    <p>📘 Buku Pendidikan</p>
-    <p>📗 Buku Teknologi</p>
-    <p>📕 Buku Sejarah</p>
+<h2>Koleksi</h2>
+<p>📚 Novel</p>
+<p>📘 Buku Pendidikan</p>
+<p>📗 Buku Teknologi</p>
+<p>📕 Buku Sejarah</p>
 </div>
 
 <!-- LAYANAN -->
 <div id="layanan" class="page">
-    <h2>Layanan</h2>
-    <p>📖 Peminjaman Buku</p>
-    <p>💻 Akses Digital</p>
-    <p>🖨️ Cetak & Scan</p>
+<h2>Layanan</h2>
+<p>📖 Peminjaman Buku</p>
+<p>💻 Akses Digital</p>
+<p>🖨️ Cetak & Scan</p>
+</div>
+
+<!-- FORUM -->
+<div id="forum" class="page">
+<h2>Forum Diskusi</h2>
+<p>Buat topik diskusi tentang buku, literasi, atau pengetahuan.</p>
+
+<div class="box">
+<h3>Buat Topik Diskusi</h3>
+<input type="text" id="judulTopik" placeholder="Judul Topik"><br>
+<textarea id="isiTopik" placeholder="Tulis diskusi..." style="height:100px;"></textarea><br>
+<button onclick="buatTopik()">Posting Diskusi</button>
+</div>
+
+<h3>Daftar Diskusi</h3>
+<div id="daftarTopik"></div>
 </div>
 
 <!-- ABOUT -->
 <div id="about" class="page">
-    <h2>About Us</h2>
-    <p>ANANTYA PUSTAKA hadir sebagai ruang literasi yang hangat, klasik, dan modern untuk seluruh masyarakat.</p>
+<h2>About Us</h2>
+<p>ANANTYA PUSTAKA hadir sebagai ruang literasi yang hangat, klasik, dan modern untuk seluruh masyarakat.</p>
 </div>
 
 <!-- PROFIL -->
 <div id="profil" class="page">
-    <h2>Profil Admin</h2>
-    <p><strong>Nama:</strong> Halimatun Sakdiah Hrp</p>
+<h2>Profil Admin</h2>
+<p><strong>Nama:</strong> Halimatun Sakdiah Hrp</p>
 
-    <p>
-        <a href="https://www.instagram.com/halima_harahap7" target="_blank">
-            Instagram Saya
-        </a>
-    </p>
+<p>
+<a href="https://www.instagram.com/halima_harahap7" target="_blank">
+Instagram Saya
+</a>
+</p>
 
-    <p>
-        <a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank">
-            Curriculum Vitae
-        </a>
-    </p>
+<p>
+<a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank">
+Curriculum Vitae
+</a>
+</p>
 
-    <h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
+<h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
 
-    <iframe width="60%" height="315"
-        src="https://www.youtube.com/embed/RY8nUjY83wA"
-        frameborder="0"
-        allowfullscreen>
-    </iframe>
+<iframe width="60%" height="315"
+src="https://www.youtube.com/embed/RY8nUjY83wA"
+allowfullscreen></iframe>
 </div>
 
 <footer>
-    © 2026 <span>ANANTYA PUSTAKA</span>
+© 2026 <span>ANANTYA PUSTAKA</span>
 </footer>
 
 <script>
+
 function showPage(id){
-    document.querySelectorAll(".page").forEach(function(p){
-        p.style.display="none";
-    });
-    document.getElementById(id).style.display="block";
+document.querySelectorAll(".page").forEach(function(p){
+p.style.display="none";
+});
+document.getElementById(id).style.display="block";
 }
 
 function register(){
-    var firstName = document.getElementById("firstName").value;
-    var lastName = document.getElementById("lastName").value;
-    var email = document.getElementById("regEmail").value;
-    var phone = document.getElementById("phone").value;
-    var password = document.getElementById("regPassword").value;
 
-    if(!firstName || !lastName || !email || !phone || !password){
-        alert("Semua data harus diisi!");
-        return;
-    }
+var userData={
+firstName:document.getElementById("firstName").value,
+lastName:document.getElementById("lastName").value,
+email:document.getElementById("regEmail").value,
+phone:document.getElementById("phone").value,
+password:document.getElementById("regPassword").value
+};
 
-    var userData = {
-        firstName:firstName,
-        lastName:lastName,
-        email:email,
-        phone:phone,
-        password:password
-    };
+if(!userData.firstName || !userData.lastName || !userData.email || !userData.phone || !userData.password){
+alert("Semua data harus diisi!");
+return;
+}
 
-    localStorage.setItem("user", JSON.stringify(userData));
-    alert("Pendaftaran berhasil! Silakan login.");
-    showPage("login");
+localStorage.setItem("user", JSON.stringify(userData));
+
+alert("Pendaftaran berhasil! Silakan login.");
+showPage("login");
 }
 
 function login(){
-    var email = document.getElementById("loginEmail").value;
-    var password = document.getElementById("loginPassword").value;
-    var saved = localStorage.getItem("user");
 
-    if(!saved){
-        alert("Belum terdaftar! Silakan daftar dulu.");
-        showPage("register");
-        return;
-    }
+var email=document.getElementById("loginEmail").value;
+var password=document.getElementById("loginPassword").value;
+var saved=localStorage.getItem("user");
 
-    var user = JSON.parse(saved);
+if(!saved){
+alert("Belum terdaftar!");
+showPage("register");
+return;
+}
 
-    if(email === user.email && password === user.password){
-        sessionStorage.setItem("isLogin","true");
-        document.getElementById("navbar").style.display="flex";
-        showPage("home");
-    }else{
-        alert("Email atau Password salah!");
-    }
+var user=JSON.parse(saved);
+
+if(email===user.email && password===user.password){
+sessionStorage.setItem("isLogin","true");
+document.getElementById("navbar").style.display="flex";
+showPage("home");
+}else{
+alert("Email atau Password salah!");
+}
+
 }
 
 function openPage(id){
-    if(sessionStorage.getItem("isLogin") !== "true"){
-        alert("Silakan login terlebih dahulu!");
-        showPage("login");
-        return;
-    }
-    showPage(id);
+
+if(sessionStorage.getItem("isLogin")!=="true"){
+alert("Silakan login terlebih dahulu!");
+showPage("login");
+return;
+}
+
+showPage(id);
+
+if(id==="forum"){
+tampilkanForum();
+}
+
 }
 
 function logout(){
-    sessionStorage.removeItem("isLogin");
-    document.getElementById("navbar").style.display="none";
-    showPage("login");
+sessionStorage.removeItem("isLogin");
+document.getElementById("navbar").style.display="none";
+showPage("login");
 }
 
-window.onload = function(){
-    showPage("login");
+function buatTopik(){
+
+var judul=document.getElementById("judulTopik").value;
+var isi=document.getElementById("isiTopik").value;
+
+if(!judul || !isi){
+alert("Judul dan isi diskusi harus diisi!");
+return;
 }
+
+var forum=JSON.parse(localStorage.getItem("forum")) || [];
+
+forum.push({
+judul:judul,
+isi:isi
+});
+
+localStorage.setItem("forum", JSON.stringify(forum));
+
+document.getElementById("judulTopik").value="";
+document.getElementById("isiTopik").value="";
+
+tampilkanForum();
+
+}
+
+function tampilkanForum(){
+
+var forum=JSON.parse(localStorage.getItem("forum")) || "";
+var html="";
+
+forum.forEach(function(t){
+
+html+=`
+<div class="topik">
+<h4>${t.judul}</h4>
+<p>${t.isi}</p>
+</div>
+`;
+
+});
+
+document.getElementById("daftarTopik").innerHTML=html;
+
+}
+
+window.onload=function(){
+showPage("login");
+}
+
 </script>
 
 </body>
