@@ -13,6 +13,24 @@ body{
     color:#3E1F00;
 }
 
+/* WATERMARK BACKGROUND */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background-image:url("https://cdn-icons-png.flaticon.com/512/2232/2232688.png");
+background-repeat:no-repeat;
+background-position:center;
+background-size:400px;
+
+opacity:0.08;
+z-index:-1;
+}
+
 /* HERO */
 .hero{
     background:#3E1F00;
@@ -344,7 +362,7 @@ tampilkanForum();
 
 function tampilkanForum(){
 
-var forum=JSON.parse(localStorage.getItem("forum")) || "";
+var forum=JSON.parse(localStorage.getItem("forum")) || [];
 var html="";
 
 forum.forEach(function(t){
