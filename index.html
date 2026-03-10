@@ -7,14 +7,14 @@
 
 <style>
 
-/* BACKGROUND */
+/* BACKGROUND ESTETIK PERPUSTAKAAN */
 body{
 font-family:Georgia, serif;
 margin:0;
 color:#2C1810;
 
 background-image:
-linear-gradient(rgba(248,244,236,0.95),rgba(248,244,236,0.95)),
+linear-gradient(rgba(248,244,236,0.92),rgba(248,244,236,0.92)),
 url("https://images.unsplash.com/photo-1507842217343-583bb7270b66");
 
 background-size:cover;
@@ -26,12 +26,19 @@ background-attachment:fixed;
 .hero{
 background:linear-gradient(90deg,#2C1810,#5C3A21);
 color:#F8F4EC;
-padding:60px;
+padding:70px;
 text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+.hero h1{
+font-size:40px;
+letter-spacing:2px;
 }
 
 .hero p{
 color:#D4A017;
+font-size:18px;
 }
 
 /* NAVBAR */
@@ -39,6 +46,7 @@ nav{
 background:#2C1810;
 padding:15px 30px;
 display:none;
+align-items:center;
 gap:25px;
 }
 
@@ -65,6 +73,13 @@ nav a:hover::after{
 width:100%;
 }
 
+/* LOGIN DI KANAN */
+.right-nav{
+margin-left:auto;
+display:flex;
+gap:20px;
+}
+
 /* PAGE */
 .page{
 display:none;
@@ -84,6 +99,7 @@ border-top:6px solid #D4A017;
 text-align:center;
 }
 
+/* INPUT */
 input,textarea{
 width:90%;
 padding:10px;
@@ -177,13 +193,18 @@ color:#D4A017;
 </div>
 
 <nav id="navbar">
+
 <a onclick="openPage('home')">Beranda</a>
 <a onclick="openPage('koleksi')">Koleksi</a>
 <a onclick="openPage('layanan')">Layanan</a>
 <a onclick="openPage('forum')">Forum</a>
 <a onclick="openPage('about')">About</a>
 <a onclick="openPage('profil')">Profil</a>
+
+<div class="right-nav">
 <a onclick="logout()">Logout</a>
+</div>
+
 </nav>
 
 <!-- LOGIN -->
@@ -289,7 +310,13 @@ color:#D4A017;
 <p><b>Nama:</b> Halimatun Sakdiah Hrp</p>
 
 <a href="https://www.instagram.com/halima_harahap7" target="_blank">Instagram</a><br><br>
-<p> <a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank"> Curriculum Vitae </a> </p>
+
+<p>
+<a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank">
+Curriculum Vitae
+</a>
+</p>
+
 <iframe width="60%" height="315"
 src="https://www.youtube.com/embed/RY8nUjY83wA">
 </iframe>
@@ -340,7 +367,6 @@ return;
 showPage(id);
 
 if(id==="forum") tampilkanForum();
-
 }
 
 function logout(){
@@ -349,7 +375,6 @@ navbar.style.display="none";
 showPage("login");
 }
 
-/* FORUM */
 function buatTopik(){
 
 let forum=JSON.parse(localStorage.getItem("forum"))||[];
@@ -379,14 +404,12 @@ html+=`<div class="topik"><h4>${t.judul}</h4><p>${t.isi}</p></div>`;
 daftarTopik.innerHTML=html;
 }
 
-/* SEARCH BUKU */
 function cariBuku(){
 
 let input=document.getElementById("searchBuku").value.toLowerCase();
 let buku=document.querySelectorAll(".buku");
 
 buku.forEach(item=>{
-
 let text=item.innerText.toLowerCase();
 
 if(text.includes(input)){
@@ -394,7 +417,6 @@ item.style.display="block";
 }else{
 item.style.display="none";
 }
-
 });
 
 }
