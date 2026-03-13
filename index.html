@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -44,6 +44,10 @@ font-weight:bold;
 cursor:pointer;
 }
 
+nav a:hover{
+color:#D4A017;
+}
+
 .right-nav{
 margin-left:auto;
 display:flex;
@@ -60,7 +64,7 @@ min-height:60vh;
 /* BOX */
 .box{
 background:white;
-width:400px;
+width:420px;
 margin:40px auto;
 padding:25px;
 border-radius:14px;
@@ -182,10 +186,7 @@ color:#D4A017;
 <div id="register" class="page">
 <div class="box">
 <h2>Register</h2>
-<input type="text" id="firstName" placeholder="First Name"><br>
-<input type="text" id="lastName" placeholder="Last Name"><br>
 <input type="email" id="regEmail" placeholder="Email"><br>
-<input type="tel" id="phone" placeholder="No HP"><br>
 <input type="password" id="regPassword" placeholder="Password"><br>
 <button onclick="register()">Daftar</button>
 <p>Sudah punya akun?
@@ -195,7 +196,6 @@ color:#D4A017;
 
 <!-- BERANDA -->
 <div id="home" class="page">
-
 <h2>Beranda</h2>
 <p>Selamat datang di ANANTYA PUSTAKA.</p>
 
@@ -256,11 +256,16 @@ Event Literasi Nasional<br><br>
 <p>📖 Peminjaman Buku</p>
 <p>💻 Akses Digital</p>
 <p>🖨️ Cetak & Scan</p>
-</div>
+
 <h3>Jam Layanan</h3>
-<li>Senin : 08:30 -21:00</li>
-  <li>Selasa -Jumat : 08:00 - 21:00</li>
-  <li>Sabtu - Minggu : Tutup</li>
+<ul>
+<li>Senin : 08:30 - 21:00</li>
+<li>Selasa - Jumat : 08:00 - 21:00</li>
+<li>Sabtu - Minggu : Tutup</li>
+</ul>
+
+</div>
+
 <!-- FORUM -->
 <div id="forum" class="page">
 <h2>Forum Diskusi</h2>
@@ -277,43 +282,61 @@ Event Literasi Nasional<br><br>
 
 <!-- ABOUT -->
 <div id="about" class="page">
-<h2>About Us</h2>
-<p><Strong>Nama:</Strong> Halimatun Sakdiah Hrp</p>
-  <P><strong>NIM:</strong>230709015</P>
-  <p><strong> Jurusan :</strong>Perpustakaan dan Sains Informasi</p>
-  <p><a href="https://www.instagram.com/halima_harahap7?igsh=OTBxdzhyc3BtazEz">Instagram Saya</a></p>
-     <p> <a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing">Curriculum Vitae</a></p>
-    
-    <h3>Belajar hidup tanpa harus dianggap,karena tidak semua akan peduli</h3>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/RY8nUjY83wA?si=Aco92_qIbVDf4R_S" title="YouTube video player" frameborder="0" 
+<h2>About</h2>
+
+<p><b>Nama:</b> Halimatun Sakdiah Hrp</p>
+<p><b>NIM:</b> 230709015</p>
+<p><b>Jurusan:</b> Perpustakaan dan Sains Informasi</p>
+
+<p>
+<a href="https://www.instagram.com/halima_harahap7" target="_blank">
+Instagram Saya
+</a>
+</p>
+
+<p>
+<a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank">
+Curriculum Vitae
+</a>
+</p>
+
+<h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
+
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/RY8nUjY83wA"
+title="YouTube video player"
+frameborder="0"
+allowfullscreen>
+</iframe>
+
 </div>
 
 <!-- PROFIL PERPUSTAKAAN -->
 <div id="profil" class="page">
+
 <h2>Profil Perpustakaan</h2>
 
 <p><b>Nama Perpustakaan:</b> ANANTYA PUSTAKA</p>
-<h3>Profil Perpustakaan</h3>
+
 <p>
-  Perpustakaan Anantya Pustaka merupakan pusat informasi dan sumber pengetahuan yang menyediakan berbagai koleksi bahan pustaka untuk mendukung kegiatan belajar, penelitian, dan peningkatan wawasan masyarakat. Nama Anantya Pustaka memiliki makna sumber pengetahuan yang tidak terbatas, yang mencerminkan peran perpustakaan sebagai tempat memperoleh ilmu secara luas.
-
-Perpustakaan ini menyediakan berbagai koleksi buku dan layanan perpustakaan yang dapat diakses oleh pengguna. Selain itu, perpustakaan juga memanfaatkan teknologi informasi berbasis web untuk memudahkan pengguna dalam mencari informasi dan mengakses layanan perpustakaan secara lebih cepat dan efisien. Perpustakaan Anantya Pustaka diharapkan dapat meningkatkan minat baca serta mendukung perkembangan literasi masyarakat.
-
+Perpustakaan Anantya Pustaka merupakan pusat informasi dan sumber pengetahuan
+yang menyediakan berbagai koleksi bahan pustaka untuk mendukung kegiatan
+belajar dan penelitian masyarakat.
 </p>
+
 <h3>Visi</h3>
 <p>
-  Menjadi perpustakaan yang inovatif dan inklusif sebagai pusat sumber informasi dan pengetahuan yang tidak terbatas untuk meningkatkan literasi, pendidikan, serta wawasan masyarakat.
+Menjadi perpustakaan inovatif dan inklusif sebagai pusat sumber
+informasi dan pengetahuan tanpa batas.
 </p>
-<p>
-  <h3>Misi</h3>
-  <li>Menyediakan koleksi buku dan sumber informasi yang lengkap, berkualitas, dan relevan dengan kebutuhan pengguna.</li>
-  <li>Mengembangkan layanan perpustakaan berbasis teknologi agar memudahkan akses informasi bagi masyarakat.</li>
-  <li>Meningkatkan minat baca dan budaya literasi melalui berbagai kegiatan edukatif dan program perpustakaan.</li>
-</p>
-  <h3>Tujuan</h3>
-  <li>Mempermudah masyarakat dalam memperoleh informasi dan bahan bacaan yang bermanfaat.</li>
-  <li>Mendukung kegiatan belajar, penelitian, dan pengembangan ilmu pengetahuan.</li>
-  <li>Meningkatkan minat baca dan kemampuan literasi masyarakat.</li>
+
+<h3>Misi</h3>
+<ul>
+<li>Menyediakan koleksi informasi berkualitas.</li>
+<li>Mengembangkan layanan berbasis teknologi.</li>
+<li>Meningkatkan budaya literasi masyarakat.</li>
+</ul>
+
 </div>
 
 <footer>
@@ -328,44 +351,66 @@ document.getElementById(id).style.display="block";
 }
 
 function register(){
+
 let user={
-email:regEmail.value,
-password:regPassword.value
+email:document.getElementById("regEmail").value,
+password:document.getElementById("regPassword").value
 };
+
 localStorage.setItem("user",JSON.stringify(user));
 alert("Berhasil daftar");
+
 showPage("login");
 }
 
 function login(){
+
 let saved=JSON.parse(localStorage.getItem("user"));
 
-if(saved && loginEmail.value===saved.email && loginPassword.value===saved.password){
+if(saved &&
+loginEmail.value===saved.email &&
+loginPassword.value===saved.password){
+
 sessionStorage.setItem("login","true");
-navbar.style.display="flex";
+
+document.getElementById("navbar").style.display="flex";
+
 showPage("home");
+
 }else{
+
 alert("Login gagal");
+
 }
+
 }
 
 function openPage(id){
 
 if(sessionStorage.getItem("login")!=="true"){
+
 alert("Silakan login");
+
 showPage("login");
+
 return;
+
 }
 
 showPage(id);
 
 if(id==="forum") tampilkanForum();
+
 }
 
 function logout(){
+
 sessionStorage.removeItem("login");
-navbar.style.display="none";
+
+document.getElementById("navbar").style.display="none";
+
 showPage("login");
+
 }
 
 function buatTopik(){
@@ -383,11 +428,13 @@ judulTopik.value="";
 isiTopik.value="";
 
 tampilkanForum();
+
 }
 
 function tampilkanForum(){
 
 let forum=JSON.parse(localStorage.getItem("forum"))||[];
+
 let html="";
 
 forum.forEach(t=>{
@@ -395,31 +442,35 @@ html+=`<div class="topik"><h4>${t.judul}</h4><p>${t.isi}</p></div>`;
 });
 
 daftarTopik.innerHTML=html;
+
 }
 
 function cariBuku(){
 
 let input=document.getElementById("searchBuku").value.toLowerCase();
+
 let buku=document.querySelectorAll(".buku");
 
 buku.forEach(item=>{
+
 let text=item.innerText.toLowerCase();
 
-if(text.includes(input)){
-item.style.display="block";
-}else{
-item.style.display="none";
-}
+item.style.display=text.includes(input)?"block":"none";
+
 });
 
 }
 
 function daftarEvent(){
+
 alert("Terima kasih telah mendaftar event ANANTYA PUSTAKA 📚");
+
 }
 
 window.onload=function(){
+
 showPage("login");
+
 }
 
 </script>
