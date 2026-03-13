@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -92,7 +93,7 @@ min-height:60vh;
 .box{
 background:white;
 width:400px;
-margin:60px auto;
+margin:40px auto;
 padding:25px;
 border-radius:14px;
 box-shadow:0 10px 25px rgba(0,0,0,0.15);
@@ -237,8 +238,41 @@ color:#D4A017;
 
 <!-- BERANDA -->
 <div id="home" class="page">
+
 <h2>Beranda</h2>
 <p>Selamat datang di ANANTYA PUSTAKA.</p>
+
+<!-- EVENT PERPUSTAKAAN -->
+<div class="box">
+
+<h3>📢 Pengumuman Event Perpustakaan</h3>
+
+<p>
+Event Literasi Nasional<br><br>
+
+📅 Tanggal : 25 April 2026<br>
+📍 Tempat : Aula Perpustakaan<br>
+🎤 Narasumber : Penulis Nasional
+</p>
+
+<button onclick="daftarEvent()">Daftar Event</button>
+
+</div>
+
+<!-- FORMULA PERKALIAN -->
+<div class="box">
+
+<h3>🔢 Kalkulator Perkalian</h3>
+
+<input type="number" id="angka1" placeholder="Angka pertama">
+<input type="number" id="angka2" placeholder="Angka kedua">
+
+<button onclick="hitungPerkalian()">Hitung</button>
+
+<h3 id="hasilKali"></h3>
+
+</div>
+
 </div>
 
 <!-- KOLEKSI -->
@@ -348,7 +382,7 @@ showPage("login");
 function login(){
 let saved=JSON.parse(localStorage.getItem("user"));
 
-if(loginEmail.value===saved.email && loginPassword.value===saved.password){
+if(saved && loginEmail.value===saved.email && loginPassword.value===saved.password){
 sessionStorage.setItem("login","true");
 navbar.style.display="flex";
 showPage("home");
@@ -422,6 +456,23 @@ item.style.display="none";
 
 }
 
+/* EVENT HANDLER */
+function daftarEvent(){
+alert("Terima kasih telah mendaftar event ANANTYA PUSTAKA 📚");
+}
+
+/* FORMULA PERKALIAN */
+function hitungPerkalian(){
+
+let a=document.getElementById("angka1").value;
+let b=document.getElementById("angka2").value;
+
+let hasil=a*b;
+
+document.getElementById("hasilKali").innerHTML="Hasil Perkalian: "+hasil;
+
+}
+
 window.onload=function(){
 showPage("login");
 }
@@ -430,3 +481,4 @@ showPage("login");
 
 </body>
 </html>
+```
