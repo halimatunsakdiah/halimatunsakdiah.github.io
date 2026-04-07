@@ -10,12 +10,12 @@
 body{
 font-family:Georgia, serif;
 margin:0;
-color:#fff;
+color:#2C1810;
 
-/* BACKGROUND BARU */
+/* BACKGROUND BARU (PERPUSTAKAAN UMUM) */
 background-image:
-linear-gradient(rgba(10,10,20,0.8), rgba(20,20,40,0.9)),
-url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da");
+linear-gradient(rgba(255,248,240,0.9), rgba(255,248,240,0.95)),
+url("https://images.unsplash.com/photo-1507842217343-583bb7270b66");
 
 background-size:cover;
 background-position:center;
@@ -24,7 +24,7 @@ background-attachment:fixed;
 
 /* HERO */
 .hero{
-background:linear-gradient(90deg,#1A1A2E,#16213E);
+background:linear-gradient(90deg,#2C1810,#5C3A21);
 color:#F8F4EC;
 padding:80px;
 text-align:center;
@@ -32,7 +32,7 @@ text-align:center;
 
 /* NAVBAR */
 nav{
-background:rgba(15,15,30,0.95);
+background:rgba(44,24,16,0.95);
 padding:15px 30px;
 display:none;
 align-items:center;
@@ -47,7 +47,7 @@ cursor:pointer;
 }
 
 nav a:hover{
-color:#00ADB5;
+color:#D4A017;
 }
 
 .right-nav{
@@ -74,8 +74,8 @@ width:420px;
 margin:20px auto;
 padding:30px;
 border-radius:16px;
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
-border-top:5px solid #00ADB5;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+border-top:5px solid #D4A017;
 text-align:center;
 color:#2C1810;
 }
@@ -86,7 +86,7 @@ background:rgba(255,255,255,0.95);
 padding:30px;
 border-radius:16px;
 width:500px;
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
 text-align:center;
 color:#2C1810;
 }
@@ -97,13 +97,13 @@ width:90%;
 padding:10px;
 margin:8px;
 border-radius:6px;
-border:1px solid #00ADB5;
+border:1px solid #D4A017;
 }
 
 /* BUTTON */
 button{
 padding:10px 20px;
-background:linear-gradient(45deg,#00ADB5,#007B83);
+background:linear-gradient(45deg,#D4A017,#B8860B);
 color:white;
 border:none;
 border-radius:6px;
@@ -150,20 +150,20 @@ background:white;
 padding:15px;
 margin:10px 0;
 border-radius:10px;
-border-left:5px solid #00ADB5;
+border-left:5px solid #D4A017;
 color:#2C1810;
 }
 
 /* FOOTER */
 footer{
-background:#0F172A;
+background:#2C1810;
 color:#F8F4EC;
 text-align:center;
 padding:20px;
 }
 
 footer span{
-color:#00ADB5;
+color:#D4A017;
 }
 
 </style>
@@ -233,7 +233,7 @@ color:#00ADB5;
 </div>
 </div>
 
-<!-- KOLEKSI -->
+<!-- KOLEKSI (SUDAH DITAMBAH) -->
 <div id="koleksi" class="page">
 <h2>Koleksi Buku</h2>
 <input type="text" id="searchBuku" placeholder="Cari buku..." onkeyup="cariBuku()">
@@ -242,7 +242,6 @@ color:#00ADB5;
 
 <div class="koleksi-container">
 
-<!-- FIKSI -->
 <div class="buku">
 <img src="https://covers.openlibrary.org/b/id/8228691-L.jpg">
 <h4>Laskar Pelangi</h4>
@@ -262,22 +261,9 @@ color:#00ADB5;
 </div>
 
 <div class="buku">
-<img src="https://covers.openlibrary.org/b/id/11153283-L.jpg">
-<h4>Harry Potter</h4>
-<p>J.K. Rowling (Fiksi)</p>
-</div>
-
-<!-- NON FIKSI -->
-<div class="buku">
 <img src="https://covers.openlibrary.org/b/id/8231856-L.jpg">
 <h4>Atomic Habits</h4>
 <p>James Clear (Non Fiksi)</p>
-</div>
-
-<div class="buku">
-<img src="https://covers.openlibrary.org/b/id/8277894-L.jpg">
-<h4>Rich Dad Poor Dad</h4>
-<p>Robert Kiyosaki (Non Fiksi)</p>
 </div>
 
 <div class="buku">
@@ -286,16 +272,10 @@ color:#00ADB5;
 <p>Yuval Noah Harari (Non Fiksi)</p>
 </div>
 
-<div class="buku">
-<img src="https://covers.openlibrary.org/b/id/10594765-L.jpg">
-<h4>The Psychology of Money</h4>
-<p>Morgan Housel (Non Fiksi)</p>
-</div>
-
 </div>
 </div>
 
-<!-- LAYANAN (DIKEMBALIKAN FULL) -->
+<!-- LAYANAN -->
 <div id="layanan" class="page">
 <div class="box">
 <h2>Layanan</h2>
@@ -312,67 +292,21 @@ color:#00ADB5;
 </div>
 </div>
 
-<!-- FORUM -->
-<div id="forum" class="page">
-<div class="box">
-<input type="text" id="judulTopik" placeholder="Judul Topik"><br>
-<textarea id="isiTopik" placeholder="Tulis diskusi"></textarea><br>
-<button onclick="buatTopik()">Posting</button>
-</div>
-
-<h3>Daftar Diskusi</h3>
-<div id="daftarTopik"></div>
-</div>
-
-<!-- ABOUT (FULL ASLI) -->
+<!-- ABOUT -->
 <div id="about" class="page">
 <div class="box">
 <h2>About</h2>
-
 <p><b>Nama:</b> Halimatun Sakdiah Hrp</p>
 <p><b>NIM:</b> 230709015</p>
 <p><b>Jurusan:</b> Perpustakaan dan Sains Informasi</p>
-
-<p>
-<a href="https://www.instagram.com/halima_harahap7" target="_blank">Instagram Saya</a>
-</p>
-
-<p>
-<a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank">Curriculum Vitae</a>
-</p>
-
-<h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
-
-<iframe width="100%" height="250"
-src="https://www.youtube.com/embed/RY8nUjY83wA"
-frameborder="0"
-allowfullscreen>
-</iframe>
 </div>
 </div>
 
-<!-- PROFIL (FULL ASLI) -->
+<!-- PROFIL -->
 <div id="profil" class="page">
 <div class="box">
 <h2>Profil Perpustakaan</h2>
-
-<p><b>Nama Perpustakaan:</b> ANANTYA PUSTAKA</p>
-
-<p>
-Perpustakaan Anantya Pustaka merupakan pusat informasi dan sumber pengetahuan
-yang menyediakan berbagai koleksi bahan pustaka untuk mendukung kegiatan
-belajar dan penelitian masyarakat.
-</p>
-
-<h3>Visi</h3>
-<p>Menjadi perpustakaan inovatif dan inklusif sebagai pusat sumber informasi tanpa batas.</p>
-
-<h3>Misi</h3>
-<ul style="text-align:left;">
-<li>Menyediakan koleksi informasi berkualitas.</li>
-<li>Mengembangkan layanan berbasis teknologi.</li>
-<li>Meningkatkan budaya literasi masyarakat.</li>
-</ul>
+<p>Perpustakaan Anantya Pustaka sebagai pusat informasi modern.</p>
 </div>
 </div>
 
@@ -381,20 +315,6 @@ belajar dan penelitian masyarakat.
 </footer>
 
 <script>
-
-/* JS ASLI (TIDAK DIUBAH) */
-
-function startVoiceSearch(){
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-if(!SpeechRecognition){ alert("Browser tidak mendukung"); return; }
-const recognition = new SpeechRecognition();
-recognition.lang="id-ID";
-recognition.start();
-recognition.onresult=function(e){
-searchBuku.value=e.results[0][0].transcript;
-cariBuku();
-};
-}
 
 function showPage(id){
 document.querySelectorAll(".page").forEach(p=>p.style.display="none");
@@ -419,26 +339,12 @@ showPage("home");
 function openPage(id){
 if(sessionStorage.getItem("login")!=="true"){ showPage("login"); return;}
 showPage(id);
-if(id==="forum") tampilkanForum();
 }
 
 function logout(){
 sessionStorage.removeItem("login");
 navbar.style.display="none";
 showPage("login");
-}
-
-function buatTopik(){
-let f=JSON.parse(localStorage.getItem("forum"))||[];
-f.push({judul:judulTopik.value,isi:isiTopik.value});
-localStorage.setItem("forum",JSON.stringify(f));
-judulTopik.value=""; isiTopik.value="";
-tampilkanForum();
-}
-
-function tampilkanForum(){
-let f=JSON.parse(localStorage.getItem("forum"))||[];
-daftarTopik.innerHTML=f.map(t=>`<div class="topik"><h4>${t.judul}</h4><p>${t.isi}</p></div>`).join("");
 }
 
 function cariBuku(){
