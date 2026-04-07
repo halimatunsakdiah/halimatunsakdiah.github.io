@@ -12,7 +12,7 @@ font-family:Georgia, serif;
 margin:0;
 color:#fff;
 
-/* BACKGROUND ELEGAN */
+/* BACKGROUND PERPUSTAKAAN ELEGAN */
 background-image:
 linear-gradient(rgba(20,15,10,0.7), rgba(20,15,10,0.8)),
 url("https://images.unsplash.com/photo-1507842217343-583bb7270b66");
@@ -37,7 +37,6 @@ padding:15px 30px;
 display:none;
 align-items:center;
 gap:25px;
-backdrop-filter:blur(6px);
 }
 
 nav a{
@@ -57,7 +56,7 @@ display:flex;
 gap:20px;
 }
 
-/* PAGE CENTER */
+/* PAGE */
 .page{
 display:none;
 padding:40px;
@@ -185,7 +184,6 @@ color:#D4A017;
 <a onclick="openPage('forum')">Forum</a>
 <a onclick="openPage('about')">About</a>
 <a onclick="openPage('profil')">Profil Perpustakaan</a>
-
 <div class="right-nav">
 <a onclick="logout()">Logout</a>
 </div>
@@ -217,10 +215,9 @@ color:#D4A017;
 
 <!-- BERANDA -->
 <div id="home" class="page">
-
 <div class="home-card">
 <h2>Selamat Datang</h2>
-<p>Selamat datang di <b>ANANTYA PUSTAKA</b>, pusat literasi modern untuk mendukung pembelajaran dan penelitian.</p>
+<p>Selamat datang di <b>ANANTYA PUSTAKA</b>, pusat literasi modern untuk pembelajaran.</p>
 
 <hr>
 
@@ -234,21 +231,17 @@ color:#D4A017;
 </div>
 
 <button onclick="daftarEvent()">Daftar Event</button>
-
 </div>
-
 </div>
 
 <!-- KOLEKSI -->
 <div id="koleksi" class="page">
 <h2>Koleksi Buku</h2>
-
 <input type="text" id="searchBuku" placeholder="Cari buku..." onkeyup="cariBuku()">
 <br>
 <button onclick="startVoiceSearch()">🎤 Cari dengan Suara</button>
 
 <div class="koleksi-container">
-
 <div class="buku">
 <img src="https://covers.openlibrary.org/b/id/8228691-L.jpg">
 <h4>Laskar Pelangi</h4>
@@ -272,7 +265,6 @@ color:#D4A017;
 <h4>Rich Dad Poor Dad</h4>
 <p>Robert Kiyosaki</p>
 </div>
-
 </div>
 </div>
 
@@ -308,9 +300,27 @@ color:#D4A017;
 <!-- ABOUT -->
 <div id="about" class="page">
 <div class="box">
+<h2>About</h2>
+
 <p><b>Nama:</b> Halimatun Sakdiah Hrp</p>
 <p><b>NIM:</b> 230709015</p>
 <p><b>Jurusan:</b> Perpustakaan dan Sains Informasi</p>
+
+<p>
+<a href="https://www.instagram.com/halima_harahap7" target="_blank">Instagram Saya</a>
+</p>
+
+<p>
+<a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank">Curriculum Vitae</a>
+</p>
+
+<h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
+
+<iframe width="100%" height="250"
+src="https://www.youtube.com/embed/RY8nUjY83wA"
+frameborder="0"
+allowfullscreen>
+</iframe>
 </div>
 </div>
 
@@ -318,7 +328,24 @@ color:#D4A017;
 <div id="profil" class="page">
 <div class="box">
 <h2>Profil Perpustakaan</h2>
-<p>Perpustakaan Anantya Pustaka menyediakan berbagai sumber informasi untuk masyarakat.</p>
+
+<p><b>Nama Perpustakaan:</b> ANANTYA PUSTAKA</p>
+
+<p>
+Perpustakaan Anantya Pustaka merupakan pusat informasi dan sumber pengetahuan
+yang menyediakan berbagai koleksi bahan pustaka untuk mendukung kegiatan
+belajar dan penelitian masyarakat.
+</p>
+
+<h3>Visi</h3>
+<p>Menjadi perpustakaan inovatif dan inklusif sebagai pusat sumber informasi tanpa batas.</p>
+
+<h3>Misi</h3>
+<ul style="text-align:left;">
+<li>Menyediakan koleksi informasi berkualitas.</li>
+<li>Mengembangkan layanan berbasis teknologi.</li>
+<li>Meningkatkan budaya literasi masyarakat.</li>
+</ul>
 </div>
 </div>
 
@@ -332,11 +359,10 @@ function startVoiceSearch(){
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 if(!SpeechRecognition){ alert("Browser tidak mendukung"); return; }
 const recognition = new SpeechRecognition();
-recognition.lang = "id-ID";
+recognition.lang="id-ID";
 recognition.start();
-recognition.onresult = function(event){
-let hasil = event.results[0][0].transcript;
-searchBuku.value = hasil;
+recognition.onresult=function(e){
+searchBuku.value=e.results[0][0].transcript;
 cariBuku();
 };
 }
@@ -347,15 +373,14 @@ document.getElementById(id).style.display="flex";
 }
 
 function register(){
-let user={email:regEmail.value,password:regPassword.value};
-localStorage.setItem("user",JSON.stringify(user));
+localStorage.setItem("user",JSON.stringify({email:regEmail.value,password:regPassword.value}));
 alert("Berhasil daftar");
 showPage("login");
 }
 
 function login(){
-let saved=JSON.parse(localStorage.getItem("user"));
-if(saved && loginEmail.value===saved.email && loginPassword.value===saved.password){
+let u=JSON.parse(localStorage.getItem("user"));
+if(u && loginEmail.value===u.email && loginPassword.value===u.password){
 sessionStorage.setItem("login","true");
 navbar.style.display="flex";
 showPage("home");
@@ -363,7 +388,7 @@ showPage("home");
 }
 
 function openPage(id){
-if(sessionStorage.getItem("login")!=="true"){ showPage("login"); return; }
+if(sessionStorage.getItem("login")!=="true"){ showPage("login"); return;}
 showPage(id);
 if(id==="forum") tampilkanForum();
 }
@@ -375,16 +400,16 @@ showPage("login");
 }
 
 function buatTopik(){
-let forum=JSON.parse(localStorage.getItem("forum"))||[];
-forum.push({judul:judulTopik.value, isi:isiTopik.value});
-localStorage.setItem("forum",JSON.stringify(forum));
+let f=JSON.parse(localStorage.getItem("forum"))||[];
+f.push({judul:judulTopik.value,isi:isiTopik.value});
+localStorage.setItem("forum",JSON.stringify(f));
 judulTopik.value=""; isiTopik.value="";
 tampilkanForum();
 }
 
 function tampilkanForum(){
-let forum=JSON.parse(localStorage.getItem("forum"))||[];
-daftarTopik.innerHTML=forum.map(t=>`<div class="topik"><h4>${t.judul}</h4><p>${t.isi}</p></div>`).join("");
+let f=JSON.parse(localStorage.getItem("forum"))||[];
+daftarTopik.innerHTML=f.map(t=>`<div class="topik"><h4>${t.judul}</h4><p>${t.isi}</p></div>`).join("");
 }
 
 function cariBuku(){
