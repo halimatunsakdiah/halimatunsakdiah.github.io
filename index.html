@@ -216,14 +216,18 @@ color:#00ADB5;
 <div id="home" class="page">
 <div class="home-card">
 <h2>Selamat Datang</h2>
-<p>Selamat datang di <b>ANANTYA PUSTAKA</b>, pusat literasi modern.</p>
+<p>Selamat datang di <b>ANANTYA PUSTAKA</b>, pusat literasi modern untuk pembelajaran.</p>
 
 <hr>
 
 <h3>📢 Event Perpustakaan</h3>
+
+<div style="line-height:1.8;">
 <p><b>Event Literasi Nasional</b></p>
 <p>📅 25 April 2026</p>
 <p>📍 Aula Perpustakaan</p>
+<p>🎤 Penulis Nasional</p>
+</div>
 
 <button onclick="daftarEvent()">Daftar Event</button>
 </div>
@@ -291,13 +295,20 @@ color:#00ADB5;
 </div>
 </div>
 
-<!-- LAYANAN -->
+<!-- LAYANAN (DIKEMBALIKAN FULL) -->
 <div id="layanan" class="page">
 <div class="box">
 <h2>Layanan</h2>
 <p>📖 Peminjaman Buku</p>
 <p>💻 Akses Digital</p>
 <p>🖨️ Cetak & Scan</p>
+
+<h3>Jam Layanan</h3>
+<ul>
+<li>Senin : 08:30 - 21:00</li>
+<li>Selasa - Jumat : 08:00 - 21:00</li>
+<li>Sabtu - Minggu : Tutup</li>
+</ul>
 </div>
 </div>
 
@@ -305,25 +316,63 @@ color:#00ADB5;
 <div id="forum" class="page">
 <div class="box">
 <input type="text" id="judulTopik" placeholder="Judul Topik"><br>
-<textarea id="isiTopik"></textarea><br>
+<textarea id="isiTopik" placeholder="Tulis diskusi"></textarea><br>
 <button onclick="buatTopik()">Posting</button>
 </div>
+
+<h3>Daftar Diskusi</h3>
 <div id="daftarTopik"></div>
 </div>
 
-<!-- ABOUT -->
+<!-- ABOUT (FULL ASLI) -->
 <div id="about" class="page">
 <div class="box">
 <h2>About</h2>
-<p>Halimatun Sakdiah Hrp</p>
+
+<p><b>Nama:</b> Halimatun Sakdiah Hrp</p>
+<p><b>NIM:</b> 230709015</p>
+<p><b>Jurusan:</b> Perpustakaan dan Sains Informasi</p>
+
+<p>
+<a href="https://www.instagram.com/halima_harahap7" target="_blank">Instagram Saya</a>
+</p>
+
+<p>
+<a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank">Curriculum Vitae</a>
+</p>
+
+<h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
+
+<iframe width="100%" height="250"
+src="https://www.youtube.com/embed/RY8nUjY83wA"
+frameborder="0"
+allowfullscreen>
+</iframe>
 </div>
 </div>
 
-<!-- PROFIL -->
+<!-- PROFIL (FULL ASLI) -->
 <div id="profil" class="page">
 <div class="box">
 <h2>Profil Perpustakaan</h2>
-<p>Perpustakaan modern berbasis literasi digital.</p>
+
+<p><b>Nama Perpustakaan:</b> ANANTYA PUSTAKA</p>
+
+<p>
+Perpustakaan Anantya Pustaka merupakan pusat informasi dan sumber pengetahuan
+yang menyediakan berbagai koleksi bahan pustaka untuk mendukung kegiatan
+belajar dan penelitian masyarakat.
+</p>
+
+<h3>Visi</h3>
+<p>Menjadi perpustakaan inovatif dan inklusif sebagai pusat sumber informasi tanpa batas.</p>
+
+<h3>Misi</h3>
+<ul style="text-align:left;">
+<li>Menyediakan koleksi informasi berkualitas.</li>
+<li>Mengembangkan layanan berbasis teknologi.</li>
+<li>Meningkatkan budaya literasi masyarakat.</li>
+</ul>
 </div>
 </div>
 
@@ -333,7 +382,20 @@ color:#00ADB5;
 
 <script>
 
-/* JS ASLI */
+/* JS ASLI (TIDAK DIUBAH) */
+
+function startVoiceSearch(){
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+if(!SpeechRecognition){ alert("Browser tidak mendukung"); return; }
+const recognition = new SpeechRecognition();
+recognition.lang="id-ID";
+recognition.start();
+recognition.onresult=function(e){
+searchBuku.value=e.results[0][0].transcript;
+cariBuku();
+};
+}
+
 function showPage(id){
 document.querySelectorAll(".page").forEach(p=>p.style.display="none");
 document.getElementById(id).style.display="flex";
@@ -357,12 +419,26 @@ showPage("home");
 function openPage(id){
 if(sessionStorage.getItem("login")!=="true"){ showPage("login"); return;}
 showPage(id);
+if(id==="forum") tampilkanForum();
 }
 
 function logout(){
 sessionStorage.removeItem("login");
 navbar.style.display="none";
 showPage("login");
+}
+
+function buatTopik(){
+let f=JSON.parse(localStorage.getItem("forum"))||[];
+f.push({judul:judulTopik.value,isi:isiTopik.value});
+localStorage.setItem("forum",JSON.stringify(f));
+judulTopik.value=""; isiTopik.value="";
+tampilkanForum();
+}
+
+function tampilkanForum(){
+let f=JSON.parse(localStorage.getItem("forum"))||[];
+daftarTopik.innerHTML=f.map(t=>`<div class="topik"><h4>${t.judul}</h4><p>${t.isi}</p></div>`).join("");
 }
 
 function cariBuku(){
