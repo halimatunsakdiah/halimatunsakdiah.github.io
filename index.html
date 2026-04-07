@@ -155,6 +155,7 @@ color:#D4A017;
 </div>
 
 <nav id="navbar">
+
 <a onclick="openPage('home')">Beranda</a>
 <a onclick="openPage('koleksi')">Koleksi</a>
 <a onclick="openPage('layanan')">Layanan</a>
@@ -165,6 +166,7 @@ color:#D4A017;
 <div class="right-nav">
 <a onclick="logout()">Logout</a>
 </div>
+
 </nav>
 
 <!-- LOGIN -->
@@ -198,18 +200,22 @@ color:#D4A017;
 
 <div class="box">
 <h3>📢 Pengumuman Event Perpustakaan</h3>
+
 <p>
 Event Literasi Nasional<br><br>
 📅 25 April 2026<br>
 📍 Aula Perpustakaan<br>
 🎤 Penulis Nasional
 </p>
+
 <button onclick="daftarEvent()">Daftar Event</button>
 </div>
+
 </div>
 
 <!-- KOLEKSI -->
 <div id="koleksi" class="page">
+
 <h2>Koleksi Buku</h2>
 
 <input type="text" id="searchBuku" placeholder="Cari buku..." onkeyup="cariBuku()">
@@ -246,16 +252,103 @@ Event Literasi Nasional<br><br>
 </div>
 </div>
 
-<!-- FOOTER -->
+<!-- LAYANAN -->
+<div id="layanan" class="page">
+<h2>Layanan</h2>
+<p>📖 Peminjaman Buku</p>
+<p>💻 Akses Digital</p>
+<p>🖨️ Cetak & Scan</p>
+
+<h3>Jam Layanan</h3>
+<ul>
+<li>Senin : 08:30 - 21:00</li>
+<li>Selasa - Jumat : 08:00 - 21:00</li>
+<li>Sabtu - Minggu : Tutup</li>
+</ul>
+
+</div>
+
+<!-- FORUM -->
+<div id="forum" class="page">
+<h2>Forum Diskusi</h2>
+
+<div class="box">
+<input type="text" id="judulTopik" placeholder="Judul Topik"><br>
+<textarea id="isiTopik" placeholder="Tulis diskusi"></textarea><br>
+<button onclick="buatTopik()">Posting</button>
+</div>
+
+<h3>Daftar Diskusi</h3>
+<div id="daftarTopik"></div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
+<h2>About</h2>
+
+<p><b>Nama:</b> Halimatun Sakdiah Hrp</p>
+<p><b>NIM:</b> 230709015</p>
+<p><b>Jurusan:</b> Perpustakaan dan Sains Informasi</p>
+
+<p>
+<a href="https://www.instagram.com/halima_harahap7" target="_blank">
+Instagram Saya
+</a>
+</p>
+
+<p>
+<a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank">
+Curriculum Vitae
+</a>
+</p>
+
+<h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
+
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/RY8nUjY83wA"
+title="YouTube video player"
+frameborder="0"
+allowfullscreen>
+</iframe>
+
+</div>
+
+<!-- PROFIL PERPUSTAKAAN -->
+<div id="profil" class="page">
+
+<h2>Profil Perpustakaan</h2>
+
+<p><b>Nama Perpustakaan:</b> ANANTYA PUSTAKA</p>
+
+<p>
+Perpustakaan Anantya Pustaka merupakan pusat informasi dan sumber pengetahuan
+yang menyediakan berbagai koleksi bahan pustaka untuk mendukung kegiatan
+belajar dan penelitian masyarakat.
+</p>
+
+<h3>Visi</h3>
+<p>
+Menjadi perpustakaan inovatif dan inklusif sebagai pusat sumber
+informasi dan pengetahuan tanpa batas.
+</p>
+
+<h3>Misi</h3>
+<ul>
+<li>Menyediakan koleksi informasi berkualitas.</li>
+<li>Mengembangkan layanan berbasis teknologi.</li>
+<li>Meningkatkan budaya literasi masyarakat.</li>
+</ul>
+
+</div>
+
 <footer>
 © 2026 <span>ANANTYA PUSTAKA</span>
 </footer>
 
 <script>
 
-/* VOICE SEARCH */
+/* TAMBAHAN VOICE SEARCH */
 function startVoiceSearch(){
-
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 if(!SpeechRecognition){
@@ -264,27 +357,21 @@ return;
 }
 
 const recognition = new SpeechRecognition();
-
 recognition.lang = "id-ID";
 recognition.start();
 
 recognition.onresult = function(event){
-
 let hasil = event.results[0][0].transcript;
-
 document.getElementById("searchBuku").value = hasil;
-
 cariBuku();
-
 };
 
 recognition.onerror = function(){
 alert("Gagal menggunakan suara");
 };
-
 }
 
-/* FUNCTION LAIN (TETAP) */
+/* KODE ASLI (TIDAK DIUBAH) */
 function showPage(id){
 document.querySelectorAll(".page").forEach(p=>p.style.display="none");
 document.getElementById(id).style.display="block";
@@ -320,12 +407,34 @@ showPage("login");
 return;
 }
 showPage(id);
+if(id==="forum") tampilkanForum();
 }
 
 function logout(){
 sessionStorage.removeItem("login");
 document.getElementById("navbar").style.display="none";
 showPage("login");
+}
+
+function buatTopik(){
+let forum=JSON.parse(localStorage.getItem("forum"))||[];
+forum.push({
+judul:judulTopik.value,
+isi:isiTopik.value
+});
+localStorage.setItem("forum",JSON.stringify(forum));
+judulTopik.value="";
+isiTopik.value="";
+tampilkanForum();
+}
+
+function tampilkanForum(){
+let forum=JSON.parse(localStorage.getItem("forum"))||[];
+let html="";
+forum.forEach(t=>{
+html+=`<div class="topik"><h4>${t.judul}</h4><p>${t.isi}</p></div>`;
+});
+daftarTopik.innerHTML=html;
 }
 
 function cariBuku(){
