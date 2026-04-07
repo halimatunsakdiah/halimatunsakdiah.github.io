@@ -12,14 +12,12 @@ font-family:Georgia, serif;
 margin:0;
 color:#2C1810;
 
-/* BACKGROUND BARU PERPUSTAKAAN ESTETIK */
-background-image:
-linear-gradient(rgba(30,20,10,0.7),rgba(248,244,236,0.9)),
-url("https://images.unsplash.com/photo-1507842217343-583bb7270b66");
-
+/* BACKGROUND HANYA GAMBAR (TANPA GRADIENT) */
+background-image: url("https://images.unsplash.com/photo-1507842217343-583bb7270b66");
 background-size:cover;
 background-position:center;
 background-attachment:fixed;
+background-repeat:no-repeat;
 }
 
 /* HERO */
@@ -255,4 +253,117 @@ Event Literasi Nasional<br><br>
 </div>
 </div>
 
-<!-- SISA KODE KAMU TETAP SAMA (TIDAK DIHAPUS / DIUBAH) -->
+<!-- SCRIPT -->
+<script>
+
+/* VOICE SEARCH */
+function startVoiceSearch(){
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if(!SpeechRecognition){
+alert("Browser tidak mendukung voice input");
+return;
+}
+
+const recognition = new SpeechRecognition();
+recognition.lang = "id-ID";
+recognition.start();
+
+recognition.onresult = function(event){
+let hasil = event.results[0][0].transcript;
+document.getElementById("searchBuku").value = hasil;
+cariBuku();
+};
+
+recognition.onerror = function(){
+alert("Gagal menggunakan suara");
+};
+}
+
+/* KODE ASLI */
+function showPage(id){
+document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+document.getElementById(id).style.display="block";
+}
+
+function register(){
+let user={
+email:document.getElementById("regEmail").value,
+password:document.getElementById("regPassword").value
+};
+localStorage.setItem("user",JSON.stringify(user));
+alert("Berhasil daftar");
+showPage("login");
+}
+
+function login(){
+let saved=JSON.parse(localStorage.getItem("user"));
+if(saved &&
+loginEmail.value===saved.email &&
+loginPassword.value===saved.password){
+sessionStorage.setItem("login","true");
+document.getElementById("navbar").style.display="flex";
+showPage("home");
+}else{
+alert("Login gagal");
+}
+}
+
+function openPage(id){
+if(sessionStorage.getItem("login")!=="true"){
+alert("Silakan login");
+showPage("login");
+return;
+}
+showPage(id);
+if(id==="forum") tampilkanForum();
+}
+
+function logout(){
+sessionStorage.removeItem("login");
+document.getElementById("navbar").style.display="none";
+showPage("login");
+}
+
+function buatTopik(){
+let forum=JSON.parse(localStorage.getItem("forum"))||[];
+forum.push({
+judul:judulTopik.value,
+isi:isiTopik.value
+});
+localStorage.setItem("forum",JSON.stringify(forum));
+judulTopik.value="";
+isiTopik.value="";
+tampilkanForum();
+}
+
+function tampilkanForum(){
+let forum=JSON.parse(localStorage.getItem("forum"))||[];
+let html="";
+forum.forEach(t=>{
+html+=`<div class="topik"><h4>${t.judul}</h4><p>${t.isi}</p></div>`;
+});
+daftarTopik.innerHTML=html;
+}
+
+function cariBuku(){
+let input=document.getElementById("searchBuku").value.toLowerCase();
+let buku=document.querySelectorAll(".buku");
+buku.forEach(item=>{
+let text=item.innerText.toLowerCase();
+item.style.display=text.includes(input)?"block":"none";
+});
+}
+
+function daftarEvent(){
+alert("Terima kasih telah mendaftar event ANANTYA PUSTAKA 📚");
+}
+
+window.onload=function(){
+showPage("login");
+}
+
+</script>
+
+</body>
+</html>
