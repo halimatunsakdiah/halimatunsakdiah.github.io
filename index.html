@@ -12,7 +12,7 @@ font-family:Georgia, serif;
 margin:0;
 color:#fff;
 
-/* BACKGROUND BARU (LEBIH ELEGAN) */
+/* BACKGROUND BARU */
 background-image:
 linear-gradient(rgba(10,10,20,0.8), rgba(20,20,40,0.9)),
 url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da");
@@ -188,6 +188,47 @@ color:#00ADB5;
 </div>
 </nav>
 
+<!-- LOGIN -->
+<div id="login" class="page">
+<div class="box">
+<h2>Login</h2>
+<input type="email" id="loginEmail" placeholder="Email"><br>
+<input type="password" id="loginPassword" placeholder="Password"><br>
+<button onclick="login()">Login</button>
+<p>Belum punya akun?
+<a href="#" onclick="showPage('register')">Daftar</a></p>
+</div>
+</div>
+
+<!-- REGISTER -->
+<div id="register" class="page">
+<div class="box">
+<h2>Register</h2>
+<input type="email" id="regEmail" placeholder="Email"><br>
+<input type="password" id="regPassword" placeholder="Password"><br>
+<button onclick="register()">Daftar</button>
+<p>Sudah punya akun?
+<a href="#" onclick="showPage('login')">Login</a></p>
+</div>
+</div>
+
+<!-- BERANDA -->
+<div id="home" class="page">
+<div class="home-card">
+<h2>Selamat Datang</h2>
+<p>Selamat datang di <b>ANANTYA PUSTAKA</b>, pusat literasi modern.</p>
+
+<hr>
+
+<h3>📢 Event Perpustakaan</h3>
+<p><b>Event Literasi Nasional</b></p>
+<p>📅 25 April 2026</p>
+<p>📍 Aula Perpustakaan</p>
+
+<button onclick="daftarEvent()">Daftar Event</button>
+</div>
+</div>
+
 <!-- KOLEKSI -->
 <div id="koleksi" class="page">
 <h2>Koleksi Buku</h2>
@@ -250,9 +291,92 @@ color:#00ADB5;
 </div>
 </div>
 
+<!-- LAYANAN -->
+<div id="layanan" class="page">
+<div class="box">
+<h2>Layanan</h2>
+<p>📖 Peminjaman Buku</p>
+<p>💻 Akses Digital</p>
+<p>🖨️ Cetak & Scan</p>
+</div>
+</div>
+
+<!-- FORUM -->
+<div id="forum" class="page">
+<div class="box">
+<input type="text" id="judulTopik" placeholder="Judul Topik"><br>
+<textarea id="isiTopik"></textarea><br>
+<button onclick="buatTopik()">Posting</button>
+</div>
+<div id="daftarTopik"></div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
+<div class="box">
+<h2>About</h2>
+<p>Halimatun Sakdiah Hrp</p>
+</div>
+</div>
+
+<!-- PROFIL -->
+<div id="profil" class="page">
+<div class="box">
+<h2>Profil Perpustakaan</h2>
+<p>Perpustakaan modern berbasis literasi digital.</p>
+</div>
+</div>
+
+<footer>
+© 2026 <span>ANANTYA PUSTAKA</span>
+</footer>
+
 <script>
 
-/* JS tetap sama */
+/* JS ASLI */
+function showPage(id){
+document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+document.getElementById(id).style.display="flex";
+}
+
+function register(){
+localStorage.setItem("user",JSON.stringify({email:regEmail.value,password:regPassword.value}));
+alert("Berhasil daftar");
+showPage("login");
+}
+
+function login(){
+let u=JSON.parse(localStorage.getItem("user"));
+if(u && loginEmail.value===u.email && loginPassword.value===u.password){
+sessionStorage.setItem("login","true");
+navbar.style.display="flex";
+showPage("home");
+}else alert("Login gagal");
+}
+
+function openPage(id){
+if(sessionStorage.getItem("login")!=="true"){ showPage("login"); return;}
+showPage(id);
+}
+
+function logout(){
+sessionStorage.removeItem("login");
+navbar.style.display="none";
+showPage("login");
+}
+
+function cariBuku(){
+let input=searchBuku.value.toLowerCase();
+document.querySelectorAll(".buku").forEach(b=>{
+b.style.display=b.innerText.toLowerCase().includes(input)?"block":"none";
+});
+}
+
+function daftarEvent(){
+alert("Terima kasih telah mendaftar 📚");
+}
+
+window.onload=()=>showPage("login");
 
 </script>
 
