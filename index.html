@@ -10,11 +10,11 @@
 body{
 font-family:Georgia, serif;
 margin:0;
-color:#fff;
+color:#2C1810;
 
-/* BACKGROUND KAMPUS STYLE */
+/* BACKGROUND DIPERBAIKI (TANPA MERAH + LEBIH JELAS) */
 background-image:
-linear-gradient(rgba(20,15,10,0.75), rgba(20,15,10,0.85)),
+linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
 url("https://images.unsplash.com/photo-1507842217343-583bb7270b66");
 
 background-size:cover;
@@ -32,12 +32,11 @@ text-align:center;
 
 /* NAVBAR */
 nav{
-background:rgba(44,24,16,0.95);
+background:#2C1810;
 padding:15px 30px;
 display:none;
 align-items:center;
 gap:25px;
-backdrop-filter:blur(8px);
 }
 
 nav a{
@@ -51,26 +50,30 @@ nav a:hover{
 color:#D4A017;
 }
 
+.right-nav{
+margin-left:auto;
+display:flex;
+gap:20px;
+}
+
 /* PAGE */
 .page{
 display:none;
 padding:40px;
 min-height:60vh;
-color:white;
+color:white; /* biar teks jelas */
 }
 
-/* BOX (GLASS EFFECT) */
+/* BOX */
 .box{
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(10px);
+background:white;
 width:420px;
 margin:40px auto;
 padding:25px;
 border-radius:14px;
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
-border-top:4px solid #D4A017;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+border-top:6px solid #D4A017;
 text-align:center;
-color:white;
 }
 
 /* INPUT */
@@ -80,8 +83,6 @@ padding:10px;
 margin:8px;
 border-radius:6px;
 border:1px solid #D4A017;
-background:rgba(255,255,255,0.1);
-color:white;
 }
 
 /* BUTTON */
@@ -103,13 +104,11 @@ margin-top:20px;
 }
 
 .buku{
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(8px);
+background:white;
 width:200px;
 border-radius:12px;
-box-shadow:0 6px 20px rgba(0,0,0,0.3);
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
 overflow:hidden;
-color:white;
 }
 
 .buku img{
@@ -130,16 +129,11 @@ font-size:14px;
 
 /* FORUM */
 .topik{
-background:rgba(255,255,255,0.1);
+background:white;
 padding:15px;
 margin:10px 0;
 border-radius:10px;
-border-left:4px solid #D4A017;
-}
-
-/* TEXT SHADOW BIAR JELAS */
-h1,h2,h3,p{
-text-shadow:2px 2px 6px rgba(0,0,0,0.7);
+border-left:6px solid #D4A017;
 }
 
 /* FOOTER */
@@ -165,6 +159,7 @@ color:#D4A017;
 </div>
 
 <nav id="navbar">
+
 <a onclick="openPage('home')">Beranda</a>
 <a onclick="openPage('koleksi')">Koleksi</a>
 <a onclick="openPage('layanan')">Layanan</a>
@@ -175,6 +170,7 @@ color:#D4A017;
 <div class="right-nav">
 <a onclick="logout()">Logout</a>
 </div>
+
 </nav>
 
 <!-- LOGIN -->
@@ -208,21 +204,26 @@ color:#D4A017;
 
 <div class="box">
 <h3>📢 Pengumuman Event Perpustakaan</h3>
+
 <p>
 Event Literasi Nasional<br><br>
 📅 25 April 2026<br>
 📍 Aula Perpustakaan<br>
 🎤 Penulis Nasional
 </p>
+
 <button onclick="daftarEvent()">Daftar Event</button>
 </div>
+
 </div>
 
 <!-- KOLEKSI -->
 <div id="koleksi" class="page">
+
 <h2>Koleksi Buku</h2>
 
 <input type="text" id="searchBuku" placeholder="Cari buku..." onkeyup="cariBuku()">
+
 <br>
 <button onclick="startVoiceSearch()">🎤 Cari dengan Suara</button>
 
@@ -255,13 +256,108 @@ Event Literasi Nasional<br><br>
 </div>
 </div>
 
-<!-- SCRIPT -->
+<!-- LAYANAN -->
+<div id="layanan" class="page">
+<h2>Layanan</h2>
+<p>📖 Peminjaman Buku</p>
+<p>💻 Akses Digital</p>
+<p>🖨️ Cetak & Scan</p>
+
+<h3>Jam Layanan</h3>
+<ul>
+<li>Senin : 08:30 - 21:00</li>
+<li>Selasa - Jumat : 08:00 - 21:00</li>
+<li>Sabtu - Minggu : Tutup</li>
+</ul>
+
+</div>
+
+<!-- FORUM -->
+<div id="forum" class="page">
+<h2>Forum Diskusi</h2>
+
+<div class="box">
+<input type="text" id="judulTopik" placeholder="Judul Topik"><br>
+<textarea id="isiTopik" placeholder="Tulis diskusi"></textarea><br>
+<button onclick="buatTopik()">Posting</button>
+</div>
+
+<h3>Daftar Diskusi</h3>
+<div id="daftarTopik"></div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
+<h2>About</h2>
+
+<p><b>Nama:</b> Halimatun Sakdiah Hrp</p>
+<p><b>NIM:</b> 230709015</p>
+<p><b>Jurusan:</b> Perpustakaan dan Sains Informasi</p>
+
+<p>
+<a href="https://www.instagram.com/halima_harahap7" target="_blank">
+Instagram Saya
+</a>
+</p>
+
+<p>
+<a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank">
+Curriculum Vitae
+</a>
+</p>
+
+<h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
+
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/RY8nUjY83wA"
+frameborder="0"
+allowfullscreen>
+</iframe>
+
+</div>
+
+<!-- PROFIL PERPUSTAKAAN -->
+<div id="profil" class="page">
+
+<h2>Profil Perpustakaan</h2>
+
+<p><b>Nama Perpustakaan:</b> ANANTYA PUSTAKA</p>
+
+<p>
+Perpustakaan Anantya Pustaka merupakan pusat informasi dan sumber pengetahuan
+yang menyediakan berbagai koleksi bahan pustaka untuk mendukung kegiatan
+belajar dan penelitian masyarakat.
+</p>
+
+<h3>Visi</h3>
+<p>
+Menjadi perpustakaan inovatif dan inklusif sebagai pusat sumber
+informasi dan pengetahuan tanpa batas.
+</p>
+
+<h3>Misi</h3>
+<ul>
+<li>Menyediakan koleksi informasi berkualitas.</li>
+<li>Mengembangkan layanan berbasis teknologi.</li>
+<li>Meningkatkan budaya literasi masyarakat.</li>
+</ul>
+
+</div>
+
+<footer>
+© 2026 <span>ANANTYA PUSTAKA</span>
+</footer>
+
 <script>
 
 /* VOICE SEARCH */
 function startVoiceSearch(){
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-if(!SpeechRecognition){ alert("Browser tidak mendukung"); return; }
+
+if(!SpeechRecognition){
+alert("Browser tidak mendukung voice input");
+return;
+}
 
 const recognition = new SpeechRecognition();
 recognition.lang = "id-ID";
@@ -274,7 +370,7 @@ cariBuku();
 };
 }
 
-/* FUNGSI ASLI */
+/* KODE ASLI */
 function showPage(id){
 document.querySelectorAll(".page").forEach(p=>p.style.display="none");
 document.getElementById(id).style.display="block";
@@ -282,8 +378,8 @@ document.getElementById(id).style.display="block";
 
 function register(){
 let user={
-email:regEmail.value,
-password:regPassword.value
+email:document.getElementById("regEmail").value,
+password:document.getElementById("regPassword").value
 };
 localStorage.setItem("user",JSON.stringify(user));
 alert("Berhasil daftar");
@@ -292,36 +388,112 @@ showPage("login");
 
 function login(){
 let saved=JSON.parse(localStorage.getItem("user"));
-if(saved && loginEmail.value===saved.email && loginPassword.value===saved.password){
+
+if(saved &&
+loginEmail.value===saved.email &&
+loginPassword.value===saved.password){
+
 sessionStorage.setItem("login","true");
-navbar.style.display="flex";
+
+document.getElementById("navbar").style.display="flex";
+
 showPage("home");
-}else alert("Login gagal");
+
+}else{
+
+alert("Login gagal");
+
+}
+
 }
 
 function openPage(id){
-if(sessionStorage.getItem("login")!=="true"){ showPage("login"); return; }
+
+if(sessionStorage.getItem("login")!=="true"){
+
+alert("Silakan login");
+
+showPage("login");
+
+return;
+
+}
+
 showPage(id);
+
+if(id==="forum") tampilkanForum();
+
 }
 
 function logout(){
+
 sessionStorage.removeItem("login");
-navbar.style.display="none";
+
+document.getElementById("navbar").style.display="none";
+
 showPage("login");
+
+}
+
+function buatTopik(){
+
+let forum=JSON.parse(localStorage.getItem("forum"))||[];
+
+forum.push({
+judul:judulTopik.value,
+isi:isiTopik.value
+});
+
+localStorage.setItem("forum",JSON.stringify(forum));
+
+judulTopik.value="";
+isiTopik.value="";
+
+tampilkanForum();
+
+}
+
+function tampilkanForum(){
+
+let forum=JSON.parse(localStorage.getItem("forum"))||[];
+
+let html="";
+
+forum.forEach(t=>{
+html+=`<div class="topik"><h4>${t.judul}</h4><p>${t.isi}</p></div>`;
+});
+
+daftarTopik.innerHTML=html;
+
 }
 
 function cariBuku(){
-let input=searchBuku.value.toLowerCase();
-document.querySelectorAll(".buku").forEach(b=>{
-b.style.display=b.innerText.toLowerCase().includes(input)?"block":"none";
+
+let input=document.getElementById("searchBuku").value.toLowerCase();
+
+let buku=document.querySelectorAll(".buku");
+
+buku.forEach(item=>{
+
+let text=item.innerText.toLowerCase();
+
+item.style.display=text.includes(input)?"block":"none";
+
 });
+
 }
 
 function daftarEvent(){
-alert("Terima kasih telah mendaftar 📚");
+
+alert("Terima kasih telah mendaftar event ANANTYA PUSTAKA 📚");
+
 }
 
-window.onload=()=>showPage("login");
+window.onload=function(){
+
+showPage("login");
+
+}
 
 </script>
 
