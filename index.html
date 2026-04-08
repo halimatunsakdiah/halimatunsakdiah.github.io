@@ -6,178 +6,221 @@
 <title>ANANTYA PUSTAKA</title>
 
 <style>
-body{
-    font-family:sans-serif;
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI', sans-serif;
     color:#fff;
 
     background:
-    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+    linear-gradient(rgba(10,8,5,0.7), rgba(10,8,5,0.9)),
     url("https://drive.google.com/uc?export=view&id=1cRoaxyI4VUHxpMWIZ1PfeaW04kAYyIqd");
 
     background-size:cover;
+    background-attachment:fixed;
 }
 
-/* NAV */
+/* HERO */
+.hero{
+    text-align:center;
+    padding:100px 20px;
+}
+
+/* NAVBAR */
 nav{
+    display:none;
     background:rgba(0,0,0,0.7);
     padding:15px;
+    text-align:center;
+}
+
+nav button{
+    margin:5px;
+}
+
+/* PAGE */
+.page{
     display:none;
+    justify-content:center;
+    align-items:center;
+    min-height:60vh;
 }
 
 /* CARD */
 .box{
     background:rgba(255,255,255,0.1);
-    padding:20px;
-    margin:20px;
-    border-radius:10px;
+    padding:30px;
+    border-radius:15px;
+    width:300px;
+    text-align:center;
 }
 
 /* INPUT */
 input{
+    width:90%;
     padding:10px;
-    margin:5px;
+    margin:10px;
+    border:none;
+    border-radius:5px;
 }
 
-/* GRID */
-.grid{
+/* BUTTON */
+button{
+    padding:10px 20px;
+    background:#D4A017;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* KOLEKSI */
+.koleksi{
     display:flex;
+    gap:20px;
     flex-wrap:wrap;
-    gap:15px;
+    justify-content:center;
 }
 
 .card{
     background:white;
     color:black;
     padding:10px;
-    width:200px;
+    width:180px;
     border-radius:10px;
+}
+
+.card img{
+    width:100%;
 }
 </style>
 </head>
 
 <body>
 
+<div class="hero">
+    <h1>ANANTYA PUSTAKA</h1>
+    <p>Perpustakaan Digital Modern</p>
+</div>
+
+<!-- NAVBAR -->
 <nav id="navbar">
-    <button onclick="showPage('dashboard')">Dashboard</button>
-    <button onclick="showPage('koleksi')">Koleksi</button>
+    <button onclick="openPage('home')">Home</button>
+    <button onclick="openPage('koleksi')">Koleksi</button>
     <button onclick="logout()">Logout</button>
 </nav>
 
-<div id="login" class="box">
-    <h2>Login</h2>
-    <input id="email"><br>
-    <input id="password" type="password"><br>
-    <button onclick="login()">Login</button>
-    <p onclick="showRegister()">Register</p>
+<!-- LOGIN -->
+<div id="login" class="page">
+    <div class="box">
+        <h2>Login</h2>
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p onclick="showRegister()" style="cursor:pointer;">Belum punya akun?</p>
+    </div>
 </div>
 
-<div id="register" class="box" style="display:none;">
-    <h2>Register</h2>
-    <input id="regEmail"><br>
-    <input id="regPassword" type="password"><br>
-    <button onclick="register()">Daftar</button>
+<!-- REGISTER -->
+<div id="register" class="page">
+    <div class="box">
+        <h2>Register</h2>
+        <input type="email" id="regEmail" placeholder="Email">
+        <input type="password" id="regPassword" placeholder="Password">
+        <button onclick="register()">Daftar</button>
+        <p onclick="showLogin()" style="cursor:pointer;">Sudah punya akun?</p>
+    </div>
 </div>
 
-<!-- DASHBOARD ADMIN -->
-<div id="dashboard" class="box" style="display:none;">
-    <h2>Tambah Buku</h2>
-    <input id="judul" placeholder="Judul"><br>
-    <input id="penulis" placeholder="Penulis"><br>
-    <input id="cover" placeholder="Link Cover"><br>
-    <button onclick="tambahBuku()">Tambah</button>
+<!-- HOME -->
+<div id="home" class="page">
+    <div class="box">
+        <h2>Selamat Datang 📚</h2>
+        <p>Website perpustakaan modern</p>
+    </div>
 </div>
 
 <!-- KOLEKSI -->
-<div id="koleksi" class="box" style="display:none;">
-    <h2>Koleksi Buku</h2>
-    <div id="listBuku" class="grid"></div>
+<div id="koleksi" class="page">
+    <div class="koleksi">
+        <div class="card">
+            <img src="https://covers.openlibrary.org/b/id/8231856-L.jpg">
+            <h4>Atomic Habits</h4>
+        </div>
+        <div class="card">
+            <img src="https://covers.openlibrary.org/b/id/8228691-L.jpg">
+            <h4>Laskar Pelangi</h4>
+        </div>
+    </div>
 </div>
 
-<script type="module">
+<script>
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut }
-from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+/* LOAD AWAL */
+window.onload = function(){
+    showPage("login");
+}
 
-import { getFirestore, collection, addDoc, getDocs }
-from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "ISI_CONFIG_KAMU",
-  authDomain: "ISI_CONFIG_KAMU",
-  projectId: "ISI_CONFIG_KAMU"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth();
-const db = getFirestore();
+/* PINDAH PAGE */
+function showPage(id){
+    document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+    document.getElementById(id).style.display="flex";
+}
 
 /* REGISTER */
-window.register = function(){
-    createUserWithEmailAndPassword(auth, regEmail.value, regPassword.value)
-    .then(()=>alert("Berhasil daftar"))
+function register(){
+    let user = {
+        email: document.getElementById("regEmail").value,
+        password: document.getElementById("regPassword").value
+    };
+
+    localStorage.setItem("user", JSON.stringify(user));
+    alert("Berhasil daftar!");
+    showPage("login");
 }
 
 /* LOGIN */
-window.login = function(){
-    signInWithEmailAndPassword(auth, email.value, password.value)
-    .then(()=>{
-        navbar.style.display="block";
-        login.style.display="none";
-        showPage("koleksi");
-        loadBuku();
-    })
+function login(){
+    let user = JSON.parse(localStorage.getItem("user"));
+
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    if(user && email === user.email && password === user.password){
+        alert("Login berhasil 🎉");
+        document.getElementById("navbar").style.display="block";
+        showPage("home");
+    } else {
+        alert("Email atau password salah ❌");
+    }
 }
 
 /* LOGOUT */
-window.logout = function(){
-    signOut(auth);
-    location.reload();
+function logout(){
+    document.getElementById("navbar").style.display="none";
+    showPage("login");
 }
 
-/* PAGE */
-window.showPage = function(id){
-    document.querySelectorAll(".box").forEach(b=>b.style.display="none");
-    document.getElementById(id).style.display="block";
-}
-
-/* TAMBAH BUKU */
-window.tambahBuku = async function(){
-    await addDoc(collection(db,"buku"),{
-        judul:judul.value,
-        penulis:penulis.value,
-        cover:cover.value
-    });
-    alert("Buku ditambahkan");
-    loadBuku();
-}
-
-/* LOAD BUKU */
-async function loadBuku(){
-    const querySnapshot = await getDocs(collection(db,"buku"));
-    listBuku.innerHTML="";
-    querySnapshot.forEach(doc=>{
-        let b=doc.data();
-        listBuku.innerHTML+=`
-        <div class="card">
-            <img src="${b.cover}" width="100%">
-            <h4>${b.judul}</h4>
-            <p>${b.penulis}</p>
-            <button onclick="pinjam()">Pinjam</button>
-        </div>`;
-    });
-}
-
-/* PINJAM */
-window.pinjam = function(){
-    alert("Buku berhasil dipinjam 📚");
+/* NAV */
+function openPage(id){
+    showPage(id);
 }
 
 /* SWITCH */
-window.showRegister = function(){
-    login.style.display="none";
-    register.style.display="block";
+function showRegister(){
+    showPage("register");
+}
+
+function showLogin(){
+    showPage("login");
 }
 
 </script>
