@@ -187,7 +187,6 @@ button:hover{
 <div id="forum" class="page">
     <div class="box">
         <h2>Forum Diskusi</h2>
-        <p>Tempat diskusi pengguna perpustakaan</p>
         <textarea placeholder="Tulis komentar..."></textarea>
         <button>Kirim</button>
     </div>
@@ -195,15 +194,57 @@ button:hover{
 
 <!-- KOLEKSI -->
 <div id="koleksi" class="page">
-    <div class="koleksi">
-        <div class="card">
-            <img src="https://covers.openlibrary.org/b/id/8231856-L.jpg">
-            <h4>Atomic Habits</h4>
+    <div style="text-align:center; width:100%;">
+
+        <h2>Koleksi Buku 📚</h2>
+        <br>
+
+        <!-- FIKSI -->
+        <h3>📖 Buku Fiksi</h3>
+        <div class="koleksi">
+            <div class="card">
+                <img src="https://covers.openlibrary.org/b/id/8228691-L.jpg">
+                <h4>Laskar Pelangi</h4>
+                <p>Andrea Hirata</p>
+            </div>
+
+            <div class="card">
+                <img src="https://covers.openlibrary.org/b/id/10523338-L.jpg">
+                <h4>Harry Potter</h4>
+                <p>J.K. Rowling</p>
+            </div>
+
+            <div class="card">
+                <img src="https://covers.openlibrary.org/b/id/11153278-L.jpg">
+                <h4>The Hobbit</h4>
+                <p>J.R.R. Tolkien</p>
+            </div>
         </div>
-        <div class="card">
-            <img src="https://covers.openlibrary.org/b/id/8228691-L.jpg">
-            <h4>Laskar Pelangi</h4>
+
+        <br><br>
+
+        <!-- NON FIKSI -->
+        <h3>📚 Buku Non-Fiksi</h3>
+        <div class="koleksi">
+            <div class="card">
+                <img src="https://covers.openlibrary.org/b/id/8231856-L.jpg">
+                <h4>Atomic Habits</h4>
+                <p>James Clear</p>
+            </div>
+
+            <div class="card">
+                <img src="https://covers.openlibrary.org/b/id/9259251-L.jpg">
+                <h4>Rich Dad Poor Dad</h4>
+                <p>Robert Kiyosaki</p>
+            </div>
+
+            <div class="card">
+                <img src="https://covers.openlibrary.org/b/id/8279256-L.jpg">
+                <h4>Sapiens</h4>
+                <p>Yuval Noah Harari</p>
+            </div>
         </div>
+
     </div>
 </div>
 
@@ -211,7 +252,7 @@ button:hover{
 <div id="about" class="page">
     <div class="box">
         <h2>About Me</h2>
-        <p>Dibuat oleh mahasiswa untuk pengembangan perpustakaan digital modern.</p>
+        <p>Dibuat untuk pengembangan perpustakaan digital modern.</p>
     </div>
 </div>
 
@@ -227,19 +268,15 @@ button:hover{
 </div>
 
 <script>
-
-/* LOAD */
 window.onload = function(){
     showPage("login");
 }
 
-/* PAGE */
 function showPage(id){
     document.querySelectorAll(".page").forEach(p=>p.style.display="none");
     document.getElementById(id).style.display="flex";
 }
 
-/* REGISTER */
 function register(){
     let user = {
         email: regEmail.value,
@@ -250,7 +287,6 @@ function register(){
     showPage("login");
 }
 
-/* LOGIN */
 function login(){
     let user = JSON.parse(localStorage.getItem("user"));
 
@@ -263,18 +299,15 @@ function login(){
     }
 }
 
-/* LOGOUT */
 function logout(){
     navbar.style.display="none";
     showPage("login");
 }
 
-/* NAV */
 function openPage(id){
     showPage(id);
 }
 
-/* SWITCH */
 function showRegister(){
     showPage("register");
 }
@@ -282,7 +315,6 @@ function showRegister(){
 function showLogin(){
     showPage("login");
 }
-
 </script>
 
 </body>
