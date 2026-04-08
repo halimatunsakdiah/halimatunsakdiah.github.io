@@ -11,32 +11,10 @@
 body{
     font-family:'Segoe UI', sans-serif;
     color:#000;
-    background-color:#fff; /* warna putih default */
+    background-color:#fff;
     overflow-x:hidden;
     transition: background 0.5s ease;
-}
-
-/* Watermark bergerak */
-#watermark{
-    position:fixed;
-    top:50%;
-    left:50%;
-    width:150px;
-    height:150px;
-    opacity:0.05;
-    background-image: url("https://drive.google.com/uc?export=view&id=1cRoaxyI4VUHxpMWIZ1PfeaW04kAYyIqd");
-    background-size:contain;
-    background-repeat:no-repeat;
-    transform:translate(-50%, -50%);
-    animation: float 20s linear infinite;
-    pointer-events:none;
-    z-index:-1;
-}
-
-@keyframes float{
-    0% {transform:translate(-50%, -50%) translateY(0);}
-    50% {transform:translate(-50%, -50%) translateY(30px);}
-    100% {transform:translate(-50%, -50%) translateY(0);}
+    position:relative;
 }
 
 .hero{text-align:center;padding:80px 20px;}
@@ -59,7 +37,7 @@ nav button{margin:5px;}
 }
 
 .box{
-    background:rgba(255,255,255,0.9); 
+    background:rgba(255,255,255,0.9);
     padding:30px;
     border-radius:15px;
     width:350px;
@@ -107,12 +85,36 @@ button:hover{transform:scale(1.05);}
     transform:scale(1.08);
     background:#f5e6c5;
 }
+
+/* WATERMARK MULTI BUKU */
+.watermark{
+    position:fixed;
+    width:100px;
+    height:100px;
+    opacity:0.07;
+    background-image: url("https://cdn-icons-png.flaticon.com/512/29/29302.png"); /* contoh gambar buku */
+    background-size:contain;
+    background-repeat:no-repeat;
+    pointer-events:none;
+    z-index:-1;
+    animation: float 20s linear infinite;
+}
+
+@keyframes float{
+    0% {transform: translateY(0);}
+    50% {transform: translateY(30px);}
+    100% {transform: translateY(0);}
+}
 </style>
 </head>
-
 <body>
 
-<div id="watermark"></div>
+<!-- WATERMARKS BUKU -->
+<div class="watermark" style="top:20%; left:15%; animation-delay:0s;"></div>
+<div class="watermark" style="top:60%; left:80%; animation-delay:5s;"></div>
+<div class="watermark" style="top:40%; left:50%; animation-delay:10s;"></div>
+<div class="watermark" style="top:75%; left:25%; animation-delay:7s;"></div>
+<div class="watermark" style="top:10%; left:70%; animation-delay:12s;"></div>
 
 <div class="hero">
     <h1>ANANTYA PUSTAKA</h1>
