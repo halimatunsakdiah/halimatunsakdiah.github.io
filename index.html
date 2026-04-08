@@ -10,19 +10,40 @@
 
 body{
     font-family:'Segoe UI', sans-serif;
-    color:#fff;
-    background:
-    linear-gradient(rgba(10,8,5,0.7), rgba(10,8,5,0.9)),
-    url("https://drive.google.com/uc?export=view&id=1cRoaxyI4VUHxpMWIZ1PfeaW04kAYyIqd");
-    background-size:cover;
-    background-attachment:fixed;
+    color:#000;
+    background-color:#fff; /* warna putih default */
+    overflow-x:hidden;
+    transition: background 0.5s ease;
+}
+
+/* Watermark bergerak */
+#watermark{
+    position:fixed;
+    top:50%;
+    left:50%;
+    width:150px;
+    height:150px;
+    opacity:0.05;
+    background-image: url("https://drive.google.com/uc?export=view&id=1cRoaxyI4VUHxpMWIZ1PfeaW04kAYyIqd");
+    background-size:contain;
+    background-repeat:no-repeat;
+    transform:translate(-50%, -50%);
+    animation: float 20s linear infinite;
+    pointer-events:none;
+    z-index:-1;
+}
+
+@keyframes float{
+    0% {transform:translate(-50%, -50%) translateY(0);}
+    50% {transform:translate(-50%, -50%) translateY(30px);}
+    100% {transform:translate(-50%, -50%) translateY(0);}
 }
 
 .hero{text-align:center;padding:80px 20px;}
 
 nav{
     display:none;
-    background:rgba(0,0,0,0.8);
+    background:rgba(0,0,0,0.05);
     padding:10px;
     text-align:center;
 }
@@ -38,18 +59,19 @@ nav button{margin:5px;}
 }
 
 .box{
-    background:rgba(255,255,255,0.1);
+    background:rgba(255,255,255,0.9); 
     padding:30px;
     border-radius:15px;
     width:350px;
     text-align:center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 input, textarea{
     width:90%;
     padding:10px;
     margin:10px;
-    border:none;
+    border:1px solid #ccc;
     border-radius:5px;
 }
 
@@ -59,11 +81,11 @@ button{
     border:none;
     border-radius:5px;
     cursor:pointer;
+    transition:0.3s;
 }
 
 button:hover{transform:scale(1.05);}
 
-/* KOLEKSI */
 .koleksi{
     display:flex;
     gap:20px;
@@ -89,6 +111,8 @@ button:hover{transform:scale(1.05);}
 </head>
 
 <body>
+
+<div id="watermark"></div>
 
 <div class="hero">
     <h1>ANANTYA PUSTAKA</h1>
@@ -140,24 +164,17 @@ button:hover{transform:scale(1.05);}
 <!-- PROFIL -->
 <div id="profil" class="page">
     <div class="box" style="width:500px; text-align:left;">
-        <h2 style="text-align:center;">Profil Perpustakaan</h2><br>
-
+        <h2 style="text-align:center;">Profil Perpustakaan</h2>
         <h3>📚 ANANTYA PUSTAKA</h3>
         <p>Perpustakaan digital modern untuk mendukung belajar dan literasi.</p>
-
-        <br>
         <h3>🎯 Visi</h3>
         <p>Menjadi pusat literasi digital modern.</p>
-
-        <br>
         <h3>🚀 Misi</h3>
         <ul>
             <li>Menyediakan koleksi berkualitas</li>
             <li>Meningkatkan minat baca</li>
             <li>Mengembangkan layanan digital</li>
         </ul>
-
-        <br>
         <h3>🏆 Tujuan</h3>
         <ul>
             <li>Mendukung pembelajaran</li>
@@ -199,13 +216,11 @@ button:hover{transform:scale(1.05);}
     <div style="text-align:center; width:100%;">
         <h2>Koleksi Buku</h2>
         <input type="text" id="searchBuku" placeholder="Cari buku..." onkeyup="cariBuku()">
-
         <h3>📖 Fiksi</h3>
         <div class="koleksi">
             <div class="card" onclick="pilihBuku('Laskar Pelangi')"><h4>Laskar Pelangi</h4></div>
             <div class="card" onclick="pilihBuku('Harry Potter')"><h4>Harry Potter</h4></div>
         </div>
-
         <h3>📚 Non-Fiksi</h3>
         <div class="koleksi">
             <div class="card" onclick="pilihBuku('Atomic Habits')"><h4>Atomic Habits</h4></div>
@@ -235,9 +250,21 @@ button:hover{transform:scale(1.05);}
 <script>
 window.onload = ()=>showPage("login");
 
+const backgrounds = {
+    home: "#fff",
+    profil: "#fdf6e3",
+    layanan: "#e0f7fa",
+    event: "#fff3e0",
+    forum: "#f3e5f5",
+    koleksi: "#e8f5e9",
+    about: "#fff",
+    contact: "#f0f4c3"
+};
+
 function showPage(id){
     document.querySelectorAll(".page").forEach(p=>p.style.display="none");
     document.getElementById(id).style.display="flex";
+    document.body.style.background = backgrounds[id] || "#fff";
 }
 
 function register(){
@@ -266,18 +293,15 @@ function openPage(id){showPage(id);}
 function showRegister(){showPage("register");}
 function showLogin(){showPage("login");}
 
-/* SEARCH BUKU */
 function cariBuku(){
     let input = document.getElementById("searchBuku").value.toLowerCase();
     let cards = document.querySelectorAll(".card");
-
     cards.forEach(card=>{
         let text = card.innerText.toLowerCase();
         card.style.display = text.includes(input) ? "block" : "none";
     });
 }
 
-/* KLIK BUKU */
 function pilihBuku(nama){
     alert("📖 Kamu memilih buku: " + nama);
 }
