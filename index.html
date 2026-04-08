@@ -13,17 +13,17 @@ body {
     background-position:center;
     background-attachment:fixed;
     transition: background 1s ease-in-out;
-    color:#2c3e50;
+    color:#333;
 }
 .overlay { background: rgba(0,0,0,0.1); min-height:100vh; width:100%; }
 
-/* NAVBAR */
+/* NAVBAR MODERN */
 nav {
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:15px 40px;
-    background:#1a252f;
+    background:#2c3e50; /* abu gelap */
     position:sticky;
     top:0;
     z-index:1000;
@@ -46,7 +46,7 @@ nav a:hover { color:#f1c40f; }
 .dropdown-content {
     display:none;
     position:absolute;
-    background-color:#1a252f;
+    background-color:#2c3e50; /* sama warna navbar */
     min-width:200px;
     box-shadow:0px 8px 16px rgba(0,0,0,0.4);
     z-index:1001;
@@ -108,9 +108,9 @@ nav a:hover { color:#f1c40f; }
     box-shadow:0 15px 35px rgba(0,0,0,0.5);
 }
 .active { display:block; }
-h1,h2,h3,h4,p,li,span { color:#2c3e50; }
-ul { margin-left:20px; }
-p,li { line-height:1.8; margin-bottom:15px; text-align:justify; }
+h1,h2 { color:#2c3e50; border-bottom:2px solid #f1c40f; padding-bottom:10px; margin-bottom:25px; }
+h3 { color:#d35400; margin:20px 0 10px 0; }
+p { line-height:1.8; color:#34495e; margin-bottom:15px; text-align:justify; }
 
 /* GRID KOLEKSI */
 .grid-koleksi {
@@ -148,17 +148,18 @@ button:hover { background:#f1c40f; color:#2c3e50; }
     will-change:transform;
 }
 </style>
-
 <script>
+// BACKGROUND UNTUK TIAP SECTION
 const bgs = {
-    beranda:'https://images.unsplash.com/photo-1541339907198-e08759dfc3f0',
-    sejarah:'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f',
-    visi:'https://images.unsplash.com/photo-1497633762265-9d179a990aa6',
-    tujuan:'https://images.unsplash.com/photo-1507842217343-583bb7270b66',
-    kolEbook:'https://images.unsplash.com/photo-1521587760476-6c12a4b040da',
-    layFasilitas:'https://images.unsplash.com/photo-1495446815901-a7297e633e8d',
-    layJam:'https://images.unsplash.com/photo-1505373877841-8d25f7d46678',
-    event:'https://images.unsplash.com/photo-1481627834876-b7833e8f5570'
+    beranda:'https://images.unsplash.com/photo-1581091870629-9c60d9dfe3b1?auto=format&fit=crop&w=1400&q=80',
+    sejarah:'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1400&q=80',
+    visi:'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1400&q=80',
+    tujuan:'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1400&q=80',
+    kolBuku:'https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1400&q=80',
+    kolEbook:'https://images.unsplash.com/photo-1581091215362-0b5cfebba1b0?auto=format&fit=crop&w=1400&q=80',
+    layFasilitas:'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80',
+    layJam:'https://images.unsplash.com/photo-1531379410507-50383c78f0b7?auto=format&fit=crop&w=1400&q=80',
+    event:'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=80'
 };
 
 function showSection(id){
@@ -198,141 +199,160 @@ window.addEventListener('scroll',()=>{
 });
 </script>
 </head>
-
 <body>
 <div class="overlay">
-    <nav>
-        <div class="left">
-            <a onclick="showSection('beranda')">Beranda</a>
-            <div class="dropdown">
-                <a>Profil ▾</a>
-                <div class="dropdown-content">
-                    <a onclick="showSection('sejarah')">Sejarah Perpustakaan</a>
-                    <a onclick="showSection('visi')">Visi & Misi Modern</a>
-                    <a onclick="showSection('tujuan')">Tujuan Edukasi</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <a>Koleksi ▾</a>
-                <div class="dropdown-content">
-                    <a onclick="showSection('kolEbook')">E-Book Populer</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <a>Layanan ▾</a>
-                <div class="dropdown-content">
-                    <a onclick="showSection('layFasilitas')">Fasilitas & Akses</a>
-                    <a onclick="showSection('layJam')">Jam Operasional</a>
-                </div>
-            </div>
-            <a onclick="showSection('event')">Event</a>
-            <a onclick="showSection('forum')">Forum</a>
-            <a onclick="showSection('about')">About Me</a>
-        </div>
-        <div class="right">
-            <a onclick="showSection('login')">Login / Daftar</a>
-        </div>
-    </nav>
-
-    <!-- HERO SEARCH -->
-    <div id="hero-search-section">
-        <h1>ANANTYA PUSTAKA</h1>
-        <p>Perpustakaan Digital Modern</p>
-        <div class="main-search-bar">
-            <input type="text" placeholder="Cari Buku, E-Book, atau Koleksi...">
-            <button>CARI</button>
-        </div>
-    </div>
-
-    <!-- CONTENT -->
-    <div id="beranda" class="content">
-        <h1>Selamat Datang di ANANTYA PUSTAKA</h1>
-        <p>Perpustakaan digital modern mendukung pembelajaran dan literasi digital.</p>
-    </div>
-
-    <div id="sejarah" class="content">
-        <h2>Sejarah Perpustakaan</h2>
-        <p>Didirikan sebagai pusat literasi digital untuk mahasiswa dan masyarakat umum.</p>
-    </div>
-
-    <div id="visi" class="content">
-        <h2>Visi & Misi Modern</h2>
-        <p>Menjadi pusat literasi digital yang inovatif dan mudah diakses.</p>
-    </div>
-
-    <div id="tujuan" class="content">
-        <h2>Tujuan Edukasi</h2>
-        <ul>
-            <li>Meningkatkan kualitas pembelajaran</li>
-            <li>Menyediakan sumber informasi terkini</li>
-        </ul>
-    </div>
-
-    <div id="kolEbook" class="content">
-        <h2>E-Book Populer</h2>
-        <div class="grid-koleksi">
-            <div class="book-card">
-                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=200">
-                <div class="book-info">
-                    <h4>Belajar Pemrograman Python</h4>
-                    <p><span>Pengarang:</span> Andi Setiawan</p>
-                </div>
-            </div>
-            <div class="book-card">
-                <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=200">
-                <div class="book-info">
-                    <h4>Manajemen Perpustakaan Modern</h4>
-                    <p><span>Pengarang:</span> Siti Rahma</p>
-                </div>
+<nav>
+    <div class="left">
+        <a onclick="showSection('beranda')">Beranda</a>
+        <div class="dropdown">
+            <a>Profil ▾</a>
+            <div class="dropdown-content">
+                <a onclick="showSection('sejarah')">Sejarah</a>
+                <a onclick="showSection('visi')">Visi & Misi</a>
+                <a onclick="showSection('tujuan')">Tujuan</a>
             </div>
         </div>
+        <div class="dropdown">
+            <a>Koleksi ▾</a>
+            <div class="dropdown-content">
+                <a onclick="showSection('kolBuku')">Buku Referensi Populer</a>
+                <a onclick="showSection('kolEbook')">E-Book Digital</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a>Layanan ▾</a>
+            <div class="dropdown-content">
+                <a onclick="showSection('layFasilitas')">Fasilitas Perpustakaan</a>
+                <a onclick="showSection('layJam')">Jam Layanan</a>
+            </div>
+        </div>
+        <a onclick="showSection('event')">Event</a>
+        <a onclick="showSection('forum')">Forum</a>
+        <a onclick="showSection('about')">About Me</a>
     </div>
+    <div class="right">
+        <a onclick="showSection('login')">Login / Daftar</a>
+    </div>
+</nav>
 
-    <div id="layFasilitas" class="content">
-        <h2>Fasilitas & Akses</h2>
-        <ul>
-            <li>Peminjaman & Pengembalian E-Book</li>
-            <li>Akses database digital</li>
-        </ul>
+<!-- HERO SEARCH -->
+<div id="hero-search-section">
+    <h1 style="color:white; font-size:2.8em; margin-bottom:10px;">ANANTYA PUSTAKA</h1>
+    <p style="color:white; font-size:1.2em;">Perpustakaan Digital Modern</p>
+    <div class="main-search-bar">
+        <input type="text" placeholder="Cari Buku, E-Book, atau Koleksi...">
+        <button>CARI</button>
     </div>
+</div>
 
-    <div id="layJam" class="content">
-        <h2>Jam Operasional</h2>
-        <p>Senin-Kamis 08:30-18:00, Jumat 08:30-11:30 & 13:30-18:00</p>
-    </div>
+<!-- CONTENT SECTIONS -->
+<div id="beranda" class="content">
+    <h1>Selamat Datang di ANANTYA PUSTAKA</h1>
+    <p>Website perpustakaan modern untuk mendukung pembelajaran dan literasi digital.</p>
+</div>
 
-    <div id="event" class="content">
-        <h2>Event</h2>
-        <p>Webinar literasi digital, workshop e-learning, dan pameran buku.</p>
-    </div>
+<div id="sejarah" class="content">
+    <h2>Sejarah</h2>
+    <p>ANANTYA PUSTAKA berdiri sebagai perpustakaan digital inovatif untuk era modern.</p>
+</div>
 
-    <div id="forum" class="content">
-        <h2>Forum Diskusi</h2>
-        <textarea rows="4" placeholder="Tulis pesan..."></textarea>
-        <button>Kirim Pesan</button>
-    </div>
+<div id="visi" class="content">
+    <h2>Visi & Misi</h2>
+    <p>Menjadi pusat literasi digital dengan akses informasi cepat dan terpercaya.</p>
+</div>
 
-    <div id="about" class="content">
-        <h2>About Me</h2>
-        <p>Nama: Halima Harahap</p>
-        <p>Jurusan: Perpustakaan & Sains Informasi</p>
-    </div>
+<div id="tujuan" class="content">
+    <h2>Tujuan</h2>
+    <ul>
+        <li>Mendukung pembelajaran akademik</li>
+        <li>Menyediakan informasi berkualitas</li>
+        <li>Mengembangkan literasi digital</li>
+    </ul>
+</div>
 
-    <div id="login" class="content">
-        <h2>Login / Daftar Anggota</h2>
-        <h3>Login</h3>
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <button>Login</button>
-        <hr style="margin:20px 0;">
-        <h3>Daftar Anggota</h3>
-        <input type="text" placeholder="Last Name">
-        <input type="text" placeholder="First Name">
-        <input type="text" placeholder="No.HP">
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <button>Daftar</button>
+<div id="kolBuku" class="content">
+    <h2>Buku Referensi Populer</h2>
+    <div class="grid-koleksi">
+        <div class="book-card">
+            <img src="https://images.unsplash.com/photo-1526318472351-b1a5d3a6b0c2?w=200">
+            <div class="book-info">
+                <h4>Data Science Modern</h4>
+                <p><span>Pengarang:</span> Anita Kusuma</p>
+            </div>
+        </div>
+        <div class="book-card">
+            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=200">
+            <div class="book-info">
+                <h4>Teknologi Informasi</h4>
+                <p><span>Pengarang:</span> Bambang Sutrisno</p>
+            </div>
+        </div>
     </div>
+</div>
+
+<div id="kolEbook" class="content">
+    <h2>E-Book Digital</h2>
+    <div class="grid-koleksi">
+        <div class="book-card">
+            <img src="https://images.unsplash.com/photo-1581091215362-0b5cfebba1b0?w=200">
+            <div class="book-info">
+                <h4>Artificial Intelligence</h4>
+                <p><span>Format:</span> PDF / ePub</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="layFasilitas" class="content">
+    <h2>Fasilitas Perpustakaan</h2>
+    <ul>
+        <li>Ruang baca nyaman</li>
+        <li>Akses e-Resources</li>
+        <li>Wi-Fi gratis</li>
+    </ul>
+</div>
+
+<div id="layJam" class="content">
+    <h2>Jam Layanan</h2>
+    <p>Senin-Kamis 08:30-18:00, Jumat 08:30-11:30 & 13:30-18:00</p>
+</div>
+
+<div id="event" class="content">
+    <h2>Event Literasi</h2>
+    <ul>
+        <li>Webinar Digital Learning</li>
+        <li>Bedah Buku Populer</li>
+        <li>Pameran Literasi</li>
+    </ul>
+</div>
+
+<div id="forum" class="content">
+    <h2>Forum Diskusi</h2>
+    <textarea rows="4" placeholder="Tulis pesan..."></textarea>
+    <button>Kirim Pesan</button>
+</div>
+
+<div id="about" class="content">
+    <h2>About Me</h2>
+    <p>Nama: Halima Harahap</p>
+    <p>Jurusan: Perpustakaan & Sains Informasi</p>
+</div>
+
+<div id="login" class="content">
+    <h2>Login / Daftar Anggota</h2>
+    <h3>Login Member</h3>
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button>Login</button>
+    <hr style="margin:20px 0; border-color:#ccc;">
+    <h3>Daftar Anggota Baru</h3>
+    <input type="text" placeholder="Last Name">
+    <input type="text" placeholder="First Name">
+    <input type="text" placeholder="No. HP">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button>Daftar</button>
+</div>
 </div>
 </body>
 </html>
