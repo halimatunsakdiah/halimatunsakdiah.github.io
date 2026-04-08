@@ -11,8 +11,8 @@ body{
     color:#000;
     background-color:#fff;
     overflow-x:hidden;
-    transition: background 0.5s ease;
     position:relative;
+    transition: background 0.5s ease;
 }
 
 /* HERO */
@@ -81,7 +81,7 @@ button:hover{transform:scale(1.05);}
     background:#f5e6c5;
 }
 
-/* WATERMARK BUKU BERWARNA */
+/* WATERMARK BUKU BERWARNA & PARALAKS */
 .watermark{
     position:fixed;
     pointer-events:none;
@@ -90,29 +90,41 @@ button:hover{transform:scale(1.05);}
     background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5f/Books_icon.png");
     background-size:contain;
     background-repeat:no-repeat;
-    filter: saturate(2) hue-rotate(0deg);
+    will-change: transform;
 }
 </style>
 </head>
 <body>
 
-<!-- WATERMARK GENERATOR BERWARNA -->
 <script>
-function buatWatermarkBerwarna(jumlah){
+// buat watermark berwarna & paralaks
+const watermarks = [];
+function buatWatermarkParalaks(jumlah){
     for(let i=0;i<jumlah;i++){
         let wm = document.createElement("div");
         wm.className = "watermark";
-        let size = Math.random()*150 + 100; // ukuran acak 100-250px
+        let size = Math.random()*150 + 100;
         wm.style.width = size + "px";
         wm.style.height = size + "px";
         wm.style.top = Math.random()*90 + "%";
         wm.style.left = Math.random()*90 + "%";
-        wm.style.transform = "rotate("+ (Math.random()*360) +"deg)";
-        wm.style.filter = "saturate(" + (1 + Math.random()*2) + ") hue-rotate(" + (Math.random()*360) + "deg)";
+        wm.style.transform = `rotate(${Math.random()*360}deg)`;
+        wm.style.filter = `saturate(${1 + Math.random()*2}) hue-rotate(${Math.random()*360}deg)`;
+        wm.dataset.speed = 0.2 + Math.random()*0.5; // paralaks speed
         document.body.appendChild(wm);
+        watermarks.push(wm);
     }
 }
-buatWatermarkBerwarna(25); // buat 25 watermark buku acak berwarna
+buatWatermarkParalaks(30);
+
+// efek paralaks saat scroll
+window.addEventListener('scroll',()=>{
+    let scrollY = window.scrollY;
+    watermarks.forEach(wm=>{
+        let speed = parseFloat(wm.dataset.speed);
+        wm.style.transform = `translateY(${scrollY*speed}px) rotate(${Math.random()*360}deg)`;
+    });
+});
 </script>
 
 <div class="hero">
@@ -307,6 +319,5 @@ function pilihBuku(nama){
     alert("📖 Kamu memilih buku: " + nama);
 }
 </script>
-
 </body>
 </html>
