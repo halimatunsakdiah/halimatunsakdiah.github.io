@@ -6,44 +6,29 @@
 <title>ANANTYA PUSTAKA</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
     font-family:'Segoe UI', sans-serif;
     color:#fff;
-
     background:
     linear-gradient(rgba(10,8,5,0.7), rgba(10,8,5,0.9)),
     url("https://drive.google.com/uc?export=view&id=1cRoaxyI4VUHxpMWIZ1PfeaW04kAYyIqd");
-
     background-size:cover;
     background-attachment:fixed;
 }
 
-/* HERO */
-.hero{
-    text-align:center;
-    padding:80px 20px;
-}
+.hero{text-align:center;padding:80px 20px;}
 
-/* NAVBAR */
 nav{
     display:none;
     background:rgba(0,0,0,0.8);
     padding:10px;
     text-align:center;
-    flex-wrap:wrap;
 }
 
-nav button{
-    margin:5px;
-}
+nav button{margin:5px;}
 
-/* PAGE */
 .page{
     display:none;
     justify-content:center;
@@ -52,7 +37,6 @@ nav button{
     padding:20px;
 }
 
-/* CARD */
 .box{
     background:rgba(255,255,255,0.1);
     padding:30px;
@@ -61,7 +45,6 @@ nav button{
     text-align:center;
 }
 
-/* INPUT */
 input, textarea{
     width:90%;
     padding:10px;
@@ -70,7 +53,6 @@ input, textarea{
     border-radius:5px;
 }
 
-/* BUTTON */
 button{
     padding:10px 20px;
     background:#D4A017;
@@ -79,11 +61,8 @@ button{
     cursor:pointer;
 }
 
-button:hover{
-    transform:scale(1.05);
-}
+button:hover{transform:scale(1.05);}
 
-/* KOLEKSI */
 .koleksi{
     display:flex;
     gap:20px;
@@ -99,9 +78,7 @@ button:hover{
     border-radius:10px;
 }
 
-.card img{
-    width:100%;
-}
+.card img{width:100%;}
 </style>
 </head>
 
@@ -112,7 +89,6 @@ button:hover{
     <p>Perpustakaan Digital Modern</p>
 </div>
 
-<!-- NAVBAR -->
 <nav id="navbar">
     <button onclick="openPage('home')">Home</button>
     <button onclick="openPage('profil')">Profil</button>
@@ -157,9 +133,30 @@ button:hover{
 
 <!-- PROFIL -->
 <div id="profil" class="page">
-    <div class="box">
-        <h2>Profil Perpustakaan</h2>
-        <p>ANANTYA PUSTAKA adalah perpustakaan digital modern yang menyediakan akses informasi cepat dan mudah.</p>
+    <div class="box" style="width:500px; text-align:left;">
+        <h2 style="text-align:center;">Profil Perpustakaan</h2><br>
+
+        <h3>📚 ANANTYA PUSTAKA</h3>
+        <p>Perpustakaan digital modern untuk mendukung belajar dan literasi.</p>
+
+        <br>
+        <h3>🎯 Visi</h3>
+        <p>Menjadi pusat literasi digital modern.</p>
+
+        <br>
+        <h3>🚀 Misi</h3>
+        <ul>
+            <li>Menyediakan koleksi berkualitas</li>
+            <li>Meningkatkan minat baca</li>
+            <li>Mengembangkan layanan digital</li>
+        </ul>
+
+        <br>
+        <h3>🏆 Tujuan</h3>
+        <ul>
+            <li>Mendukung pembelajaran</li>
+            <li>Menjadi sumber informasi</li>
+        </ul>
     </div>
 </div>
 
@@ -168,8 +165,8 @@ button:hover{
     <div class="box">
         <h2>Layanan</h2>
         <p>📖 Peminjaman Buku</p>
-        <p>💻 Akses E-book</p>
-        <p>🧠 Konsultasi Informasi</p>
+        <p>💻 E-book</p>
+        <p>🧠 Konsultasi</p>
     </div>
 </div>
 
@@ -177,16 +174,15 @@ button:hover{
 <div id="event" class="page">
     <div class="box">
         <h2>Event</h2>
-        <p>📅 Webinar Literasi Digital</p>
+        <p>📅 Webinar</p>
         <p>📚 Bedah Buku</p>
-        <p>🎤 Seminar Nasional</p>
     </div>
 </div>
 
 <!-- FORUM -->
 <div id="forum" class="page">
     <div class="box">
-        <h2>Forum Diskusi</h2>
+        <h2>Forum</h2>
         <textarea placeholder="Tulis komentar..."></textarea>
         <button>Kirim</button>
     </div>
@@ -194,61 +190,21 @@ button:hover{
 
 <!-- KOLEKSI -->
 <div id="koleksi" class="page">
-    <h2>Koleksi Buku</h2>
-    <input type="text"id="searchBuku"
-        placeholder="cari buku"
-        onkeyup="caribuku()">
     <div style="text-align:center; width:100%;">
+        <h2>Koleksi Buku</h2>
+        <input type="text" id="searchBuku" placeholder="Cari buku..." onkeyup="cariBuku()">
 
-        <h2>Koleksi Buku 📚</h2>
-        <br>
-
-        <!-- FIKSI -->
-        <h3>📖 Buku Fiksi</h3>
+        <h3>📖 Fiksi</h3>
         <div class="koleksi">
-            <div class="card">
-                <img src="https://covers.openlibrary.org/b/id/8228691-L.jpg">
-                <h4>Laskar Pelangi</h4>
-                <p>Andrea Hirata</p>
-            </div>
-
-            <div class="card">
-                <img src="https://covers.openlibrary.org/b/id/10523338-L.jpg">
-                <h4>Harry Potter</h4>
-                <p>J.K. Rowling</p>
-            </div>
-
-            <div class="card">
-                <img src="https://covers.openlibrary.org/b/id/11153278-L.jpg">
-                <h4>The Hobbit</h4>
-                <p>J.R.R. Tolkien</p>
-            </div>
+            <div class="card"><h4>Laskar Pelangi</h4></div>
+            <div class="card"><h4>Harry Potter</h4></div>
         </div>
 
-        <br><br>
-
-        <!-- NON FIKSI -->
-        <h3>📚 Buku Non-Fiksi</h3>
+        <h3>📚 Non-Fiksi</h3>
         <div class="koleksi">
-            <div class="card">
-                <img src="https://covers.openlibrary.org/b/id/8231856-L.jpg">
-                <h4>Atomic Habits</h4>
-                <p>James Clear</p>
-            </div>
-
-            <div class="card">
-                <img src="https://covers.openlibrary.org/b/id/9259251-L.jpg">
-                <h4>Rich Dad Poor Dad</h4>
-                <p>Robert Kiyosaki</p>
-            </div>
-
-            <div class="card">
-                <img src="https://covers.openlibrary.org/b/id/8279256-L.jpg">
-                <h4>Sapiens</h4>
-                <p>Yuval Noah Harari</p>
-            </div>
+            <div class="card"><h4>Atomic Habits</h4></div>
+            <div class="card"><h4>Sapiens</h4></div>
         </div>
-
     </div>
 </div>
 
@@ -256,28 +212,22 @@ button:hover{
 <div id="about" class="page">
     <div class="box">
         <h2>About Me</h2>
-    <p><a href="https://www.instagram.com/halima_harahap7" target="_blank">Instagram</a></p>
-        <p><a="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=drivesdk</p>
-        <iframe width="100%" height="200" src="https://www.youtube.com/embed/RY8nUjY83wA" frameborder="0" allowfullscreen></iframe>
-        
+        <p><a href="https://www.instagram.com/halima_harahap7" target="_blank">Instagram</a></p>
+        <p><a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view" target="_blank">Lihat Dokumen</a></p>
     </div>
 </div>
 
 <!-- CONTACT -->
 <div id="contact" class="page">
     <div class="box">
-        <h2>Contact Us</h2>
-        <input type="text" placeholder="Nama">
-        <input type="email" placeholder="Email">
+        <h2>Contact</h2>
+        <input placeholder="Nama">
         <textarea placeholder="Pesan"></textarea>
-        <button>Kirim</button>
     </div>
 </div>
 
 <script>
-window.onload = function(){
-    showPage("login");
-}
+window.onload = ()=>showPage("login");
 
 function showPage(id){
     document.querySelectorAll(".page").forEach(p=>p.style.display="none");
@@ -285,25 +235,20 @@ function showPage(id){
 }
 
 function register(){
-    let user = {
+    localStorage.setItem("user", JSON.stringify({
         email: regEmail.value,
         password: regPassword.value
-    };
-    localStorage.setItem("user", JSON.stringify(user));
-    alert("Berhasil daftar!");
+    }));
+    alert("Daftar berhasil");
     showPage("login");
 }
 
 function login(){
-    let user = JSON.parse(localStorage.getItem("user"));
-
-    if(user && email.value === user.email && password.value === user.password){
-        alert("Login berhasil 🎉");
+    let u = JSON.parse(localStorage.getItem("user"));
+    if(u && email.value===u.email && password.value===u.password){
         navbar.style.display="block";
         showPage("home");
-    } else {
-        alert("Login gagal ❌");
-    }
+    } else alert("Login gagal");
 }
 
 function logout(){
@@ -311,16 +256,19 @@ function logout(){
     showPage("login");
 }
 
-function openPage(id){
-    showPage(id);
-}
+function openPage(id){showPage(id);}
+function showRegister(){showPage("register");}
+function showLogin(){showPage("login");}
 
-function showRegister(){
-    showPage("register");
-}
+/* SEARCH BUKU */
+function cariBuku(){
+    let input = document.getElementById("searchBuku").value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
 
-function showLogin(){
-    showPage("login");
+    cards.forEach(card=>{
+        let text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? "block" : "none";
+    });
 }
 </script>
 
