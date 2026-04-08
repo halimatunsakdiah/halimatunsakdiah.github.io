@@ -6,16 +6,15 @@
 <title>ANANTYA PUSTAKA</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
+html { scroll-behavior: smooth; }
 body {
     font-family:'Segoe UI', sans-serif;
     min-height:100vh;
     background-size:cover;
     background-position:center;
     background-attachment:fixed;
-    transition: background 1s ease-in-out;
     color:#333;
 }
-.overlay { background: rgba(0,0,0,0.1); min-height:100vh; width:100%; }
 
 /* NAVBAR MODERN */
 nav {
@@ -23,7 +22,7 @@ nav {
     justify-content:space-between;
     align-items:center;
     padding:15px 40px;
-    background:#2c3e50; /* abu gelap */
+    background:#2c3e50;
     position:sticky;
     top:0;
     z-index:1000;
@@ -46,7 +45,7 @@ nav a:hover { color:#f1c40f; }
 .dropdown-content {
     display:none;
     position:absolute;
-    background-color:#2c3e50; /* sama warna navbar */
+    background-color:#2c3e50;
     min-width:200px;
     box-shadow:0px 8px 16px rgba(0,0,0,0.4);
     z-index:1001;
@@ -68,6 +67,7 @@ nav a:hover { color:#f1c40f; }
     text-align:center;
     color:white;
     padding:20px;
+    background:rgba(0,0,0,0.5);
 }
 .main-search-bar {
     background:white;
@@ -97,9 +97,8 @@ nav a:hover { color:#f1c40f; }
     cursor:pointer;
 }
 
-/* CONTENT */
-.content {
-    display:none;
+/* CONTENT SECTIONS */
+section {
     padding:50px 40px;
     max-width:1000px;
     margin:50px auto;
@@ -107,7 +106,6 @@ nav a:hover { color:#f1c40f; }
     border-radius:8px;
     box-shadow:0 15px 35px rgba(0,0,0,0.5);
 }
-.active { display:block; }
 h1,h2 { color:#2c3e50; border-bottom:2px solid #f1c40f; padding-bottom:10px; margin-bottom:25px; }
 h3 { color:#d35400; margin:20px 0 10px 0; }
 p { line-height:1.8; color:#34495e; margin-bottom:15px; text-align:justify; }
@@ -149,7 +147,7 @@ button:hover { background:#f1c40f; color:#2c3e50; }
 }
 </style>
 <script>
-// BACKGROUND UNTUK TIAP SECTION
+// BACKGROUND DINAMIS
 const bgs = {
     beranda:'https://images.unsplash.com/photo-1581091870629-9c60d9dfe3b1?auto=format&fit=crop&w=1400&q=80',
     sejarah:'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1400&q=80',
@@ -159,12 +157,15 @@ const bgs = {
     kolEbook:'https://images.unsplash.com/photo-1581091215362-0b5cfebba1b0?auto=format&fit=crop&w=1400&q=80',
     layFasilitas:'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80',
     layJam:'https://images.unsplash.com/photo-1531379410507-50383c78f0b7?auto=format&fit=crop&w=1400&q=80',
-    event:'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=80'
+    event:'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=80',
+    forum:'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80',
+    about:'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=80',
+    login:'https://images.unsplash.com/photo-1581091215362-0b5cfebba1b0?auto=format&fit=crop&w=1400&q=80'
 };
 
-function showSection(id){
-    document.querySelectorAll('.content').forEach(s=>s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
+function scrollToSection(id){
+    const el = document.getElementById(id);
+    el.scrollIntoView({behavior:'smooth'});
     if(bgs[id]) document.body.style.backgroundImage = `url('${bgs[id]}')`;
 }
 
@@ -187,7 +188,7 @@ function buatWatermark(jumlah){
     }
 }
 window.onload=function(){
-    showSection('beranda');
+    scrollToSection('beranda');
     buatWatermark(25);
 }
 window.addEventListener('scroll',()=>{
@@ -200,42 +201,40 @@ window.addEventListener('scroll',()=>{
 </script>
 </head>
 <body>
-<div class="overlay">
 <nav>
     <div class="left">
-        <a onclick="showSection('beranda')">Beranda</a>
+        <a onclick="scrollToSection('beranda')">Beranda</a>
         <div class="dropdown">
             <a>Profil ▾</a>
             <div class="dropdown-content">
-                <a onclick="showSection('sejarah')">Sejarah</a>
-                <a onclick="showSection('visi')">Visi & Misi</a>
-                <a onclick="showSection('tujuan')">Tujuan</a>
+                <a onclick="scrollToSection('sejarah')">Sejarah</a>
+                <a onclick="scrollToSection('visi')">Visi & Misi</a>
+                <a onclick="scrollToSection('tujuan')">Tujuan</a>
             </div>
         </div>
         <div class="dropdown">
             <a>Koleksi ▾</a>
             <div class="dropdown-content">
-                <a onclick="showSection('kolBuku')">Buku Referensi Populer</a>
-                <a onclick="showSection('kolEbook')">E-Book Digital</a>
+                <a onclick="scrollToSection('kolBuku')">Buku Referensi</a>
+                <a onclick="scrollToSection('kolEbook')">E-Book Digital</a>
             </div>
         </div>
         <div class="dropdown">
             <a>Layanan ▾</a>
             <div class="dropdown-content">
-                <a onclick="showSection('layFasilitas')">Fasilitas Perpustakaan</a>
-                <a onclick="showSection('layJam')">Jam Layanan</a>
+                <a onclick="scrollToSection('layFasilitas')">Fasilitas</a>
+                <a onclick="scrollToSection('layJam')">Jam Layanan</a>
             </div>
         </div>
-        <a onclick="showSection('event')">Event</a>
-        <a onclick="showSection('forum')">Forum</a>
-        <a onclick="showSection('about')">About Me</a>
+        <a onclick="scrollToSection('event')">Event</a>
+        <a onclick="scrollToSection('forum')">Forum</a>
+        <a onclick="scrollToSection('about')">About Me</a>
     </div>
     <div class="right">
-        <a onclick="showSection('login')">Login / Daftar</a>
+        <a onclick="scrollToSection('login')">Login / Daftar</a>
     </div>
 </nav>
 
-<!-- HERO SEARCH -->
 <div id="hero-search-section">
     <h1 style="color:white; font-size:2.8em; margin-bottom:10px;">ANANTYA PUSTAKA</h1>
     <p style="color:white; font-size:1.2em;">Perpustakaan Digital Modern</p>
@@ -245,116 +244,24 @@ window.addEventListener('scroll',()=>{
     </div>
 </div>
 
-<!-- CONTENT SECTIONS -->
-<div id="beranda" class="content">
-    <h1>Selamat Datang di ANANTYA PUSTAKA</h1>
-    <p>Website perpustakaan modern untuk mendukung pembelajaran dan literasi digital.</p>
-</div>
+<!-- SECTIONS -->
+<section id="beranda"><h1>Selamat Datang di ANANTYA PUSTAKA</h1><p>Website perpustakaan modern untuk mendukung pembelajaran dan literasi digital.</p></section>
+<section id="sejarah"><h2>Sejarah</h2><p>ANANTYA PUSTAKA berdiri sebagai perpustakaan digital inovatif untuk era modern.</p></section>
+<section id="visi"><h2>Visi & Misi</h2><p>Menjadi pusat literasi digital dengan akses informasi cepat dan terpercaya.</p></section>
+<section id="tujuan"><h2>Tujuan</h2><ul><li>Mendukung pembelajaran akademik</li><li>Menyediakan informasi berkualitas</li><li>Mengembangkan literasi digital</li></ul></section>
+<section id="kolBuku"><h2>Buku Referensi Populer</h2>
+<div class="grid-koleksi">
+<div class="book-card"><img src="https://images.unsplash.com/photo-1526318472351-b1a5d3a6b0c2?w=200"><div class="book-info"><h4>Data Science Modern</h4><p><span>Pengarang:</span> Anita Kusuma</p></div></div>
+<div class="book-card"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=200"><div class="book-info"><h4>Teknologi Informasi</h4><p><span>Pengarang:</span> Bambang Sutrisno</p></div></div>
+</div></section>
+<section id="kolEbook"><h2>E-Book Digital</h2>
+<div class="grid-koleksi"><div class="book-card"><img src="https://images.unsplash.com/photo-1581091215362-0b5cfebba1b0?w=200"><div class="book-info"><h4>Artificial Intelligence</h4><p><span>Format:</span> PDF / ePub</p></div></div></div></section>
+<section id="layFasilitas"><h2>Fasilitas Perpustakaan</h2><ul><li>Ruang baca nyaman</li><li>Akses e-Resources</li><li>Wi-Fi gratis</li></ul></section>
+<section id="layJam"><h2>Jam Layanan</h2><p>Senin-Jumat 08:00-19:00</p><p>Sabtu 09:00 -14:00</p><p>Minggu & Hari Libr Nasional Tutup</p></section>
+<section id="event"><h2>Event Literasi</h2><ul><li>Webinar Digital Learning</li><li>Bedah Buku Populer</li><li>Pameran Literasi</li></ul></section>
+<section id="forum"><h2>Forum Diskusi</h2><textarea rows="4" placeholder="Tulis pesan..."></textarea><button>Kirim Pesan</button></section>
+<section id="about"><h2>About Me</h2><p>Nama: Halima Harahap</p><p>Jurusan: Perpustakaan & Sains Informasi</p></section>
+<section id="login"><h2>Login / Daftar Anggota</h2><h3>Login Member</h3><input type="email" placeholder="Email"><input type="password" placeholder="Password"><button>Login</button><hr style="margin:20px 0; border-color:#ccc;"><h3>Daftar Anggota Baru</h3><input type="text" placeholder="Last Name"><input type="text" placeholder="First Name"><input type="text" placeholder="No. HP"><input type="email" placeholder="Email"><input type="password" placeholder="Password"><button>Daftar</button></section>
 
-<div id="sejarah" class="content">
-    <h2>Sejarah</h2>
-    <p>ANANTYA PUSTAKA berdiri sebagai perpustakaan digital inovatif untuk era modern.</p>
-</div>
-
-<div id="visi" class="content">
-    <h2>Visi & Misi</h2>
-    <p>Menjadi pusat literasi digital dengan akses informasi cepat dan terpercaya.</p>
-</div>
-
-<div id="tujuan" class="content">
-    <h2>Tujuan</h2>
-    <ul>
-        <li>Mendukung pembelajaran akademik</li>
-        <li>Menyediakan informasi berkualitas</li>
-        <li>Mengembangkan literasi digital</li>
-    </ul>
-</div>
-
-<div id="kolBuku" class="content">
-    <h2>Buku Referensi Populer</h2>
-    <div class="grid-koleksi">
-        <div class="book-card">
-            <img src="https://images.unsplash.com/photo-1526318472351-b1a5d3a6b0c2?w=200">
-            <div class="book-info">
-                <h4>Data Science Modern</h4>
-                <p><span>Pengarang:</span> Anita Kusuma</p>
-            </div>
-        </div>
-        <div class="book-card">
-            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=200">
-            <div class="book-info">
-                <h4>Teknologi Informasi</h4>
-                <p><span>Pengarang:</span> Bambang Sutrisno</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="kolEbook" class="content">
-    <h2>E-Book Digital</h2>
-    <div class="grid-koleksi">
-        <div class="book-card">
-            <img src="https://images.unsplash.com/photo-1581091215362-0b5cfebba1b0?w=200">
-            <div class="book-info">
-                <h4>Artificial Intelligence</h4>
-                <p><span>Format:</span> PDF / ePub</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="layFasilitas" class="content">
-    <h2>Fasilitas Perpustakaan</h2>
-    <ul>
-        <li>Ruang baca nyaman</li>
-        <li>Akses e-Resources</li>
-        <li>Wi-Fi gratis</li>
-    </ul>
-</div>
-
-<div id="layJam" class="content">
-    <h2>Jam Layanan</h2>
-    <p>Senin-Jumat 08:00-19:00</p>
-    <p>Sabtu 09:00 -14:00</p>
-    <p>Minggu & Hari Libr Nasional Tutup </p>
-</div>
-
-<div id="event" class="content">
-    <h2>Event Literasi</h2>
-    <ul>
-        <li>Webinar Digital Learning</li>
-        <li>Bedah Buku Populer</li>
-        <li>Pameran Literasi</li>
-    </ul>
-</div>
-
-<div id="forum" class="content">
-    <h2>Forum Diskusi</h2>
-    <textarea rows="4" placeholder="Tulis pesan..."></textarea>
-    <button>Kirim Pesan</button>
-</div>
-
-<div id="about" class="content">
-    <h2>About Me</h2>
-    <p>Nama: Halima Harahap</p>
-    <p>Jurusan: Perpustakaan & Sains Informasi</p>
-</div>
-
-<div id="login" class="content">
-    <h2>Login / Daftar Anggota</h2>
-    <h3>Login Member</h3>
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
-    <button>Login</button>
-    <hr style="margin:20px 0; border-color:#ccc;">
-    <h3>Daftar Anggota Baru</h3>
-    <input type="text" placeholder="Last Name">
-    <input type="text" placeholder="First Name">
-    <input type="text" placeholder="No. HP">
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
-    <button>Daftar</button>
-</div>
-</div>
 </body>
 </html>
