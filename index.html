@@ -23,7 +23,7 @@ nav {
     justify-content:space-between;
     align-items:center;
     padding:15px 40px;
-    background:#1a252f;
+    background:#2c3e50; /* abu gelap */
     position:sticky;
     top:0;
     z-index:1000;
@@ -46,7 +46,7 @@ nav a:hover { color:#f1c40f; }
 .dropdown-content {
     display:none;
     position:absolute;
-    background-color:#1a252f;
+    background-color:#2c3e50; /* sama warna navbar */
     min-width:200px;
     box-shadow:0px 8px 16px rgba(0,0,0,0.4);
     z-index:1001;
@@ -109,7 +109,7 @@ nav a:hover { color:#f1c40f; }
 }
 .active { display:block; }
 h1,h2 { color:#2c3e50; border-bottom:2px solid #f1c40f; padding-bottom:10px; margin-bottom:25px; }
-h3 { color:#2980b9; margin:20px 0 10px 0; }
+h3 { color:#d35400; margin:20px 0 10px 0; }
 p { line-height:1.8; color:#34495e; margin-bottom:15px; text-align:justify; }
 
 /* GRID KOLEKSI */
@@ -231,7 +231,7 @@ window.addEventListener('scroll',()=>{
         <a onclick="showSection('about')">About Me</a>
     </div>
     <div class="right">
-        <a onclick="showSection('login')">Login</a>
+        <a onclick="showSection('login')">Login / Daftar</a>
     </div>
 </nav>
 
@@ -339,10 +339,19 @@ window.addEventListener('scroll',()=>{
 </div>
 
 <div id="login" class="content">
-    <h2>Login Member</h2>
+    <h2>Login / Daftar Anggota</h2>
+    <h3>Login Member</h3>
     <input type="email" placeholder="Email">
     <input type="password" placeholder="Password">
     <button>Login</button>
+    <hr style="margin:20px 0; border-color:#ccc;">
+    <h3>Daftar Anggota Baru</h3>
+    <input type="text" placeholder="Last Name">
+    <input type="text" placeholder="First Name">
+    <input type="text" placeholder="No. HP">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button>Daftar</button>
 </div>
 </div>
 </body>
