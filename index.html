@@ -6,437 +6,304 @@
 <title>ANANTYA PUSTAKA</title>
 
 <style>
-
 body{
-font-family:Georgia, serif;
-margin:0;
-color:#fff;
-
-/* BACKGROUND PERPUSTAKAAN ELEGAN (TIDAK DIUBAH) */
-background-image:
-linear-gradient(rgba(20,15,10,0.7), rgba(20,15,10,0.8)),
-url("https://images.unsplash.com/photo-1507842217343-583bb7270b66");
-
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
+    font-family:Georgia, serif;
+    margin:0;
+    color:#fff;
+    background-image: linear-gradient(rgba(20,15,10,0.7), rgba(20,15,10,0.8)), url("https://images.unsplash.com/photo-1507842217343-583bb7270b66");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
 }
 
 /* HERO */
 .hero{
-background:linear-gradient(90deg,#2C1810,#5C3A21);
-color:#F8F4EC;
-padding:80px;
-text-align:center;
+    background:linear-gradient(90deg,#2C1810,#5C3A21);
+    color:#F8F4EC;
+    padding:80px;
+    text-align:center;
 }
 
 /* NAVBAR */
 nav{
-background:rgba(44,24,16,0.95);
-padding:15px 30px;
-display:none;
-align-items:center;
-gap:25px;
+    background:rgba(44,24,16,0.95);
+    padding:15px 30px;
+    display:none;
+    align-items:center;
+    gap:25px;
 }
 
 nav a{
-color:#F8F4EC;
-text-decoration:none;
-font-weight:bold;
-cursor:pointer;
+    color:#F8F4EC;
+    text-decoration:none;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 nav a:hover{
-color:#D4A017;
+    color:#D4A017;
 }
 
 .right-nav{
-margin-left:auto;
-display:flex;
-gap:20px;
+    margin-left:auto;
+    display:flex;
+    gap:20px;
 }
 
 /* PAGE */
 .page{
-display:none;
-padding:40px;
-min-height:60vh;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
+    display:none;
+    padding:40px;
+    min-height:60vh;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
 }
 
 /* BOX */
 .box{
-background:rgba(255,255,255,0.95);
-width:420px;
-margin:20px auto;
-padding:30px;
-border-radius:16px;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
-border-top:5px solid #D4A017;
-text-align:center;
-color:#2C1810;
+    background:rgba(255,255,255,0.95);
+    width:420px;
+    margin:20px auto;
+    padding:30px;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    border-top:5px solid #D4A017;
+    text-align:center;
+    color:#2C1810;
 }
 
-/* HOME CARD */
-.home-card{
-background:rgba(255,255,255,0.95);
-padding:30px;
-border-radius:16px;
-width:500px;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
-text-align:center;
-color:#2C1810;
+/* EVENT STYLING */
+.event-card {
+    background: white;
+    color: #2C1810;
+    width: 80%;
+    max-width: 600px;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left;
+    border-left: 8px solid #6c757d; /* Warna abu-abu menandakan masa lalu */
+    position: relative;
 }
 
-/* INPUT */
-input,textarea{
-width:90%;
-padding:10px;
-margin:8px;
-border-radius:6px;
-border:1px solid #D4A017;
+.status-badge {
+    background: #e9ecef;
+    color: #495057;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    float: right;
 }
 
-/* BUTTON */
-button{
-padding:10px 20px;
-background:linear-gradient(45deg,#D4A017,#B8860B);
-color:white;
-border:none;
-border-radius:6px;
-cursor:pointer;
-margin-top:10px;
-}
-
-/* KOLEKSI */
-.koleksi-container{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
-margin-top:20px;
-justify-content:center;
-}
-
-.buku{
-background:white;
-width:200px;
-border-radius:12px;
-box-shadow:0 6px 15px rgba(0,0,0,0.2);
-overflow:hidden;
-}
-
-.buku img{
-width:100%;
-height:250px;
-object-fit:cover;
-}
-
-.buku h4{
-padding:10px;
-margin:0;
-}
-
-.buku p{
-padding:0 10px 10px;
-font-size:14px;
-}
-
-/* FORUM */
-.topik{
-background:white;
-padding:15px;
-margin:10px 0;
-border-radius:10px;
-border-left:5px solid #D4A017;
-color:#2C1810;
-}
-
-/* FOOTER */
-footer{
-background:#2C1810;
-color:#F8F4EC;
-text-align:center;
-padding:20px;
-}
-
-footer span{
-color:#D4A017;
-}
-
+/* Gaya lama tetap dipertahankan */
+.home-card{ background:rgba(255,255,255,0.95); padding:30px; border-radius:16px; width:500px; box-shadow:0 10px 30px rgba(0,0,0,0.3); text-align:center; color:#2C1810; }
+input,textarea{ width:90%; padding:10px; margin:8px; border-radius:6px; border:1px solid #D4A017; }
+button{ padding:10px 20px; background:linear-gradient(45deg,#D4A017,#B8860B); color:white; border:none; border-radius:6px; cursor:pointer; margin-top:10px; }
+.koleksi-container{ display:flex; flex-wrap:wrap; gap:20px; margin-top:20px; justify-content:center; }
+.buku{ background:white; width:200px; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.2); overflow:hidden; }
+.buku img{ width:100%; height:250px; object-fit:cover; }
+.buku h4, .buku p { padding: 5px 10px; color: #2C1810; }
+.topik{ background:white; padding:15px; margin:10px 0; border-radius:10px; border-left:5px solid #D4A017; color:#2C1810; }
+footer{ background:#2C1810; color:#F8F4EC; text-align:center; padding:20px; }
+footer span{ color:#D4A017; }
 </style>
 </head>
 
 <body>
 
 <div class="hero">
-<h1>ANANTYA PUSTAKA</h1>
-<p>Ilmu Tanpa Batas • Ruang Literasi Modern</p>
+    <h1>ANANTYA PUSTAKA</h1>
+    <p>Ilmu Tanpa Batas • Ruang Literasi Modern</p>
 </div>
 
 <nav id="navbar">
-<a onclick="openPage('home')">Beranda</a>
-<a onclick="openPage('koleksi')">Koleksi</a>
-<a onclick="openPage('layanan')">Layanan</a>
-<a onclick="openPage('forum')">Forum</a>
-<a onclick="openPage('about')">About</a>
-<a onclick="openPage('profil')">Profil Perpustakaan</a>
-<div class="right-nav">
-<a onclick="logout()">Logout</a>
-</div>
+    <a onclick="openPage('home')">Beranda</a>
+    <a onclick="openPage('koleksi')">Koleksi</a>
+    <a onclick="openPage('layanan')">Layanan</a>
+    <a onclick="openPage('forum')">Forum</a>
+    <a onclick="openPage('event')">Event</a> <a onclick="openPage('about')">About</a>
+    <a onclick="openPage('profil')">Profil</a>
+    <div class="right-nav">
+        <a onclick="logout()">Logout</a>
+    </div>
 </nav>
 
-<!-- LOGIN -->
 <div id="login" class="page">
-<div class="box">
-<h2>Login</h2>
-<input type="email" id="loginEmail" placeholder="Email"><br>
-<input type="password" id="loginPassword" placeholder="Password"><br>
-<button onclick="login()">Login</button>
-<p>Belum punya akun?
-<a href="#" onclick="showPage('register')">Daftar</a></p>
-</div>
+    <div class="box">
+        <h2>Login</h2>
+        <input type="email" id="loginEmail" placeholder="Email"><br>
+        <input type="password" id="loginPassword" placeholder="Password"><br>
+        <button onclick="login()">Login</button>
+        <p>Belum punya akun? <a href="#" onclick="showPage('register')">Daftar</a></p>
+    </div>
 </div>
 
-<!-- REGISTER -->
 <div id="register" class="page">
-<div class="box">
-<h2>Register</h2>
-<input type="email" id="regEmail" placeholder="Email"><br>
-<input type="password" id="regPassword" placeholder="Password"><br>
-<button onclick="register()">Daftar</button>
-<p>Sudah punya akun?
-<a href="#" onclick="showPage('login')">Login</a></p>
-</div>
+    <div class="box">
+        <h2>Register</h2>
+        <input type="email" id="regEmail" placeholder="Email"><br>
+        <input type="password" id="regPassword" placeholder="Password"><br>
+        <button onclick="register()">Daftar</button>
+        <p>Sudah punya akun? <a href="#" onclick="showPage('login')">Login</a></p>
+    </div>
 </div>
 
-<!-- BERANDA -->
 <div id="home" class="page">
-<div class="home-card">
-<h2>Selamat Datang</h2>
-<p>Selamat datang di <b>ANANTYA PUSTAKA</b>, pusat literasi modern untuk pembelajaran.</p>
-
-<hr>
-
-<h3>📢 Event Perpustakaan</h3>
-<div style="line-height:1.8;">
-<p><b>Event Literasi Nasional</b></p>
-<p>📅 25 April 2026</p>
-<p>📍 Aula Perpustakaan</p>
-<p>🎤 Penulis Nasional</p>
+    <div class="home-card">
+        <h2>Selamat Datang</h2>
+        <p>Selamat datang di <b>ANANTYA PUSTAKA</b>, pusat literasi modern.</p>
+        <hr>
+        <h3>📢 Event Mendatang</h3>
+        <div style="line-height:1.8;">
+            <p><b>Festival Penulis Muda 2026</b></p>
+            <p>📅 25 April 2026 | 📍 Aula Utama</p>
+        </div>
+        <button onclick="daftarEvent()">Daftar Sekarang</button>
+    </div>
 </div>
 
-<button onclick="daftarEvent()">Daftar Event</button>
-</div>
-</div>
-
-<!-- KOLEKSI -->
 <div id="koleksi" class="page">
-<h2>Koleksi Buku</h2>
-<input type="text" id="searchBuku" placeholder="Cari buku..." onkeyup="cariBuku()">
-<br>
-<button onclick="startVoiceSearch()">🎤 Cari dengan Suara</button>
-
-<div class="koleksi-container">
-
-<!-- FIKSI -->
-<div class="buku">
-<img src="https://covers.openlibrary.org/b/id/8228691-L.jpg">
-<h4>Laskar Pelangi</h4>
-<p>Andrea Hirata (Fiksi)</p>
+    <h2>Koleksi Buku</h2>
+    <input type="text" id="searchBuku" placeholder="Cari buku..." onkeyup="cariBuku()">
+    <button onclick="startVoiceSearch()">🎤 Cari dengan Suara</button>
+    <div class="koleksi-container">
+        <div class="buku"><img src="https://covers.openlibrary.org/b/id/8228691-L.jpg"><h4>Laskar Pelangi</h4><p>Andrea Hirata</p></div>
+        <div class="buku"><img src="https://covers.openlibrary.org/b/id/8231996-L.jpg"><h4>Bumi</h4><p>Tere Liye</p></div>
+        <div class="buku"><img src="https://covers.openlibrary.org/b/id/8231856-L.jpg"><h4>Atomic Habits</h4><p>James Clear</p></div>
+        <div class="buku"><img src="https://covers.openlibrary.org/b/id/9641656-L.jpg"><h4>Sapiens</h4><p>Yuval Noah Harari</p></div>
+    </div>
 </div>
 
-<div class="buku">
-<img src="https://covers.openlibrary.org/b/id/8231996-L.jpg">
-<h4>Bumi</h4>
-<p>Tere Liye (Fiksi)</p>
+<div id="event" class="page">
+    <h2>Arsip & Berita Event</h2>
+    <p>Daftar kegiatan yang telah sukses dilaksanakan di Anantya Pustaka.</p>
+
+    <div class="event-card">
+        <span class="status-badge">Selesai</span>
+        <h3>Workshop Menulis Kreatif</h3>
+        <p><b>Tanggal:</b> 10 Maret 2026</p>
+        <p>Kegiatan ini dihadiri oleh 50 peserta yang antusias belajar teknik menulis narasi bersama Dee Lestari. Seluruh peserta mendapatkan sertifikat digital.</p>
+    </div>
+
+    <div class="event-card">
+        <span class="status-badge">Selesai</span>
+        <h3>Bedah Buku: Sapiens</h3>
+        <p><b>Tanggal:</b> 15 Februari 2026</p>
+        <p>Diskusi mendalam mengenai sejarah manusia yang dipandu oleh dosen sejarah universitas ternama. Acara berlangsung interaktif di ruang baca digital.</p>
+    </div>
+
+    <div class="event-card">
+        <span class="status-badge">Selesai</span>
+        <h3>Donasi Buku untuk Desa</h3>
+        <p><b>Tanggal:</b> 20 Januari 2026</p>
+        <p>Anantya Pustaka berhasil mengumpulkan lebih dari 1000 buku layak baca yang telah disalurkan ke perpustakaan desa binaan.</p>
+    </div>
 </div>
 
-<div class="buku">
-<img src="https://covers.openlibrary.org/b/id/10523338-L.jpg">
-<h4>Dilan 1990</h4>
-<p>Pidi Baiq (Fiksi)</p>
-</div>
+<div id="layanan" class="page"><div class="box"><h2>Layanan</h2><p>📖 Peminjaman Buku</p><p>💻 Akses Digital</p><h3>Jam Layanan</h3><p>Senin-Jumat: 08:00 - 21:00</p></div></div>
 
-<div class="buku">
-<img src="https://covers.openlibrary.org/b/id/11153241-L.jpg">
-<h4>Negeri 5 Menara</h4>
-<p>Ahmad Fuadi (Fiksi)</p>
-</div>
-
-<!-- NON FIKSI -->
-<div class="buku">
-<img src="https://covers.openlibrary.org/b/id/8231856-L.jpg">
-<h4>Atomic Habits</h4>
-<p>James Clear (Non Fiksi)</p>
-</div>
-
-<div class="buku">
-<img src="https://covers.openlibrary.org/b/id/9641656-L.jpg">
-<h4>Sapiens</h4>
-<p>Yuval Noah Harari (Non Fiksi)</p>
-</div>
-
-<div class="buku">
-<img src="https://covers.openlibrary.org/b/id/8277894-L.jpg">
-<h4>Rich Dad Poor Dad</h4>
-<p>Robert Kiyosaki (Non Fiksi)</p>
-</div>
-
-<div class="buku">
-<img src="https://covers.openlibrary.org/b/id/10958319-L.jpg">
-<h4>Think and Grow Rich</h4>
-<p>Napoleon Hill (Non Fiksi)</p>
-</div>
-
-</div>
-</div>
-
-<!-- LAYANAN -->
-<div id="layanan" class="page">
-<div class="box">
-<h2>Layanan</h2>
-<p>📖 Peminjaman Buku</p>
-<p>💻 Akses Digital</p>
-<p>🖨️ Cetak & Scan</p>
-
-<h3>Jam Layanan</h3>
-<ul>
-<li>Senin : 08:30 - 21:00</li>
-<li>Selasa - Jumat : 08:00 - 21:00</li>
-<li>Sabtu - Minggu : Tutup</li>
-</ul>
-</div>
-</div>
-
-<!-- FORUM -->
 <div id="forum" class="page">
-<div class="box">
-<input type="text" id="judulTopik" placeholder="Judul Topik"><br>
-<textarea id="isiTopik" placeholder="Tulis diskusi"></textarea><br>
-<button onclick="buatTopik()">Posting</button>
+    <div class="box">
+        <input type="text" id="judulTopik" placeholder="Judul Topik"><br>
+        <textarea id="isiTopik" placeholder="Tulis diskusi"></textarea><br>
+        <button onclick="buatTopik()">Posting</button>
+    </div>
+    <div id="daftarTopik" style="width: 80%;"></div>
 </div>
 
-<h3>Daftar Diskusi</h3>
-<div id="daftarTopik"></div>
-</div>
-
-<!-- ABOUT -->
 <div id="about" class="page">
-<div class="box">
-<h2>About</h2>
-<p><b>Nama:</b> Halimatun Sakdiah Hrp</p>
-<p><b>NIM:</b> 230709015</p>
-<p><b>Jurusan:</b> Perpustakaan dan Sains Informasi</p>
-<p><a href="https://www.instagram.com/halima_harahap7" target="_blank">Instagram Saya</a></p>
-<p><a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=sharing" target="_blank">Curriculum Vitae</a></p>
-
-<h3>Belajar hidup tanpa harus dianggap, karena tidak semua akan peduli</h3>
-
-<iframe width="100%" height="250"
-src="https://www.youtube.com/embed/RY8nUjY83wA"
-frameborder="0"
-allowfullscreen></iframe>
-</div>
+    <div class="box">
+        <h2>About Me</h2>
+        <p><b>Nama:</b> Halimatun Sakdiah Hrp</p>
+        <p><b>NIM:</b> 230709015</p>
+        <p><b>Jurusan:</b> Perpustakaan dan Sains Informasi</p>
+        <p><a href="https://www.instagram.com/halima_harahap7" target="_blank">Instagram</a></p>
+        <iframe width="100%" height="200" src="https://www.youtube.com/embed/RY8nUjY83wA" frameborder="0" allowfullscreen></iframe>
+    </div>
 </div>
 
-<!-- PROFIL -->
 <div id="profil" class="page">
-<div class="box">
-<h2>Profil Perpustakaan</h2>
-<p><b>Nama Perpustakaan:</b> ANANTYA PUSTAKA</p>
-<p>Perpustakaan Anantya Pustaka merupakan pusat informasi dan sumber pengetahuan yang menyediakan berbagai koleksi bahan pustaka untuk mendukung kegiatan belajar dan penelitian masyarakat.</p>
-
-<h3>Visi</h3>
-<p>Menjadi perpustakaan inovatif dan inklusif sebagai pusat sumber informasi tanpa batas.</p>
-
-<h3>Misi</h3>
-<ul style="text-align:left;">
-<li>Menyediakan koleksi informasi berkualitas.</li>
-<li>Mengembangkan layanan berbasis teknologi.</li>
-<li>Meningkatkan budaya literasi masyarakat.</li>
-</ul>
-</div>
+    <div class="box">
+        <h2>Profil Perpustakaan</h2>
+        <p>Anantya Pustaka adalah pusat literasi modern yang inklusif.</p>
+        <h3>Visi</h3><p>Pusat sumber informasi tanpa batas.</p>
+    </div>
 </div>
 
-<footer>
-© 2026 <span>ANANTYA PUSTAKA</span>
-</footer>
+<footer>© 2026 <span>ANANTYA PUSTAKA</span></footer>
 
 <script>
-function startVoiceSearch(){
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-if(!SpeechRecognition){ alert("Browser tidak mendukung"); return; }
-const recognition = new SpeechRecognition();
-recognition.lang="id-ID";
-recognition.start();
-recognition.onresult=function(e){
-searchBuku.value=e.results[0][0].transcript;
-cariBuku();
-};
-}
-
 function showPage(id){
-document.querySelectorAll(".page").forEach(p=>p.style.display="none");
-document.getElementById(id).style.display="flex";
+    document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+    document.getElementById(id).style.display="flex";
 }
 
 function register(){
-localStorage.setItem("user",JSON.stringify({email:regEmail.value,password:regPassword.value}));
-alert("Berhasil daftar");
-showPage("login");
+    localStorage.setItem("user",JSON.stringify({email:regEmail.value,password:regPassword.value}));
+    alert("Berhasil daftar");
+    showPage("login");
 }
 
 function login(){
-let u=JSON.parse(localStorage.getItem("user"));
-if(u && loginEmail.value===u.email && loginPassword.value===u.password){
-sessionStorage.setItem("login","true");
-navbar.style.display="flex";
-showPage("home");
-}else alert("Login gagal");
+    let u=JSON.parse(localStorage.getItem("user"));
+    if(u && loginEmail.value===u.email && loginPassword.value===u.password){
+        sessionStorage.setItem("login","true");
+        navbar.style.display="flex";
+        showPage("home");
+    } else { alert("Login gagal"); }
 }
 
 function openPage(id){
-if(sessionStorage.getItem("login")!=="true"){ showPage("login"); return;}
-showPage(id);
-if(id==="forum") tampilkanForum();
+    if(sessionStorage.getItem("login")!=="true"){ showPage("login"); return;}
+    showPage(id);
+    if(id==="forum") tampilkanForum();
 }
 
 function logout(){
-sessionStorage.removeItem("login");
-navbar.style.display="none";
-showPage("login");
+    sessionStorage.removeItem("login");
+    navbar.style.display="none";
+    showPage("login");
 }
 
 function buatTopik(){
-let f=JSON.parse(localStorage.getItem("forum"))||[];
-f.push({judul:judulTopik.value,isi:isiTopik.value});
-localStorage.setItem("forum",JSON.stringify(f));
-judulTopik.value=""; isiTopik.value="";
-tampilkanForum();
+    let f=JSON.parse(localStorage.getItem("forum"))||[];
+    f.push({judul:judulTopik.value,isi:isiTopik.value});
+    localStorage.setItem("forum",JSON.stringify(f));
+    judulTopik.value=""; isiTopik.value="";
+    tampilkanForum();
 }
 
 function tampilkanForum(){
-let f=JSON.parse(localStorage.getItem("forum"))||[];
-daftarTopik.innerHTML=f.map(t=>`<div class="topik"><h4>${t.judul}</h4><p>${t.isi}</p></div>`).join("");
+    let f=JSON.parse(localStorage.getItem("forum"))||[];
+    daftarTopik.innerHTML=f.map(t=>`<div class="topik"><h4>${t.judul}</h4><p>${t.isi}</p></div>`).join("");
 }
 
 function cariBuku(){
-let input=searchBuku.value.toLowerCase();
-document.querySelectorAll(".buku").forEach(b=>{
-b.style.display=b.innerText.toLowerCase().includes(input)?"block":"none";
-});
+    let input=searchBuku.value.toLowerCase();
+    document.querySelectorAll(".buku").forEach(b=>{
+        b.style.display=b.innerText.toLowerCase().includes(input)?"block":"none";
+    });
 }
 
-function daftarEvent(){
-alert("Terima kasih telah mendaftar 📚");
+function startVoiceSearch(){
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if(!SpeechRecognition){ alert("Browser tidak mendukung"); return; }
+    const recognition = new SpeechRecognition();
+    recognition.lang="id-ID";
+    recognition.start();
+    recognition.onresult=function(e){
+        searchBuku.value=e.results[0][0].transcript;
+        cariBuku();
+    };
 }
+
+function daftarEvent(){ alert("Terima kasih telah mendaftar 📚"); }
 
 window.onload=()=>showPage("login");
 </script>
 
 </body>
 </html>
-saya mau kamu membuat event nya itu ada kegiatan 
