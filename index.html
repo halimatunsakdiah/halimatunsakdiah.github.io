@@ -158,8 +158,8 @@ const bgs = {
     kolBuku:'https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1400&q=80',
     kolEbook:'https://images.unsplash.com/photo-1581091215362-0b5cfebba1b0?auto=format&fit=crop&w=1400&q=80',
     layFasilitas:'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80',
-    layJam:'https://images.unsplash.com/photo-1531379410507-50383c78f0b7?auto=format&fit=crop&w=1400&q=80',
-    event:'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=80'
+    layJam:'https://images.unsplash.com/photo-1531379410507-50383c78f0b7?auto=format&w=1400&q=80',
+    event:'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&w=1400&q=80'
 };
 
 function showSection(id){
@@ -315,17 +315,39 @@ window.addEventListener('scroll',()=>{
 <div id="layJam" class="content">
     <h2>Jam Layanan</h2>
     <p>Senin-Jumat 08:00-19:00</p>
-    <p>Sabtu 09:00-14:00</p>
+    <p>Sabtu 09:00 -14:00</p>
     <p>Minggu & Hari Libur Nasional Tutup</p>
 </div>
 
 <div id="event" class="content">
-    <h2>Event Literasi</h2>
-    <ul>
-        <li>Webinar Digital Learning</li>
-        <li>Bedah Buku Populer</li>
-        <li>Pameran Literasi</li>
-    </ul>
+    <h2>Event Literasi & Agenda Kegiatan</h2>
+    <p>Berikut agenda kegiatan terbaru di ANANTYA PUSTAKA:</p>
+    <div class="grid-koleksi">
+        <div class="book-card">
+            <div class="book-info">
+                <h4>Webinar Digital Learning</h4>
+                <p><span>Tanggal:</span> 15 April 2026</p>
+                <p><span>Jam:</span> 09:00 - 11:00 WIB</p>
+                <p><span>Deskripsi:</span> Webinar membahas strategi belajar digital dan pemanfaatan e-book perpustakaan.</p>
+            </div>
+        </div>
+        <div class="book-card">
+            <div class="book-info">
+                <h4>Bedah Buku Populer</h4>
+                <p><span>Tanggal:</span> 20 April 2026</p>
+                <p><span>Jam:</span> 13:00 - 15:00 WIB</p>
+                <p><span>Deskripsi:</span> Diskusi dan review buku terbaru untuk menambah wawasan literasi peserta.</p>
+            </div>
+        </div>
+        <div class="book-card">
+            <div class="book-info">
+                <h4>Pameran Literasi</h4>
+                <p><span>Tanggal:</span> 25 April 2026</p>
+                <p><span>Jam:</span> 10:00 - 16:00 WIB</p>
+                <p><span>Deskripsi:</span> Menampilkan koleksi buku dan e-book terbaru, serta workshop literasi kreatif.</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div id="forum" class="content">
@@ -338,9 +360,6 @@ window.addEventListener('scroll',()=>{
     <h2>About Me</h2>
     <p>Nama: Halima Harahap</p>
     <p>Jurusan: Perpustakaan & Sains Informasi</p>
-      <p><a href="https://www.instagram.com/halima_harahap7" target="_blank">Instagram</a></p>
-        <iframe width="100%" height="200" src="https://www.youtube.com/embed/RY8nUjY83wA" frameborder="0" allowfullscreen></iframe>
-    
 </div>
 
 <div id="login" class="content">
