@@ -27,15 +27,16 @@ body{
 /* HERO */
 .hero{
     text-align:center;
-    padding:100px 20px;
+    padding:80px 20px;
 }
 
 /* NAVBAR */
 nav{
     display:none;
-    background:rgba(0,0,0,0.7);
-    padding:15px;
+    background:rgba(0,0,0,0.8);
+    padding:10px;
     text-align:center;
+    flex-wrap:wrap;
 }
 
 nav button{
@@ -48,6 +49,7 @@ nav button{
     justify-content:center;
     align-items:center;
     min-height:60vh;
+    padding:20px;
 }
 
 /* CARD */
@@ -55,12 +57,12 @@ nav button{
     background:rgba(255,255,255,0.1);
     padding:30px;
     border-radius:15px;
-    width:300px;
+    width:350px;
     text-align:center;
 }
 
 /* INPUT */
-input{
+input, textarea{
     width:90%;
     padding:10px;
     margin:10px;
@@ -75,7 +77,6 @@ button{
     border:none;
     border-radius:5px;
     cursor:pointer;
-    transition:0.3s;
 }
 
 button:hover{
@@ -114,7 +115,13 @@ button:hover{
 <!-- NAVBAR -->
 <nav id="navbar">
     <button onclick="openPage('home')">Home</button>
+    <button onclick="openPage('profil')">Profil</button>
+    <button onclick="openPage('layanan')">Layanan</button>
+    <button onclick="openPage('event')">Event</button>
+    <button onclick="openPage('forum')">Forum</button>
     <button onclick="openPage('koleksi')">Koleksi</button>
+    <button onclick="openPage('about')">About Me</button>
+    <button onclick="openPage('contact')">Contact</button>
     <button onclick="logout()">Logout</button>
 </nav>
 
@@ -148,6 +155,44 @@ button:hover{
     </div>
 </div>
 
+<!-- PROFIL -->
+<div id="profil" class="page">
+    <div class="box">
+        <h2>Profil Perpustakaan</h2>
+        <p>ANANTYA PUSTAKA adalah perpustakaan digital modern yang menyediakan akses informasi cepat dan mudah.</p>
+    </div>
+</div>
+
+<!-- LAYANAN -->
+<div id="layanan" class="page">
+    <div class="box">
+        <h2>Layanan</h2>
+        <p>📖 Peminjaman Buku</p>
+        <p>💻 Akses E-book</p>
+        <p>🧠 Konsultasi Informasi</p>
+    </div>
+</div>
+
+<!-- EVENT -->
+<div id="event" class="page">
+    <div class="box">
+        <h2>Event</h2>
+        <p>📅 Webinar Literasi Digital</p>
+        <p>📚 Bedah Buku</p>
+        <p>🎤 Seminar Nasional</p>
+    </div>
+</div>
+
+<!-- FORUM -->
+<div id="forum" class="page">
+    <div class="box">
+        <h2>Forum Diskusi</h2>
+        <p>Tempat diskusi pengguna perpustakaan</p>
+        <textarea placeholder="Tulis komentar..."></textarea>
+        <button>Kirim</button>
+    </div>
+</div>
+
 <!-- KOLEKSI -->
 <div id="koleksi" class="page">
     <div class="koleksi">
@@ -162,14 +207,33 @@ button:hover{
     </div>
 </div>
 
+<!-- ABOUT -->
+<div id="about" class="page">
+    <div class="box">
+        <h2>About Me</h2>
+        <p>Dibuat oleh mahasiswa untuk pengembangan perpustakaan digital modern.</p>
+    </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="page">
+    <div class="box">
+        <h2>Contact Us</h2>
+        <input type="text" placeholder="Nama">
+        <input type="email" placeholder="Email">
+        <textarea placeholder="Pesan"></textarea>
+        <button>Kirim</button>
+    </div>
+</div>
+
 <script>
 
-/* LOAD AWAL */
+/* LOAD */
 window.onload = function(){
     showPage("login");
 }
 
-/* PINDAH PAGE */
+/* PAGE */
 function showPage(id){
     document.querySelectorAll(".page").forEach(p=>p.style.display="none");
     document.getElementById(id).style.display="flex";
@@ -178,10 +242,9 @@ function showPage(id){
 /* REGISTER */
 function register(){
     let user = {
-        email: document.getElementById("regEmail").value,
-        password: document.getElementById("regPassword").value
+        email: regEmail.value,
+        password: regPassword.value
     };
-
     localStorage.setItem("user", JSON.stringify(user));
     alert("Berhasil daftar!");
     showPage("login");
@@ -191,21 +254,18 @@ function register(){
 function login(){
     let user = JSON.parse(localStorage.getItem("user"));
 
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-
-    if(user && email === user.email && password === user.password){
+    if(user && email.value === user.email && password.value === user.password){
         alert("Login berhasil 🎉");
-        document.getElementById("navbar").style.display="block";
+        navbar.style.display="block";
         showPage("home");
     } else {
-        alert("Email atau password salah ❌");
+        alert("Login gagal ❌");
     }
 }
 
 /* LOGOUT */
 function logout(){
-    document.getElementById("navbar").style.display="none";
+    navbar.style.display="none";
     showPage("login");
 }
 
