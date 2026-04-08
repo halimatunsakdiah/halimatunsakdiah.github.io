@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ANANTYA PUSTAKA</title>
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body {
@@ -156,8 +155,8 @@ const bgs = {
     sejarah:'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f',
     visi:'https://images.unsplash.com/photo-1497633762265-9d179a990aa6',
     tujuan:'https://images.unsplash.com/photo-1507842217343-583bb7270b66',
-    kolBuku:'https://images.unsplash.com/photo-1521587760476-6c12a4b040da',
-    kolJurnal:'https://images.unsplash.com/photo-1434030216411-0b793f4b4173',
+    kolBuku:'https://images.unsplash.com/photo-1512820790803-83ca734da794',
+    kolEbook:'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f',
     layFasilitas:'https://images.unsplash.com/photo-1495446815901-a7297e633e8d',
     layJam:'https://images.unsplash.com/photo-1505373877841-8d25f7d46678',
     event:'https://images.unsplash.com/photo-1481627834876-b7833e8f5570'
@@ -199,7 +198,7 @@ window.addEventListener('scroll',()=>{
     });
 });
 </script>
-
+</head>
 <body>
 <div class="overlay">
     <nav>
@@ -208,26 +207,26 @@ window.addEventListener('scroll',()=>{
             <div class="dropdown">
                 <a>Profil ▾</a>
                 <div class="dropdown-content">
-                    <a onclick="showSection('sejarah')">Sejarah</a>
+                    <a onclick="showSection('sejarah')">Sejarah Perpustakaan</a>
                     <a onclick="showSection('visi')">Visi & Misi</a>
-                    <a onclick="showSection('tujuan')">Tujuan</a>
+                    <a onclick="showSection('tujuan')">Tujuan & Sasaran</a>
                 </div>
             </div>
             <div class="dropdown">
                 <a>Koleksi ▾</a>
                 <div class="dropdown-content">
-                    <a onclick="showSection('kolBuku')">Buku Referensi</a>
-                    <a onclick="showSection('kolJurnal')">Jurnal & E-Book</a>
+                    <a onclick="showSection('kolBuku')">Buku Referensi Populer</a>
+                    <a onclick="showSection('kolEbook')">E-Book</a>
                 </div>
             </div>
             <div class="dropdown">
                 <a>Layanan ▾</a>
                 <div class="dropdown-content">
-                    <a onclick="showSection('layFasilitas')">Layanan & Fasilitas</a>
+                    <a onclick="showSection('layFasilitas')">Fasilitas & Layanan</a>
                     <a onclick="showSection('layJam')">Jam Layanan</a>
                 </div>
             </div>
-            <a onclick="showSection('event')">Event</a>
+            <a onclick="showSection('event')">Event & Aktivitas</a>
             <a onclick="showSection('forum')">Forum</a>
             <a onclick="showSection('about')">About Me</a>
         </div>
@@ -241,7 +240,7 @@ window.addEventListener('scroll',()=>{
         <h1 style="color:white; font-size:2.8em; margin-bottom:10px;">ANANTYA PUSTAKA</h1>
         <p style="color:white; font-size:1.2em;">Perpustakaan Digital Modern</p>
         <div class="main-search-bar">
-            <input type="text" placeholder="Cari Buku, Jurnal, atau Koleksi...">
+            <input type="text" placeholder="Cari Buku atau E-Book...">
             <button>CARI</button>
         </div>
     </div>
@@ -253,65 +252,91 @@ window.addEventListener('scroll',()=>{
     </div>
 
     <div id="sejarah" class="content">
-        <h2>Sejarah</h2>
-        <p>ANANTYA PUSTAKA didirikan sebagai perpustakaan digital modern...</p>
+        <h2>Sejarah Perpustakaan</h2>
+        <p>ANANTYA PUSTAKA didirikan sebagai perpustakaan digital modern dengan tujuan mempermudah akses literasi bagi mahasiswa dan masyarakat.</p>
     </div>
 
     <div id="visi" class="content">
         <h2>Visi & Misi</h2>
-        <p>Menjadi pusat literasi digital modern...</p>
+        <p>Visi: Menjadi pusat literasi digital modern yang terpercaya.</p>
+        <p>Misi: Menyediakan sumber belajar digital, buku referensi, dan layanan informasi berkualitas.</p>
     </div>
 
     <div id="tujuan" class="content">
-        <h2>Tujuan</h2>
+        <h2>Tujuan & Sasaran</h2>
         <ul>
-            <li>Mendukung pembelajaran</li>
-            <li>Menyediakan informasi berkualitas</li>
+            <li>Mendukung proses pembelajaran dan penelitian.</li>
+            <li>Meningkatkan literasi digital pengguna.</li>
+            <li>Menyediakan informasi akademik terpercaya.</li>
         </ul>
     </div>
 
     <div id="kolBuku" class="content">
-        <h2>Buku Referensi</h2>
+        <h2>Buku Referensi Populer</h2>
         <div class="grid-koleksi">
             <div class="book-card">
-                <img src="https://images.unsplash.com/photo-1532012197367-60134763a26a?w=200">
+                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=200">
                 <div class="book-info">
-                    <h4>Pengantar Ilmu Informasi</h4>
-                    <p><span>Pengarang:</span> Drs. Wahyu Hidayat</p>
+                    <h4>Teknologi Informasi untuk Pemula</h4>
+                    <p><span>Pengarang:</span> Dr. Rina Prasetyo</p>
+                    <p><span>Tahun Terbit:</span> 2022</p>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=200">
+                <div class="book-info">
+                    <h4>Manajemen Perpustakaan Digital</h4>
+                    <p><span>Pengarang:</span> Agus Santoso</p>
+                    <p><span>Tahun Terbit:</span> 2021</p>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=200">
+                <div class="book-info">
+                    <h4>Literasi Digital untuk Mahasiswa</h4>
+                    <p><span>Pengarang:</span> Siti Rahmawati</p>
+                    <p><span>Tahun Terbit:</span> 2020</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="kolJurnal" class="content">
-        <h2>Jurnal & E-Book</h2>
+    <div id="kolEbook" class="content">
+        <h2>E-Book</h2>
         <div class="grid-koleksi">
             <div class="book-card">
-                <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=200">
+                <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=200">
                 <div class="book-info">
-                    <h4>Journal of Global Academic</h4>
-                    <p><span>ISSN:</span> 2088-9988</p>
+                    <h4>Pengantar Database Modern</h4>
+                    <p><span>Pengarang:</span> Lili Wijaya</p>
+                    <p><span>Tahun Terbit:</span> 2022</p>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="layFasilitas" class="content">
-        <h2>Layanan & Fasilitas</h2>
+        <h2>Fasilitas & Layanan</h2>
         <ul>
             <li>Peminjaman & Pengembalian Buku</li>
-            <li>Akses E-Resources</li>
+            <li>Akses E-Book & E-Resources</li>
+            <li>Ruang Diskusi</li>
+            <li>Pelatihan Literasi Digital</li>
         </ul>
     </div>
 
     <div id="layJam" class="content">
         <h2>Jam Layanan</h2>
-        <p>Senin-Kamis 08:30-18:00, Jumat 08:30-11:30 & 13:30-18:00</p>
+        <p>Senin-Kamis: 08:30-18:00, Jumat: 08:30-11:30 & 13:30-18:00</p>
     </div>
 
     <div id="event" class="content">
-        <h2>Event</h2>
-        <p>Webinar, Bedah Buku, dan Pameran Literasi.</p>
+        <h2>Event & Aktivitas</h2>
+        <ul>
+            <li>Webinar Literasi Digital</li>
+            <li>Bedah Buku Terbaru</li>
+            <li>Pameran Sumber Belajar</li>
+        </ul>
     </div>
 
     <div id="forum" class="content">
