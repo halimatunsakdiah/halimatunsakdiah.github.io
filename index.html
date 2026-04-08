@@ -63,6 +63,7 @@ button{
 
 button:hover{transform:scale(1.05);}
 
+/* KOLEKSI */
 .koleksi{
     display:flex;
     gap:20px;
@@ -73,12 +74,17 @@ button:hover{transform:scale(1.05);}
 .card{
     background:white;
     color:black;
-    padding:10px;
+    padding:15px;
     width:180px;
     border-radius:10px;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-.card img{width:100%;}
+.card:hover{
+    transform:scale(1.08);
+    background:#f5e6c5;
+}
 </style>
 </head>
 
@@ -196,14 +202,14 @@ button:hover{transform:scale(1.05);}
 
         <h3>📖 Fiksi</h3>
         <div class="koleksi">
-            <div class="card"><h4>Laskar Pelangi</h4></div>
-            <div class="card"><h4>Harry Potter</h4></div>
+            <div class="card" onclick="pilihBuku('Laskar Pelangi')"><h4>Laskar Pelangi</h4></div>
+            <div class="card" onclick="pilihBuku('Harry Potter')"><h4>Harry Potter</h4></div>
         </div>
 
         <h3>📚 Non-Fiksi</h3>
         <div class="koleksi">
-            <div class="card"><h4>Atomic Habits</h4></div>
-            <div class="card"><h4>Sapiens</h4></div>
+            <div class="card" onclick="pilihBuku('Atomic Habits')"><h4>Atomic Habits</h4></div>
+            <div class="card" onclick="pilihBuku('Sapiens')"><h4>Sapiens</h4></div>
         </div>
     </div>
 </div>
@@ -269,6 +275,11 @@ function cariBuku(){
         let text = card.innerText.toLowerCase();
         card.style.display = text.includes(input) ? "block" : "none";
     });
+}
+
+/* KLIK BUKU */
+function pilihBuku(nama){
+    alert("📖 Kamu memilih buku: " + nama);
 }
 </script>
 
