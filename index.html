@@ -4,10 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ANANTYA PUSTAKA</title>
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-
 body{
     font-family:'Segoe UI', sans-serif;
     color:#000;
@@ -17,17 +15,19 @@ body{
     position:relative;
 }
 
+/* HERO */
 .hero{text-align:center;padding:80px 20px;}
 
+/* NAVBAR */
 nav{
     display:none;
     background:rgba(0,0,0,0.05);
     padding:10px;
     text-align:center;
 }
-
 nav button{margin:5px;}
 
+/* PAGE BOX */
 .page{
     display:none;
     justify-content:center;
@@ -35,7 +35,6 @@ nav button{margin:5px;}
     min-height:60vh;
     padding:20px;
 }
-
 .box{
     background:rgba(255,255,255,0.9);
     padding:30px;
@@ -44,7 +43,6 @@ nav button{margin:5px;}
     text-align:center;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-
 input, textarea{
     width:90%;
     padding:10px;
@@ -52,7 +50,6 @@ input, textarea{
     border:1px solid #ccc;
     border-radius:5px;
 }
-
 button{
     padding:10px 20px;
     background:#D4A017;
@@ -61,16 +58,15 @@ button{
     cursor:pointer;
     transition:0.3s;
 }
-
 button:hover{transform:scale(1.05);}
 
+/* KOLEKSI */
 .koleksi{
     display:flex;
     gap:20px;
     flex-wrap:wrap;
     justify-content:center;
 }
-
 .card{
     background:white;
     color:black;
@@ -80,41 +76,44 @@ button:hover{transform:scale(1.05);}
     cursor:pointer;
     transition:0.3s;
 }
-
 .card:hover{
     transform:scale(1.08);
     background:#f5e6c5;
 }
 
-/* WATERMARK MULTI BUKU */
+/* WATERMARK BUKU BERWARNA */
 .watermark{
     position:fixed;
-    width:100px;
-    height:100px;
-    opacity:0.07;
-    background-image: url("https://cdn-icons-png.flaticon.com/512/29/29302.png"); /* contoh gambar buku */
-    background-size:contain;
-    background-repeat:no-repeat;
     pointer-events:none;
     z-index:-1;
-    animation: float 20s linear infinite;
-}
-
-@keyframes float{
-    0% {transform: translateY(0);}
-    50% {transform: translateY(30px);}
-    100% {transform: translateY(0);}
+    opacity:0.25;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5f/Books_icon.png");
+    background-size:contain;
+    background-repeat:no-repeat;
+    filter: saturate(2) hue-rotate(0deg);
 }
 </style>
 </head>
 <body>
 
-<!-- WATERMARKS BUKU -->
-<div class="watermark" style="top:20%; left:15%; animation-delay:0s;"></div>
-<div class="watermark" style="top:60%; left:80%; animation-delay:5s;"></div>
-<div class="watermark" style="top:40%; left:50%; animation-delay:10s;"></div>
-<div class="watermark" style="top:75%; left:25%; animation-delay:7s;"></div>
-<div class="watermark" style="top:10%; left:70%; animation-delay:12s;"></div>
+<!-- WATERMARK GENERATOR BERWARNA -->
+<script>
+function buatWatermarkBerwarna(jumlah){
+    for(let i=0;i<jumlah;i++){
+        let wm = document.createElement("div");
+        wm.className = "watermark";
+        let size = Math.random()*150 + 100; // ukuran acak 100-250px
+        wm.style.width = size + "px";
+        wm.style.height = size + "px";
+        wm.style.top = Math.random()*90 + "%";
+        wm.style.left = Math.random()*90 + "%";
+        wm.style.transform = "rotate("+ (Math.random()*360) +"deg)";
+        wm.style.filter = "saturate(" + (1 + Math.random()*2) + ") hue-rotate(" + (Math.random()*360) + "deg)";
+        document.body.appendChild(wm);
+    }
+}
+buatWatermarkBerwarna(25); // buat 25 watermark buku acak berwarna
+</script>
 
 <div class="hero">
     <h1>ANANTYA PUSTAKA</h1>
