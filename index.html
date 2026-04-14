@@ -10,7 +10,10 @@
 
 body{
     font-family:'Segoe UI', sans-serif;
-    background:#ecf0f1;
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    transition: background 0.8s ease-in-out;
 }
 
 /* NAVBAR */
@@ -21,9 +24,7 @@ nav{
     padding:15px 40px;
     background:#1f3a5f;
 }
-
 nav .left, nav .right{display:flex;align-items:center;}
-
 nav a{
     color:white;
     text-decoration:none;
@@ -53,7 +54,7 @@ nav a:hover{color:#f1c40f;}
     padding:50px;
     max-width:1000px;
     margin:40px auto;
-    background:white;
+    background:rgba(255,255,255,0.95);
     border-radius:8px;
 }
 .active{display:block;}
@@ -67,7 +68,6 @@ p,li{line-height:1.7;margin-bottom:10px;}
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:20px;
 }
-
 .card{
     display:flex;
     gap:15px;
@@ -115,9 +115,29 @@ button{
 </style>
 
 <script>
+// BACKGROUND TIAP MENU
+const bgs = {
+    beranda:'https://images.unsplash.com/photo-1581091870629-9c60d9dfe3b1?auto=format&fit=crop&w=1400&q=80',
+    sejarah:'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1400&q=80',
+    visi:'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1400&q=80',
+    tujuan:'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1400&q=80',
+    kolBuku:'https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1400&q=80',
+    kolEbook:'https://images.unsplash.com/photo-1581091215362-0b5cfebba1b0?auto=format&fit=crop&w=1400&q=80',
+    layFasilitas:'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80',
+    layJam:'https://images.unsplash.com/photo-1531379410507-50383c78f0b7?auto=format&fit=crop&w=1400&q=80',
+    event:'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=80',
+    forum:'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1400&q=80',
+    about:'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1400&q=80',
+    login:'https://images.unsplash.com/photo-1581091870629-9c60d9dfe3b1?auto=format&fit=crop&w=1400&q=80'
+};
+
 function showSection(id){
     document.querySelectorAll('.content').forEach(s=>s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
+
+    if(bgs[id]){
+        document.body.style.backgroundImage = `url('${bgs[id]}')`;
+    }
 }
 
 function toggleDropdown(id){
@@ -131,7 +151,9 @@ window.onclick=function(e){
     }
 }
 
-window.onload=()=>showSection('beranda');
+window.onload=function(){
+    showSection('beranda');
+}
 </script>
 
 </head>
@@ -182,72 +204,53 @@ window.onload=()=>showSection('beranda');
 <!-- CONTENT -->
 <div id="beranda" class="content active">
 <h2>Selamat Datang di ANANTYA PUSTAKA</h2>
-<p>Website perpustakaan digital modern untuk mendukung pembelajaran dan literasi digital.</p>
+<p>Perpustakaan digital modern untuk mendukung pembelajaran dan literasi digital.</p>
 </div>
 
 <div id="sejarah" class="content">
 <h2>Sejarah</h2>
-<p>ANANTYA PUSTAKA berdiri pada tahun 2020 sebagai perpustakaan digital inovatif untuk era modern.</p>
+<p>ANANTYA PUSTAKA berdiri pada tahun 2020 sebagai perpustakaan digital inovatif.</p>
 </div>
 
-<!-- VISI MISI SUDAH DIPERBAIKI -->
 <div id="visi" class="content">
 <h2>Visi & Misi</h2>
-
-<p><strong>Visi:</strong><br>
-Menjadi pusat literasi digital yang terpercaya, inovatif, dan mudah diakses oleh seluruh lapisan masyarakat dalam mendukung pembelajaran sepanjang hayat.
-</p>
-
-<p><strong>Misi:</strong></p>
+<p><strong>Visi:</strong> Menjadi pusat literasi digital yang terpercaya, inovatif, dan mudah diakses.</p>
 <ul>
-<li>Menyediakan koleksi buku dan e-book yang lengkap, berkualitas, dan relevan.</li>
-<li>Mendukung kegiatan belajar dan penelitian.</li>
-<li>Meningkatkan literasi digital masyarakat.</li>
-<li>Memberikan layanan cepat dan ramah.</li>
-<li>Mengembangkan inovasi perpustakaan digital.</li>
+<li>Menyediakan koleksi lengkap</li>
+<li>Mendukung pembelajaran</li>
+<li>Meningkatkan literasi digital</li>
+<li>Pelayanan cepat dan ramah</li>
+<li>Inovasi berbasis teknologi</li>
 </ul>
 </div>
 
 <div id="tujuan" class="content">
 <h2>Tujuan</h2>
 <ul>
-<li>Mendukung pembelajaran akademik</li>
-<li>Menyediakan informasi berkualitas</li>
-<li>Mengembangkan literasi digital</li>
+<li>Mendukung pendidikan</li>
+<li>Menyediakan informasi</li>
+<li>Meningkatkan literasi</li>
 </ul>
 </div>
 
 <div id="kolBuku" class="content">
-<h2>Buku Referensi</h2>
+<h2>Buku</h2>
 <div class="grid">
-<div class="card">
-<img src="https://picsum.photos/100/130?1">
-<p>Data Science Modern</p>
-</div>
-<div class="card">
-<img src="https://picsum.photos/100/130?2">
-<p>Teknologi Informasi</p>
-</div>
+<div class="card"><img src="https://picsum.photos/100/130?1"><p>Data Science</p></div>
+<div class="card"><img src="https://picsum.photos/100/130?2"><p>Teknologi</p></div>
 </div>
 </div>
 
 <div id="kolEbook" class="content">
-<h2>E-Book</h2>
+<h2>Ebook</h2>
 <div class="grid">
-<div class="card">
-<img src="https://picsum.photos/100/130?3">
-<p>Artificial Intelligence</p>
-</div>
+<div class="card"><img src="https://picsum.photos/100/130?3"><p>AI</p></div>
 </div>
 </div>
 
 <div id="layFasilitas" class="content">
 <h2>Fasilitas</h2>
-<ul>
-<li>Ruang baca</li>
-<li>Wi-Fi</li>
-<li>E-Resources</li>
-</ul>
+<ul><li>Wi-Fi</li><li>Ruang baca</li></ul>
 </div>
 
 <div id="layJam" class="content">
@@ -260,16 +263,13 @@ Menjadi pusat literasi digital yang terpercaya, inovatif, dan mudah diakses oleh
 <div id="event" class="content">
 <h2>Event</h2>
 <div class="grid">
-<div class="card">
-<img src="https://picsum.photos/100/130?4">
-<p>Webinar Digital</p>
-</div>
+<div class="card"><img src="https://picsum.photos/100/130?4"><p>Webinar</p></div>
 </div>
 </div>
 
 <div id="forum" class="content">
 <h2>Forum</h2>
-<textarea placeholder="Tulis pesan..."></textarea>
+<textarea></textarea>
 <button>Kirim</button>
 </div>
 
@@ -283,9 +283,7 @@ Menjadi pusat literasi digital yang terpercaya, inovatif, dan mudah diakses oleh
 <input placeholder="Email">
 <input placeholder="Password">
 <button>Login</button>
-
 <hr>
-
 <h2>Daftar</h2>
 <input placeholder="Last Name">
 <input placeholder="First Name">
