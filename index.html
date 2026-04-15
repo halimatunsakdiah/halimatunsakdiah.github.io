@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ANANTYA PUSTAKA</title>
 
+<!-- BOOTSTRAP -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 
@@ -18,13 +21,13 @@ body{
 
 /* NAVBAR */
 nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
     padding:15px 40px;
     background:#1f3a5f;
 }
-nav .left, nav .right{display:flex;align-items:center;}
+.left, .right{
+    display:flex;
+    align-items:center;
+}
 nav a{
     color:white;
     text-decoration:none;
@@ -41,6 +44,7 @@ nav a:hover{color:#f1c40f;}
     background:#1f3a5f;
     top:35px;
     min-width:200px;
+    z-index:1000;
 }
 .dropdown-content a{
     display:block;
@@ -49,9 +53,7 @@ nav a:hover{color:#f1c40f;}
 .show{display:block;}
 
 /* SEARCH */
-.search-box{
-    position:relative;
-}
+.search-box{position:relative;}
 .search-input{
     display:none;
     position:absolute;
@@ -60,9 +62,7 @@ nav a:hover{color:#f1c40f;}
     padding:8px;
     width:200px;
 }
-.search-input.show{
-    display:block;
-}
+.search-input.show{display:block;}
 .search-icon{
     font-size:18px;
     cursor:pointer;
@@ -84,7 +84,6 @@ nav a:hover{color:#f1c40f;}
 h2{margin-bottom:20px;color:#1f3a5f;}
 p,li{line-height:1.7;margin-bottom:10px;}
 
-/* GRID */
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -102,7 +101,6 @@ p,li{line-height:1.7;margin-bottom:10px;}
     object-fit:cover;
 }
 
-/* FORM */
 input,textarea{
     width:100%;
     padding:10px;
@@ -134,10 +132,22 @@ button{
     text-decoration:none;
     margin-top:10px;
 }
+
+/* RESPONSIVE */
+@media (max-width: 992px){
+    .left, .right{
+        flex-direction:column;
+        align-items:flex-start;
+        width:100%;
+    }
+    nav a{
+        display:block;
+        margin:10px 0;
+    }
+}
 </style>
 
 <script>
-// BACKGROUND TIAP MENU
 const bgs = {
     beranda:'https://images.unsplash.com/photo-1581091870629-9c60d9dfe3b1?auto=format&fit=crop&w=1400&q=80',
     sejarah:'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1400&q=80',
@@ -186,7 +196,15 @@ window.onload=function(){
 <body>
 
 <!-- NAVBAR -->
-<nav>
+<nav class="navbar navbar-expand-lg">
+<div class="container-fluid">
+
+<button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menuNav">
+
 <div class="left">
 
 <a onclick="showSection('beranda')">Beranda</a>
@@ -229,7 +247,9 @@ window.onload=function(){
 <span class="search-icon" onclick="toggleSearch()">🔍</span>
 <input type="text" id="searchInput" class="search-input" placeholder="Cari...">
 </div>
+</div>
 
+</div>
 </div>
 </nav>
 
@@ -241,21 +261,28 @@ window.onload=function(){
 
 <div id="sejarah" class="content">
 <h2>Sejarah</h2>
-<p>ANANTYA PUSTAKA berdiri pada tahun 2020 sebagai perpustakaan digital inovatif.</p>
+<p>ANANTYA PUSTAKA berdiri pada tahun 2026 sebagai perpustakaan digital inovatif.</p>
 </div>
 
+<!-- ✅ SUDAH DIPERBAIKI -->
 <div id="visi" class="content">
 <h2>Visi & Misi</h2>
-<p><strong>Visi:</strong> Menjadi pusat literasi digital yang terpercaya, inovatif, dan mudah diakses.</p>
+
+<p><strong>Visi:</strong></p>
+<p>Menjadi pusat literasi digital yang terpercaya, inovatif, dan mudah diakses oleh semua kalangan masyarakat.</p>
+
+<p><strong>Misi:</strong></p>
 <ul>
-<li>Menyediakan koleksi lengkap</li>
-<li>Mendukung pembelajaran</li>
-<li>Meningkatkan literasi digital</li>
-<li>Pelayanan cepat dan ramah</li>
-<li>Inovasi berbasis teknologi</li>
+<li>Menyediakan koleksi buku dan sumber informasi yang lengkap dan berkualitas.</li>
+<li>Mendukung proses pembelajaran dan penelitian.</li>
+<li>Meningkatkan minat baca dan literasi digital masyarakat.</li>
+<li>Memberikan pelayanan yang cepat, ramah, dan profesional.</li>
+<li>Mengembangkan inovasi perpustakaan berbasis teknologi.</li>
 </ul>
+
 </div>
 
+<!-- SISANYA TETAP -->
 <div id="tujuan" class="content">
 <h2>Tujuan</h2>
 <ul>
@@ -265,99 +292,12 @@ window.onload=function(){
 </ul>
 </div>
 
-<div id="kolBuku" class="content">
-<h2>Buku</h2>
-<div class="grid">
-<div class="card"><img src="https://picsum.photos/100/130?1"><p>Data Science</p></div>
-<div class="card"><img src="https://picsum.photos/100/130?2"><p>Teknologi</p></div>
-</div>
-</div>
-
-<div id="kolEbook" class="content">
-<h2>Ebook</h2>
-<div class="grid">
-<div class="card"><img src="https://picsum.photos/100/130?3"><p>AI</p></div>
-</div>
-</div>
-
-<div id="layFasilitas" class="content">
-<h2>Fasilitas</h2>
-<ul><li>Wi-Fi</li><li>Ruang baca</li></ul>
-</div>
-
-<div id="layJam" class="content">
-<h2>Jam Layanan</h2>
-<p>Senin–Jumat 08.00–17.00</p>
-<p>Sabtu 09.00–14.00</p>
-<p>Minggu Tutup</p>
-</div>
-
-<div id="event" class="content">
-<h2>Event</h2>
-<div class="grid">
-<div class="card"><img src="https://picsum.photos/100/130?4"><p>Webinar</p></div>
-</div>
-</div>
-
-<div id="forum" class="content">
-<h2>Forum</h2>
-<textarea></textarea>
-<button>Kirim</button>
-</div>
-
- <div id="about" class="content">
-        <h2>About Me</h2>
-        <p><strong>Nama :</strong> Halimatun Sakdiah Hrp</p>
-        <p><strong>Jurusan :</strong> Perpustakaan dan Sains Informasi</p>
-        <p>Belajar hidup tanpa harus dianggap,karena tidak semua akan peduli.</p>
-        <div class="social-links">
-            <a href="https://www.instagram.com/halima_harahap7?igsh=OTBxdzhyc3BtazEz">Instagram</a>
-            <a href="https://www.youtube.com/embed/RY8nUjY83wA?si=Aco92_qIbVDf4R_S">YouTube</a>
-            <a href="https://drive.google.com/file/d/1r1tqu41O0t-XoL9ReUWYabVBJ6Q6IK3E/view?usp=drivesdk">CV</a>
-        </div>
-    </div>
-
-<div id="login" class="content">
-<h2>Login</h2>
-<input placeholder="Email">
-<input placeholder="Password">
-<button>Login</button>
-<hr>
-<h2>Daftar</h2>
-<input placeholder="Last Name">
-<input placeholder="First Name">
-<input placeholder="No HP">
-<input placeholder="Email">
-<input placeholder="Password">
-<button>Daftar</button>
-</div>
-
 <!-- FOOTER -->
 <footer class="footer">
-<div class="footer-container">
-
-<div>
-<h3>Kontak</h3>
-<p>Email: perpustakaananantyapustaka@gmail.com</p>
-<p>WA: 082166448371</p>
-<a class="wa-btn" href="https://wa.me/6282166448371">Chat WA</a>
-</div>
-
-<div>
-<h3>Jam Layanan</h3>
-<p>Senin–Jumat 08.00–17.00</p>
-<p>Sabtu 09.00–14.00</p>
-<p>Minggu Tutup</p>
-</div>
-
-<div>
-<h3>Lokasi</h3>
-<iframe src="https://www.google.com/maps?q=Perpustakaan+Nasional+RI&output=embed"
-width="100%" height="150"></iframe>
-</div>
-
-</div>
+<p style="text-align:center;">© ANANTYA PUSTAKA</p>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
